@@ -59,35 +59,35 @@ export default class ActivityView {
         }
     }
 
-    renderCatalog(bands = []) {
+    renderCatalog(activities = []) {
         let result = ''
         let i=0
-        for (const band of bands) {
+        for (const activity of activities) {
             if(i % 3 === 0) { result+=`<div class="row">` }
-            result += this._generateBandCard(band)
+            result += this._generateActivityCard(activity)
             i++
             if(i % 3 ===0) {result+=`</div>`}            
         }
 
         this.catalog.innerHTML = result
-        this._renderAddBandButton(this.userController.checkLoginStatus());
+        this._renderAddActivityButton(this.userController.checkLoginStatus());
 
         this.bindAddRemoveEvent()
         this.bindAddSeeMoreEvent()
     }
 
-    _generateBandCard(band) {
+    _generateActivityCard(activity) {
         let html = `
         <div class="col-sm-4">
             <div class="card">
-                <img class="card-img-top" src="${band.photo}" alt="">
+                <img class="card-img-top" src="${activity.photo}" alt="">
                 <div class="card-body">
-                    <h4 class="card-title">${band.name}</h4>
-                    <p class="card-text">${band.genre}</p>
-                    <button id="${band.id}" class="btn btn-primary see">See more</button>
+                    <h4 class="card-title">${activity.name}</h4>
+                    <p class="card-text">${activity.category}</p>
+                    <button id="${category.id}" class="btn btn-primary see">See more</button>
             `
             if(this.userController.checkLoginStatus()) {
-                html+= `<button id="${band.name}" class="btn btn-danger remove">Remove</button>`
+                html+= `<button id="${activity.name}" class="btn btn-danger remove">Remove</button>`
             }
                 
             html+= `
@@ -98,7 +98,7 @@ export default class ActivityView {
         return html
     }
 
-    _renderAddBandButton(userIsLogged) {
+    _renderAddActivityButton(userIsLogged) {
         if(userIsLogged) {
             this.btnAdd.style.visibility = 'visible';
         } else {
