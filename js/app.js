@@ -86,8 +86,15 @@ class App {
         const users = [
             {
                 id: 1,
-                username: 'user',
-                password: 'user'
+                username: 'atleta',
+                password: '12345',
+                type: "atleta"
+            },
+            {
+                id: 2,
+                username: 'admin',
+                password: '12345',
+                type: "admin"
             }
         ];
 
