@@ -23,7 +23,7 @@ class App {
             'addActivity': [
                 AddActivityView
             ],
-            'activityCatalog': [
+            'listActivities': [
                 ActivityCatalogView
             ],
         };
@@ -58,7 +58,7 @@ class App {
                 category: 'Yoga',
                 description: 'Junta-te  a nós nesta aula de Yoga completamente gratuíta no Parque da Cidade do Porto! Apenas precisas de trazer o teu tapete de yoga e divertires-te!',
                 address: 'Estrada Interior da Circunvalação, 4100-083 Porto',
-                photo: 'http://www.planckmachine.com/wp-content/uploads/2016/09/hysteria-muse-meaning-song.jpg',
+                photo: '/assets/user/img/AdobeStock_212822246-400x400.jpeg',
                 latitude: '41.14961',
                 longitude: '-8.61099',
                 date: '2021-02-01',
@@ -73,7 +73,7 @@ class App {
                 category: 'Biking',
                 description: 'Junta-te  a nós nesta aula de Yoga completamente gratuíta no Parque da Cidade do Porto! Apenas precisas de trazer o teu tapete de yoga e divertires-te!',
                 address: 'Estrada Interior da Circunvalação, 4100-083 Porto',
-                photo: 'http://www.planckmachine.com/wp-content/uploads/2016/09/hysteria-muse-meaning-song.jpg',
+                photo: '/assets/user/img/tomaz-slotrips-biking-guide.jpg',
                 latitude: '41.14961',
                 longitude: '-8.61099',
                 date: '2021-02-01',
@@ -88,7 +88,7 @@ class App {
                 category: 'Dança',
                 description: 'Junta-te  a nós nesta aula de Yoga completamente gratuíta no Parque da Cidade do Porto! Apenas precisas de trazer o teu tapete de yoga e divertires-te!',
                 address: 'Estrada Interior da Circunvalação, 4100-083 Porto',
-                photo: 'http://www.planckmachine.com/wp-content/uploads/2016/09/hysteria-muse-meaning-song.jpg',
+                photo: '/assets/user/img/Yoga_connect.jpeg',
                 latitude: '41.14961',
                 longitude: '-8.61099',
                 date: '2021-02-01',
@@ -103,7 +103,7 @@ class App {
                 category: 'Yoga',
                 description: 'Junta-te  a nós nesta aula de Yoga completamente gratuíta no Parque da Cidade do Porto! Apenas precisas de trazer o teu tapete de yoga e divertires-te!',
                 address: 'Estrada Interior da Circunvalação, 4100-083 Porto',
-                photo: 'http://www.planckmachine.com/wp-content/uploads/2016/09/hysteria-muse-meaning-song.jpg',
+                photo: '/assets/user/img/AdobeStock_212822246-400x400.jpeg',
                 latitude: '41.14961',
                 longitude: '-8.61099',
                 date: '2021-02-01',

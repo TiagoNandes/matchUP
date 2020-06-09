@@ -34,10 +34,14 @@ export default class ActivityModel {
     }
 
     setCurrentActivity(id) {
+        
         localStorage.setItem("activity", id); 
     }
 
     getCurrentActivity() {
+        
+        alert("faz esse:  " + localStorage.getItem("activity"))
+        
         return this.activities.find(activity => activity.id === +localStorage.activity)
     }
 

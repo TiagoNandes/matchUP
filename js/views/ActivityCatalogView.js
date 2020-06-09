@@ -4,23 +4,21 @@ import UserController from '../controllers/UserController.js'
 export default class ActivityView {
 
     constructor() {
-        this.ActivityController = new ActivityController()
+        this.activityController = new ActivityController()
         this.userController = new UserController()
-
-       //name, category, description, address, photo, latitude, longitude, date, hour, duration, minParticipants, maxParticipants
         
         // Catalog
         this.catalog = document.querySelector("#myCatalog")
         this.btnFilter = document.querySelector("#btnFilter")
-        this.btnSort = document.querySelector("#btnSort")
-        this.btnAdd = document.querySelector("#btnAdd")
+        //this.btnSort = document.querySelector("#btnSort")
+        //this.btnAdd = document.querySelector("#btnAdd")
         this.txtActivity = document.querySelector("#txtActivity")
         this.sltCategory = document.querySelector("#sltCategory")
 
         this.renderCatalog(this.activityController.getActivities())
         this.bindAddFilterEvent()
-        this.bindAddSortEvent()
-        this.bindAddAddEvent()
+        //this.bindAddSortEvent()
+        //this.bindAddAddEvent()
     }
 
     bindAddFilterEvent() {
@@ -29,17 +27,17 @@ export default class ActivityView {
         })
     }
 
-    bindAddSortEvent() {
-        this.btnSort.addEventListener('click', () => {
-            this.renderCatalog(this.activityController.getActivities(this.txtActivity.value, this.sltCategory.value, true))
-        })
-    }
+    // bindAddSortEvent() {
+    //     this.btnSort.addEventListener('click', () => {
+    //         this.renderCatalog(this.activityController.getActivities(this.txtActivity.value, this.sltCategory.value, true))
+    //     })
+    // }
 
-    bindAddAddEvent() {
-        this.btnAdd.addEventListener('click', () => {
-            location.href='html/addActivity.html';
-        })
-    }
+    // bindAddAddEvent() {
+    //     this.btnAdd.addEventListener('click', () => {
+    //         location.href='html/addActivity.html';
+    //     })
+    // }
 
     bindAddRemoveEvent() {
         for (const btnRemove of document.getElementsByClassName("remove")) {
@@ -53,13 +51,14 @@ export default class ActivityView {
     bindAddSeeMoreEvent() {
         for (const btnSee of document.getElementsByClassName("see")) {
             btnSee.addEventListener('click', event => {
-                this.bandController.setCurrentBand(event.target.id)  
-                location.href='html/band.html';
+                this.activityController.setCurrentActivity(event.target.id)  
+                location.href='activity.html';
             })
         }
     }
 
     renderCatalog(activities = []) {
+        
         let result = ''
         let i=0
         for (const activity of activities) {
@@ -70,39 +69,33 @@ export default class ActivityView {
         }
 
         this.catalog.innerHTML = result
-        this._renderAddActivityButton(this.userController.checkLoginStatus());
+        //this._renderAddActivityButton(this.userController.checkLoginStatus());
 
         this.bindAddRemoveEvent()
         this.bindAddSeeMoreEvent()
     }
 
     _generateActivityCard(activity) {
-        let html = `
-        <div class="col-sm-4">
-            <div class="card">
-                <img class="card-img-top" src="${activity.photo}" alt="">
-                <div class="card-body">
-                    <h4 class="card-title">${activity.name}</h4>
-                    <p class="card-text">${activity.category}</p>
-                    <button id="${category.id}" class="btn btn-primary see">See more</button>
-            `
-            if(this.userController.checkLoginStatus()) {
-                html+= `<button id="${activity.name}" class="btn btn-danger remove">Remove</button>`
-            }
-                
-            html+= `
+        let html = ` 
+        
+        <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid"
+                            src="${activity.photo}"></a>
+                    <h3 class="name">${activity.name}</h3>
+                    <p class="description">${activity.category}</p>
+                    <p class="description">${activity.description}<br></p>
+                    <p class="description">${activity.address}<br></p>
+                    <p class="description">${activity.date} às ${activity.hour} horas!<br></p>
+                    <button id="${activity.id}" class="btn btn-primary see">See more</button>
                 </div>
-            </div>
-        </div>        
         `
         return html
     }
 
-    _renderAddActivityButton(userIsLogged) {
-        if(userIsLogged) {
-            this.btnAdd.style.visibility = 'visible';
-        } else {
-            this.btnAdd.style.visibility = 'hidden';
-        }
-    }
+    // _renderAddActivityButton(userIsLogged) {
+    //     if(userIsLogged) {
+    //         this.btnAdd.style.visibility = 'visible';
+    //     } else {
+    //         this.btnAdd.style.visibility = 'hidden';
+    //     }
+    // }
 }

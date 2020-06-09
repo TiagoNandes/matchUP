@@ -5,7 +5,9 @@ export default class ActivityController {
         this.activityModel = new ActivityModel()
     }
 
+    //Add new activity 
     addActivity(name, category, description, address, photo, latitude, longitude, date, hour, duration, minParticipants, maxParticipants) {
+        
         if (!this.activityModel.getAll().some(activity => activity.name === name)) {
             this.activityModel.create(
                 name, category, description, address, photo, latitude, longitude, date, hour, duration, minParticipants, maxParticipants
@@ -15,15 +17,20 @@ export default class ActivityController {
         }
     }
 
+    //remove activity
     removeActivity(name) {
         this.activityModel.remove(name)
+        
     }
 
+    //working
     setCurrentActivity(id) {
-        this.ActivityModel.setCurrentActivity(id)
+        alert("ta a setar" + id)
+        this.activityModel.setCurrentActivity(id)
     }
 
     getCurrentActivity() {
+        alert("ola")
         return this.activityModel.getCurrentActivity()
     }
 
