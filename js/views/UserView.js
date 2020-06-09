@@ -54,8 +54,13 @@ export default class UserView {
                     location.reload()
                 },
                 1000);
-                alert("Sucesso!")
-                location.href='listActivities.html';
+                if (sessionStorage.getItem('loggedUser') == "atleta"){
+                    location.href='listActivities.html';
+                }
+                else if (sessionStorage.getItem('loggedUser') == "admin"){
+                    location.href='statistics.html';
+                }
+                
 
             } catch(e) {
                 this.displayLoginMessage(e, 'danger');

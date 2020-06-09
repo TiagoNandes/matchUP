@@ -127,7 +127,7 @@ class App {
             {
                 id: 2,
                 type: "admin",
-                username: "Admin",
+                username: "admin",
                 email: "admin@admin.com",
                 password: "12345",
                 name: "Tiago Fernandes",

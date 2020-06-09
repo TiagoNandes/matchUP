@@ -7,7 +7,7 @@ export default class UserController {
 
     createUser(type, username, email, password, name, dateOfBirth, location) {
         if (!this.userModel.getAll().some(user => user.username === username) || !this.userModel.getAll().some(user => user.email === email)) {
-            alert(type + username + email + password + name + dateOfBirth + location)
+           
             this.userModel.create(type, username, email, password, name, dateOfBirth, location);
         } else {
             throw Error(`User with username "${username}" already exists!`);

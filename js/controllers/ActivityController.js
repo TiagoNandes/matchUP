@@ -25,12 +25,10 @@ export default class ActivityController {
 
     //working
     setCurrentActivity(id) {
-        alert("ta a setar" + id)
         this.activityModel.setCurrentActivity(id)
     }
 
     getCurrentActivity() {
-        alert("ola")
         return this.activityModel.getCurrentActivity()
     }
 

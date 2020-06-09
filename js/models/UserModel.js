@@ -25,7 +25,11 @@ export default class UserModel {
     }
 
     login(username) {
+        
         sessionStorage.setItem('loggedUser', username);
+        const allUsers = this.getAll();
+        const loggedUser = allUsers.find(user => user.username == username )
+        sessionStorage.setItem('loggedUserType', loggedUser.type);
     }
 
     logout() {
