@@ -5,10 +5,10 @@ export default class ActivityController {
         this.activityModel = new ActivityModel()
     }
 
-    addActivity(name, category, photo, latitude, longitude, date, hour, duration, minParticipants, maxParticipants) {
-        if (!this.activityModel.getAll().some(band => band.name === name)) {
+    addActivity(name, category, description, address, photo, latitude, longitude, date, hour, duration, minParticipants, maxParticipants) {
+        if (!this.activityModel.getAll().some(activity => activity.name === name)) {
             this.activityModel.create(
-                name, category, photo, latitude, longitude, date, hour, duration, minParticipants, maxParticipants
+                name, category, description, address, photo, latitude, longitude, date, hour, duration, minParticipants, maxParticipants
             );
         } else {
             throw Error(`Activity with name "${name}" already exists!`);

@@ -4,15 +4,6 @@ export default class UserView {
     constructor() {
         this.userController = new UserController();
 
-        // register DOM
-        //this.registerForm = document.getElementById('frmRegister');
-        this.registerUsername = document.getElementById('txtUsernameRegister');
-        this.registerPassword = document.getElementById('txtPasswordRegister');
-        this.registerPassword2 = document.getElementById('txtPasswordRegister2');
-        this.registerMessage = document.getElementById('mdlRegisterMessage');
-
-        //this.bindAddRegisterForm();
-
         // login DOM
         this.loginForm = document.getElementById('frmLogin');
         this.loginUsername = document.getElementById('txtUsername');

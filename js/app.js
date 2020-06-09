@@ -1,4 +1,5 @@
 import UserView from './views/UserView.js'
+import RegisterView from './views/RegisterView.js'
 import ActivityCatalogView from './views/ActivityCatalogView.js'
 import ActivityView from './views/ActivityView.js'
 import AddActivityView from './views/AddActivityView.js'
@@ -14,14 +15,17 @@ class App {
                 UserView
             ],
             'signup': [
-                UserView
+                RegisterView
             ],
             'activity': [
                 ActivityView
             ],
             'addActivity': [
                 AddActivityView
-            ]
+            ],
+            'activityCatalog': [
+                ActivityCatalogView
+            ],
         };
 
         // import dummy data for testing purposes
@@ -48,59 +52,93 @@ class App {
     }
 
     _importDataFixtures() {
-        const activities = [
-            {
+        const activities = [{
                 id: 1,
-                name: 'Muse',
-                genre: 'Pop-Rock',
+                name: 'Yoga no Parque da Cidade',
+                category: 'Yoga',
+                description: 'Junta-te  a nós nesta aula de Yoga completamente gratuíta no Parque da Cidade do Porto! Apenas precisas de trazer o teu tapete de yoga e divertires-te!',
+                address: 'Estrada Interior da Circunvalação, 4100-083 Porto',
                 photo: 'http://www.planckmachine.com/wp-content/uploads/2016/09/hysteria-muse-meaning-song.jpg',
-                description: 'The best band ever',
-                video: 'https://www.youtube.com/watch?v=AR6A3dap6MI'  
+                latitude: '41.14961',
+                longitude: '-8.61099',
+                date: '2021-02-01',
+                hour: '20',
+                duration: '120',
+                minParticipants:'2',
+                maxParticipants: '24'
             },
             {
                 id: 2,
-                name: 'RadioHead',
-                genre: 'Pop-Rock',
-                photo: 'https://ep01.epimg.net/elpais/imagenes/2017/05/17/icon/1495017818_647155_1495125183_noticia_normal.jpg',
-                description: 'The best band ever',
-                video: 'https://www.youtube.com/watch?v=fHiGbolFFGw'
+                name: 'Trilho Biking Marão',
+                category: 'Biking',
+                description: 'Junta-te  a nós nesta aula de Yoga completamente gratuíta no Parque da Cidade do Porto! Apenas precisas de trazer o teu tapete de yoga e divertires-te!',
+                address: 'Estrada Interior da Circunvalação, 4100-083 Porto',
+                photo: 'http://www.planckmachine.com/wp-content/uploads/2016/09/hysteria-muse-meaning-song.jpg',
+                latitude: '41.14961',
+                longitude: '-8.61099',
+                date: '2021-02-01',
+                hour: '20',
+                duration: '120',
+                minParticipants:'2',
+                maxParticipants: '24'
             },
             {
                 id: 3,
-                name: 'James',
-                genre: 'Pop-Rock',
-                photo: 'http://ksassets.timeincuk.net/wp/uploads/sites/55/2013/01/2012JamesBandPress181212-2.jpg',
-                description: 'The best band ever',
-                video: 'https://www.youtube.com/watch?v=BlucfrfxAUc'
+                name: 'Aula de Dança no Parque da Cidade',
+                category: 'Dança',
+                description: 'Junta-te  a nós nesta aula de Yoga completamente gratuíta no Parque da Cidade do Porto! Apenas precisas de trazer o teu tapete de yoga e divertires-te!',
+                address: 'Estrada Interior da Circunvalação, 4100-083 Porto',
+                photo: 'http://www.planckmachine.com/wp-content/uploads/2016/09/hysteria-muse-meaning-song.jpg',
+                latitude: '41.14961',
+                longitude: '-8.61099',
+                date: '2021-02-01',
+                hour: '20',
+                duration: '120',
+                minParticipants:'2',
+                maxParticipants: '24'
             },
             {
                 id: 4,
-                name: 'Metallica',
-                genre: 'Metal',
-                photo: 'https://images.impresa.pt/blitz/2016-08-19-metallica.jpg/original/mw-860',
-                description: 'The best band ever',
-                video: 'https://www.youtube.com/watch?v=pZTJBViOoik' 
+                name: 'Yoga no Parque da Cidade',
+                category: 'Yoga',
+                description: 'Junta-te  a nós nesta aula de Yoga completamente gratuíta no Parque da Cidade do Porto! Apenas precisas de trazer o teu tapete de yoga e divertires-te!',
+                address: 'Estrada Interior da Circunvalação, 4100-083 Porto',
+                photo: 'http://www.planckmachine.com/wp-content/uploads/2016/09/hysteria-muse-meaning-song.jpg',
+                latitude: '41.14961',
+                longitude: '-8.61099',
+                date: '2021-02-01',
+                hour: '20',
+                duration: '120',
+                minParticipants:'2',
+                maxParticipants: '24'
             }
         ];
 
-        const users = [
-            {
+        const users = [{
                 id: 1,
-                username: 'atleta',
-                password: '12345',
-                type: "atleta"
+                type: "atleta",
+                username: "atleta",
+                email: "atleta@atleta.com",
+                password: "12345",
+                name: "Tiago Fernandes",
+                dateOfBirth: 1,
+                location: "Porto"
             },
             {
                 id: 2,
-                username: 'admin',
-                password: '12345',
-                type: "admin"
+                type: "admin",
+                username: "Admin",
+                email: "admin@admin.com",
+                password: "12345",
+                name: "Tiago Fernandes",
+                dateOfBirth: 1,
+                location: "Porto"
             }
         ];
 
         // Load the fixtures in case there is no data in the local storage 
         if (!localStorage.activities) {
-            localStorage.setItem('activities', JSON.stringify(activities));    
+            localStorage.setItem('activities', JSON.stringify(activities));
         }
         if (!localStorage.users) {
             localStorage.setItem('users', JSON.stringify(users));

@@ -7,7 +7,7 @@ export default class ActivityView {
         this.ActivityController = new ActivityController()
         this.userController = new UserController()
 
-        //name, category, photo, latitude, longitude, date, hour, duration, minParticipants, maxParticipants
+       //name, category, description, address, photo, latitude, longitude, date, hour, duration, minParticipants, maxParticipants
         
         // Catalog
         this.catalog = document.querySelector("#myCatalog")
