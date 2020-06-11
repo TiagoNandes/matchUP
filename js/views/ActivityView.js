@@ -19,6 +19,7 @@ export default class ActivityView {
         this.activityLongitude = document.querySelector('#activityLongitude')
         this.activityDuration = document.querySelector('#activityDuration')
         this.activityMaxParticipants = document.querySelector('#activityMaxParticipants')
+        this.activityHost = document.querySelector('#activityHost')
         this.btnBack = document.querySelector("#btnBack")
 
         
@@ -47,6 +48,7 @@ export default class ActivityView {
         this.activityHour.innerHTML = " às " + currentActivity.hour + " horas"
         // this.activityDuration.innerHTML = currentActivity.duration
         this.activityMinParticipants.innerHTML = "Vagas: " + currentActivity.minParticipants
+        this.activityHost.innerHTML = "Anfitrião: " + currentActivity.host
         // this.activityMaxParticipants.innerHTML = currentActivity.maxParticipants
     } 
 

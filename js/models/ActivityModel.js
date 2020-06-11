@@ -7,7 +7,7 @@ export default class ActivityModel {
         return this.activities;
     }
     
-    create(name, category, description, address, photo, latitude, longitude, date, hour, duration, minParticipants, maxParticipants) {
+    create(name, category, description, address, photo, latitude, longitude, date, hour, duration, minParticipants, maxParticipants, host) {
         const activity = {
             id: this.activities.length > 0 ? this.activities[this.activities.length - 1].id + 1 : 1,
             name: name,
@@ -22,6 +22,7 @@ export default class ActivityModel {
             duration: duration,
             minParticipants: minParticipants,
             maxParticipants: maxParticipants,
+            host: host
 
         }
         this.activities.push(activity);

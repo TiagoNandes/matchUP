@@ -58,11 +58,16 @@ export default class ActivityView {
     }
 
     renderCatalog(activities = []) {
+
+        if (sessionStorage.getItem("loggedUser")) {
+            document.querySelector("#loggedUser").innerHTML = `Olá ${sessionStorage.getItem("loggedUser")}</a>`
+            document.querySelector("#loggedUserPhoto").src = `${sessionStorage.getItem("loggedUserPhoto")}`
+        }
         
         let result = ''
         let i=0
         for (const activity of activities) {
-            if(i % 3 === 0) { result+=`<div class="row">` }
+            if(i % 3 === 0) { result+=`<div class="row articles">` }
             result += this._generateActivityCard(activity)
             i++
             if(i % 3 ===0) {result+=`</div>`}            
@@ -78,14 +83,13 @@ export default class ActivityView {
     _generateActivityCard(activity) {
         let html = ` 
         
-        <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid"
+        <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid see" id="${activity.id}"
                             src="${activity.photo}"></a>
                     <h3 class="name">${activity.name}</h3>
                     <p class="description">${activity.category}</p>
-                    <p class="description">${activity.description}<br></p>
-                    <p class="description">${activity.address}<br></p>
-                    <p class="description">${activity.date} às ${activity.hour} horas!<br></p>
-                    <button id="${activity.id}" class="btn btn-primary see">See more</button>
+                    <p class="description">${activity.address}</p>
+                    <p class="description">${activity.date} às ${activity.hour} horas!<br></p><br>
+                    <button id="${activity.id}" class="btn btn-primary see">Ver mais</button>
                 </div>
         `
         return html

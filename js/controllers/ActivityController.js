@@ -6,11 +6,11 @@ export default class ActivityController {
     }
 
     //Add new activity 
-    addActivity(name, category, description, address, photo, latitude, longitude, date, hour, duration, minParticipants, maxParticipants) {
+    addActivity(name, category, description, address, photo, latitude, longitude, date, hour, duration, minParticipants, maxParticipants, host) {
         
         if (!this.activityModel.getAll().some(activity => activity.name === name)) {
             this.activityModel.create(
-                name, category, description, address, photo, latitude, longitude, date, hour, duration, minParticipants, maxParticipants
+                name, category, description, address, photo, latitude, longitude, date, hour, duration, minParticipants, maxParticipants, host
             );
         } else {
             throw Error(`Activity with name "${name}" already exists!`);
@@ -54,7 +54,7 @@ export default class ActivityController {
                 filterActivityName = true
             }
 
-            if((activity.Category===filterCategory && filterCategory!='') || filterCategory==='') {
+            if((activity.category===filterCategory && filterCategory!='') || filterCategory==='') {
                 filterActivityCategory = true
             }
 

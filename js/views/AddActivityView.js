@@ -1,27 +1,26 @@
 import ActivityController from '../controllers/ActivityController.js'
 import UserController from '../controllers/UserController.js'
 
-export default class BandAddView {
+export default class ActivityAddView {
     constructor(){
-        this.bandController = new BandController();
+        this.activityController = new ActivityController();
         this.userController = new UserController();
 
-        // add band DOM
+        // add activity DOM
         this.userLoggedOutContent = document.getElementById('userLoggedOutContent');
         this.userLoggedInContent = document.getElementById('userLoggedInContent');
-        this.addBandForm = document.getElementById('frmAddBand');
-        this.bandName = document.getElementById('txtName');
-        this.bandGenre = document.getElementById('sltGenre');
-        this.bandPhoto = document.getElementById('txtPhoto');
-        this.bandDescription = document.getElementById('txtDescription');
-        this.bandVideo = document.getElementById('txtVideo');
+        this.addActivityForm = document.getElementById('frmAddActivity');
+        this.activityName = document.getElementById('txtName');
+        this.activityCategory = document.getElementById('sltCategory');
+        this.activityPhoto = document.getElementById('txtPhoto');
+        this.activityDescription = document.getElementById('txtDescription');
         this.addBandMessage = document.getElementById('addBandMessage');
 
-        this.renderAddBandForm(this.userController.checkLoginStatus());
-        this.bindAddAddBandForm();
+        this.renderAddActivityForm(this.userController.checkLoginStatus());
+        this.bindAddAddActivityForm();
     }
 
-    renderAddBandForm(userIsLogged) {
+    renderAddActivityForm(userIsLogged) {
         if(userIsLogged) {
             this.userLoggedOutContent.style.visibility = 'hidden';
             this.userLoggedInContent.style.visibility = 'visible';
@@ -31,19 +30,18 @@ export default class BandAddView {
         }
     }
 
-    bindAddAddBandForm() {
-        this.addBandForm.addEventListener('submit', event => {
+    bindAddAddActivityForm() {
+        this.addActivityForm.addEventListener('submit', event => {
             event.preventDefault();
 
             try {
-                this.bandController.addBand(
-                    this.bandName.value,
-                    this.bandGenre.value,
-                    this.bandPhoto.value,
-                    this.bandDescription.value,
-                    this.bandVideo.value
+                this.activityController.addActivity(
+                    this.activityName.value,
+                    this.activityCategory.value,
+                    this.activityPhoto.value,
+                    this.activityDescription.value,
                 );
-                this.displayAddBandMessage('Band added with success!', 'success');
+                this.displayAddCategoryMessage('Activity added with success!', 'success');
 
                 // Wait 1 second before sending to catalog, so the user can see the login success message
                 setTimeout(() => {
@@ -51,13 +49,13 @@ export default class BandAddView {
                 },
                 1000);
             } catch(e) {
-                this.displayAddBandMessage(e, 'danger');
+                this.displayAddActivityMessage(e, 'danger');
             }
         });
     }
 
-    displayAddBandMessage(message, type) {
-        this.addBandMessage.innerHTML =
+    displayAddActivityMessage(message, type) {
+        this.addActivityMessage.innerHTML =
             `<div class="alert alert-${type}" role="alert">${message}</div>`;
     }
 }

@@ -16,7 +16,8 @@ export default class UserModel {
             password: password,
             name: name,
             dateOfBirth: dateOfBirth,
-            location: location
+            location: location,
+            photo: "/assets/user/img/avatars/avatar5.jpeg"
 
 
         }
@@ -30,6 +31,8 @@ export default class UserModel {
         const allUsers = this.getAll();
         const loggedUser = allUsers.find(user => user.username == username )
         sessionStorage.setItem('loggedUserType', loggedUser.type);
+        sessionStorage.setItem('loggedUserId', loggedUser.id);
+        sessionStorage.setItem('loggedUserPhoto', loggedUser.photo);
     }
 
     logout() {

@@ -65,7 +65,8 @@ class App {
                 hour: '20',
                 duration: '120',
                 minParticipants:'2',
-                maxParticipants: '24'
+                maxParticipants: '24',
+                host: 'Tiago'
             },
             {
                 id: 2,
@@ -80,7 +81,8 @@ class App {
                 hour: '20',
                 duration: '120',
                 minParticipants:'2',
-                maxParticipants: '24'
+                maxParticipants: '24',
+                host: 'Quim'
             },
             {
                 id: 3,
@@ -95,7 +97,8 @@ class App {
                 hour: '20',
                 duration: '120',
                 minParticipants:'2',
-                maxParticipants: '24'
+                maxParticipants: '24',
+                host: 'Manel'
             },
             {
                 id: 4,
@@ -110,7 +113,8 @@ class App {
                 hour: '20',
                 duration: '120',
                 minParticipants:'2',
-                maxParticipants: '24'
+                maxParticipants: '24',
+                host: 'Zé'
             }
         ];
 
@@ -122,7 +126,8 @@ class App {
                 password: "12345",
                 name: "Tiago Fernandes",
                 dateOfBirth: 1,
-                location: "Porto"
+                location: "Porto",
+                photo: "/assets/user/img/avatars/avatar1.jpeg"
             },
             {
                 id: 2,
@@ -132,7 +137,8 @@ class App {
                 password: "12345",
                 name: "Tiago Fernandes",
                 dateOfBirth: 1,
-                location: "Porto"
+                location: "Porto",
+                photo: "/assets/user/img/avatars/avatar2.jpeg"
             }
         ];
 
