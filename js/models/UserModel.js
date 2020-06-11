@@ -37,6 +37,8 @@ export default class UserModel {
 
     logout() {
         sessionStorage.removeItem('loggedUser');
+        sessionStorage.removeItem('loggedUserId');
+        sessionStorage.removeItem('loggedUserPhoto');
     }
 
     isLogged() {

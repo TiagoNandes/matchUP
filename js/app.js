@@ -3,13 +3,14 @@ import RegisterView from './views/RegisterView.js'
 import ActivityCatalogView from './views/ActivityCatalogView.js'
 import ActivityView from './views/ActivityView.js'
 import AddActivityView from './views/AddActivityView.js'
+import NavbarView from './views/NavbarView.js'
 
 class App {
     constructor() {
         this.routes = {
             '': [
-                UserView,
-                ActivityCatalogView
+                NavbarView,
+                
             ],
             'login': [
                 UserView
@@ -18,13 +19,16 @@ class App {
                 RegisterView
             ],
             'activity': [
-                ActivityView
+                NavbarView,
+                ActivityView,
             ],
             'addActivity': [
-                AddActivityView
+                NavbarView,
+                AddActivityView,
             ],
             'listActivities': [
-                ActivityCatalogView
+                NavbarView,
+                ActivityCatalogView,
             ],
         };
 

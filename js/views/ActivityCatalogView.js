@@ -59,10 +59,7 @@ export default class ActivityView {
 
     renderCatalog(activities = []) {
 
-        if (sessionStorage.getItem("loggedUser")) {
-            document.querySelector("#loggedUser").innerHTML = `Olá ${sessionStorage.getItem("loggedUser")}</a>`
-            document.querySelector("#loggedUserPhoto").src = `${sessionStorage.getItem("loggedUserPhoto")}`
-        }
+       
         
         let result = ''
         let i=0
