@@ -43,8 +43,8 @@ export default class ActivityModel {
         return this.activities.find(activity => activity.id === +localStorage.activity)
     }
 
-    remove(name) {
-        this.activities = this.activities.filter(activity => activity.name != name)
+    remove(id) {
+        this.activities = this.activities.filter(activity => activity.id != id)
         this._persist()
     }
    

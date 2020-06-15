@@ -5,6 +5,11 @@ export default class ActivityController {
         this.activityModel = new ActivityModel()
     }
 
+    getAllActivities(){
+        this.activityModel.getAll();
+        return this.activityModel.getAll()
+    }
+
     //Add new activity 
     addActivity(name, category, description, address, photo, latitude, longitude, date, hour, duration, minParticipants, maxParticipants, host) {
         
@@ -18,10 +23,12 @@ export default class ActivityController {
     }
 
     //remove activity
-    removeActivity(name) {
-        this.activityModel.remove(name)
+    removeActivity(id) {
+        this.activityModel.remove(id)
         
     }
+
+    
 
     //working
     setCurrentActivity(id) {

@@ -17,7 +17,7 @@ export default class UserModel {
             name: name,
             dateOfBirth: dateOfBirth,
             location: location,
-            photo: "/assets/user/img/avatars/avatar5.jpeg"
+            photo: "/assets/user/img/avatars/avatar0.jpeg"
 
 
         }
@@ -29,6 +29,7 @@ export default class UserModel {
         
         sessionStorage.setItem('loggedUser', username);
         const allUsers = this.getAll();
+        console.log(JSON.stringify(allUsers));
         const loggedUser = allUsers.find(user => user.username == username )
         sessionStorage.setItem('loggedUserType', loggedUser.type);
         sessionStorage.setItem('loggedUserId', loggedUser.id);
@@ -48,4 +49,10 @@ export default class UserModel {
     _persist() {
         localStorage.setItem('users', JSON.stringify(this.users));
     }
+
+    remove(id) {
+        this.users = this.users.filter(user => user.id != id)
+        this._persist()
+    }
+
 }

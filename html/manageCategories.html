@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Table - Brand</title>
     <link rel="stylesheet" href="/assets/admin/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="/https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="/assets/admin/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="/assets/admin/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="/assets/admin/fonts/fontawesome5-overrides.min.css">
@@ -135,10 +135,10 @@
             </div>
             </nav>
             <div class="container-fluid">
-                <h3 class="text-dark mb-4">Gerir Gamificação</h3>
+                <h3 class="text-dark mb-4">Gerir Categorias de Atividades</h3>
                 <div class="card shadow">
                     <div class="card-header py-3">
-                        <p class="text-primary m-0 font-weight-bold">Gerir Conquistas<a class="btn btn-primary btn-sm text-right text-white float-right" role="button"><i class="fas fa-plus fa-sm text-white-50"></i>&nbsp;Criar Nova Conquista</a></p>
+                        <p class="text-primary m-0 font-weight-bold">Categorias de Atividades<a class="btn btn-primary btn-sm text-right text-white float-right" role="button"><i class="fas fa-user-plus fa-sm text-white-50"></i>&nbsp;Criar Nova Categoria</a></p>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -153,147 +153,57 @@
                             <table class="table dataTable my-0" id="dataTable">
                                 <thead>
                                     <tr>
-                                        <th>Conquistas</th>
+                                        <th>Id</th>
+                                        <th>Categoria</th>
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Jogar 10 Jogos de Futebol</td>
+                                <tbody id="listCategories">
+                                    <!-- <tr>
+                                        <td>Futebol</td>
                                         <td><button class="btn btn-primary" type="button" style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button class="btn btn-primary" type="button" style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button></td>
                                     </tr>
                                     <tr>
-                                        <td>Fazer 10 Corridas</td>
+                                        <td>Corrida</td>
                                         <td><button class="btn btn-primary" type="button" style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button class="btn btn-primary" type="button" style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button></td>
                                     </tr>
                                     <tr>
-                                        <td>Jogar 5 Jogos de Vólei</td>
+                                        <td>Vólei</td>
                                         <td><button class="btn btn-primary" type="button" style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button class="btn btn-primary" type="button" style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button></td>
                                     </tr>
                                     <tr>
-                                        <td>Fazer Ciclismo 5 vezes</td>
+                                        <td>Ciclismo</td>
                                         <td><button class="btn btn-primary" type="button" style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button class="btn btn-primary" type="button" style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button></td>
                                     </tr>
                                     <tr>
-                                        <td>Fazer BTT 5 vezes</td>
+                                        <td>BTT</td>
                                         <td><button class="btn btn-primary" type="button" style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button class="btn btn-primary" type="button" style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button></td>
                                     </tr>
                                     <tr>
-                                        <td>Fazer Yoga 10 vezes</td>
+                                        <td>Yoga</td>
                                         <td><button class="btn btn-primary" type="button" style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button class="btn btn-primary" type="button" style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button></td>
                                     </tr>
                                     <tr>
-                                        <td>Participar Numa Aula de Dança 5 vezes<br></td>
+                                        <td>Dança<br></td>
                                         <td><button class="btn btn-primary" type="button" style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button class="btn btn-primary" type="button" style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button></td>
                                     </tr>
                                     <tr>
-                                        <td>Jogar 5 vezesBasketball</td>
+                                        <td>Basketball</td>
                                         <td><button class="btn btn-primary" type="button" style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button class="btn btn-primary" type="button" style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button></td>
                                     </tr>
                                     <tr>
-                                        <td>Fazer Marcha 5 vezes</td>
+                                        <td>Marcha</td>
                                         <td><button class="btn btn-primary" type="button" style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button class="btn btn-primary" type="button" style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button></td>
                                     </tr>
                                     <tr>
-                                        <td>Jogar Andebol 10 vezes</td>
+                                        <td>Andebol</td>
                                         <td><button class="btn btn-primary" type="button" style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button class="btn btn-primary" type="button" style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button></td>
-                                    </tr>
+                                    </tr> -->
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <td><strong>Conquistas</strong></td>
-                                        <td><strong>Ações</strong></td>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 align-self-center">
-                                <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">A mostrar 1 a 10 de 27</p>
-                            </div>
-                            <div class="col-md-6">
-                                <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
-                                    <ul class="pagination">
-                                        <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid">
-                <h3 class="text-dark mb-4"></h3>
-                <div class="card shadow">
-                    <div class="card-header py-3">
-                        <p class="text-primary m-0 font-weight-bold">Gerir Medalhas<a class="btn btn-primary btn-sm text-right text-white float-right" role="button"><i class="fas fa-plus fa-sm text-white-50"></i>&nbsp;Criar Nova Medalha</a></p>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6 text-nowrap">
-                                <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label>Mostrar&nbsp;<select class="form-control form-control-sm custom-select custom-select-sm"><option value="10" selected="">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select>&nbsp;</label></div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Procurar..." /></label></div>
-                            </div>
-                        </div>
-                        <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
-                            <table class="table dataTable my-0" id="dataTable">
-                                <thead>
-                                    <tr>
-                                        <th>Medalha</th>
-                                        <th>Ações</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Futebolista Nível 1!</td>
-                                        <td><button class="btn btn-primary" type="button" style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button class="btn btn-primary" type="button" style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Runner Nível 1!</td>
-                                        <td><button class="btn btn-primary" type="button" style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button class="btn btn-primary" type="button" style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ciclista Nível 1!</td>
-                                        <td><button class="btn btn-primary" type="button" style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button class="btn btn-primary" type="button" style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Futebolista Nível 2!</td>
-                                        <td><button class="btn btn-primary" type="button" style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button class="btn btn-primary" type="button" style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Runner Nível 2!</td>
-                                        <td><button class="btn btn-primary" type="button" style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button class="btn btn-primary" type="button" style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ciclista Nível 2!</td>
-                                        <td><button class="btn btn-primary" type="button" style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button class="btn btn-primary" type="button" style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Futebolista Nível 3!<br></td>
-                                        <td><button class="btn btn-primary" type="button" style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button class="btn btn-primary" type="button" style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Runner Nível 3!</td>
-                                        <td><button class="btn btn-primary" type="button" style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button class="btn btn-primary" type="button" style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ciclista Nível 3!</td>
-                                        <td><button class="btn btn-primary" type="button" style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button class="btn btn-primary" type="button" style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Futebolista Nível 4!</td>
-                                        <td><button class="btn btn-primary" type="button" style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button class="btn btn-primary" type="button" style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button></td>
-                                    </tr>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <td><strong>Medalha</strong></td>
+                                        <td><strong>Id</strong></td>
+                                        <td><strong>Categoria</strong></td>
                                         <td><strong>Ações</strong></td>
                                     </tr>
                                 </tfoot>
@@ -325,6 +235,7 @@
             </div>
         </footer>
     </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+    <script type="module" src="/js/app.js"></script>
     <script src="/assets/admin/js/jquery.min.js"></script>
     <script src="/assets/admin/bootstrap/js/bootstrap.min.js"></script>
     <script src="/assets/admin/js/chart.min.js"></script>

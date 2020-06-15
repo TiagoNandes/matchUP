@@ -9,6 +9,7 @@ export default class UserController {
         if (!this.userModel.getAll().some(user => user.username === username) || !this.userModel.getAll().some(user => user.email === email)) {
            
             this.userModel.create(type, username, email, password, name, dateOfBirth, location);
+
         } else {
             throw Error(`User with username "${username}" already exists!`);
         }
@@ -29,5 +30,16 @@ export default class UserController {
 
     checkLoginStatus() {
         return this.userModel.isLogged();
+    }
+
+    getAllUsers(){
+        this.userModel.getAll();
+        return this.userModel.getAll()
+    }
+
+    //remove user
+    removeUser(id) {
+        this.userModel.remove(id)
+        
     }
 }

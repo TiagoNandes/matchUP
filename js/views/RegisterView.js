@@ -38,13 +38,13 @@ export default class RegisterView {
     }
 
     
-    bindAddLogoutEvent() {
-        this.logoutButton.addEventListener('click', event => {
-            this.userController.logoutUser();
-            this.updateButtons('logout');
-            location.reload()
-        });
-    }
+    // bindAddLogoutEvent() {
+    //     this.logoutButton.addEventListener('click', event => {
+    //         this.userController.logoutUser();
+    //         this.updateButtons('logout');
+    //         location.reload()
+    //     });
+    // }
 
     checkLoginStatus() {
         if (this.userController.checkLoginStatus()) {

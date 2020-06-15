@@ -58,8 +58,6 @@ export default class ActivityView {
     }
 
     renderCatalog(activities = []) {
-
-       
         
         let result = ''
         let i=0

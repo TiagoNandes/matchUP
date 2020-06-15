@@ -16,10 +16,6 @@ export default class NavbarView {
      * Função para atualizar a barra de navageação tendo em conta se existe (ou não) algum utilizador autenticado
      */
     updateNavbar() {
-
-
-
-
         const nav = document.querySelector("#navBar")
         let result = ""
         result =
@@ -49,9 +45,9 @@ export default class NavbarView {
                 <a role="presentation" class="dropdown-item" href="manageActivitiesUser.html"><i
                         class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Histórico de
                     Atividades</a>
-                <div class="dropdown-divider"></div><a role="presentation" class="dropdown-item"
-                    href=""><i
-                        class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" id="btnLogout"></i> Terminar
+                <div class="dropdown-divider" ></div><a type="button" role="presentation" class="dropdown-item"
+                     id="btnLogout" ><i
+                        class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" ></i> Terminar
                     Sessão</a>
             </div>
         </div>
@@ -70,7 +66,6 @@ export default class NavbarView {
         </ul>
         </div>     
             `
-            alert("nav sem user logado")
         }
         result += `</div>`
         // Injeção do conteúdo na barra de navegação
@@ -84,9 +79,13 @@ export default class NavbarView {
             document.querySelector("#loggedUserPhoto").src = `${sessionStorage.getItem("loggedUserPhoto")}`
             // Clique no botão de logout
             document.querySelector("#btnLogout").addEventListener("click", function () {
-
-                this.userController.logoutUser();
-                location.reload();
+                sessionStorage.removeItem('loggedUser');
+                sessionStorage.removeItem('loggedUserId');
+                sessionStorage.removeItem('loggedUserPhoto');
+                sessionStorage.removeItem('loggedUserType');
+                //this.userController.logoutUser();
+                
+                location.href="../index.html";
 
             })
         }

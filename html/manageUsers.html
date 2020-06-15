@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Table - Brand</title>
-    <link rel="stylesheet" href="/assets/admin/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/../assets/admin/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
-    <link rel="stylesheet" href="/assets/admin/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="/assets/admin/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="/assets/admin/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="/../assets/admin/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/../assets/admin/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/../assets/admin/fonts/fontawesome5-overrides.min.css">
 </head>
 
 <body id="page-top">
@@ -22,7 +22,7 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="statistics.html"><i class="fas fa-tachometer-alt"></i><span>Estatísticas</span></a><a class="nav-link" href="manageUsers.html"><i class="fas fa-users"></i><span>Gerir Utilizadores</span></a><a class="nav-link" href="manageActivities.html"><i class="fas fa-list"></i><span>Gerir atividades</span></a><a class="nav-link" href="manageGamification.html"><i class="fas fa-gamepad"></i><span>Configurar gamificação</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="statistics.html"><i class="fas fa-tachometer-alt"></i><span>Estatísticas</span></a><a class="nav-link active" href="manageUsers.html"><i class="fas fa-users"></i><span>Gerir Utilizadores</span></a><a class="nav-link" href="manageActivities.html"><i class="fas fa-list"></i><span>Gerir atividades</span></a><a class="nav-link" href="manageGamification.html"><i class="fas fa-gamepad"></i><span>Configurar gamificação</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
@@ -83,7 +83,7 @@
                                         role="menu">
                                         <h6 class="dropdown-header">alerts center</h6>
                                         <a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="assets/img/avatars/avatar4.jpeg">
+                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="/../assets/admin/img/avatars/avatar4.jpeg">
                                                 <div class="bg-success status-indicator"></div>
                                             </div>
                                             <div class="font-weight-bold">
@@ -92,7 +92,7 @@
                                             </div>
                                         </a>
                                         <a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="assets/img/avatars/avatar2.jpeg">
+                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="/../assets/admin/img/avatars/avatar2.jpeg">
                                                 <div class="status-indicator"></div>
                                             </div>
                                             <div class="font-weight-bold">
@@ -101,7 +101,7 @@
                                             </div>
                                         </a>
                                         <a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="assets/img/avatars/avatar3.jpeg">
+                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="/../assets/admin/img/avatars/avatar3.jpeg">
                                                 <div class="bg-warning status-indicator"></div>
                                             </div>
                                             <div class="font-weight-bold">
@@ -110,7 +110,7 @@
                                             </div>
                                         </a>
                                         <a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="assets/img/avatars/avatar5.jpeg">
+                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="/../assets/admin/img/avatars/avatar5.jpeg">
                                                 <div class="bg-success status-indicator"></div>
                                             </div>
                                             <div class="font-weight-bold">
@@ -123,7 +123,7 @@
                             </li>
                             <div class="d-none d-sm-block topbar-divider"></div>
                             <li class="nav-item dropdown no-arrow" role="presentation">
-                                <div class="nav-item dropdown no-arrow"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button"><span class="d-none d-lg-inline mr-2 text-gray-600 small">Admin</span><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar5.jpeg"></button>
+                                <div class="nav-item dropdown no-arrow"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button"><span class="d-none d-lg-inline mr-2 text-gray-600 small">Admin</span><img class="border rounded-circle img-profile" src="/../assets/admin/img/avatars/avatar5.jpeg"></button>
                                     <div
                                         class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
                                         <a
@@ -153,16 +153,18 @@
                             <table class="table dataTable my-0" id="dataTable">
                                 <thead>
                                     <tr>
+                                        <th>Foto</th>
+                                        <th>Username</th>
                                         <th>Nome</th>
-                                        <th>Atividade Favorita</th>
+                                        <th>Tipo</th>
+                                        <th>Email</th>
+                                        <th>Data de Nascimento</th>
                                         <th>Localização</th>
-                                        <th>Idade</th>
-                                        <th>Data de Registo</th>
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
+                                <tbody id="listUsers">
+                                    <!-- <tr>
                                         <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg">Airi Satou</td>
                                         <td>Ciclismo</td>
                                         <td>Tokyo</td>
@@ -271,35 +273,21 @@
                                             <button
                                                 class="btn btn-primary" type="button" style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Bloquear</button>
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                 </tbody>
                                 <tfoot>
                                     <tr>
+                                        <td><strong>Foto</strong></td>
+                                        <td><strong>Username</strong></td>
                                         <td><strong>Nome</strong></td>
-                                        <td><strong>Atividade Favorita</strong></td>
+                                        <td><strong>Tipo</strong></td>
+                                        <td><strong>Email</strong></td>
+                                        <td><strong>Data de Nascimento</strong></td>
                                         <td><strong>Localização</strong></td>
-                                        <td><strong>Idade</strong></td>
-                                        <td><strong>Data de Registo</strong></td>
                                         <td><strong>Ações</strong></td>
                                     </tr>
                                 </tfoot>
                             </table>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 align-self-center">
-                                <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">A mostrar 1 a 10 de 27</p>
-                            </div>
-                            <div class="col-md-6">
-                                <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
-                                    <ul class="pagination">
-                                        <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                                    </ul>
-                                </nav>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -311,12 +299,13 @@
             </div>
         </footer>
     </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
-    <script src="/assets/admin/js/jquery.min.js"></script>
-    <script src="/assets/admin/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/assets/admin/js/chart.min.js"></script>
-    <script src="/assets/admin/js/bs-charts.js"></script>
+    <script type="module" src="/js/app.js"></script>
+    <script src="/../assets/admin/js/jquery.min.js"></script>
+    <script src="/../assets/admin/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/../assets/admin/js/chart.min.js"></script>
+    <script src="/../assets/admin/js/bs-charts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-    <script src="/assets/admin/js/theme.js"></script>
+    <script src="/../assets/admin/js/theme.js"></script>
 </body>
 
 </html>
