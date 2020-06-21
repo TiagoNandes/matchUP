@@ -7,6 +7,4 @@ matchUP is a project developed during the first year in the Web Information Syst
 
 ### Authors
 
-* **Rui Azevedo** - [tropicalsun7](https://github.com/tropicalsun7)
-
 * **Tiago Fernandes** - [TiagoNandes](https://github.com/TiagoNandes)
