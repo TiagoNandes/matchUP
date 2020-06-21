@@ -5,11 +5,12 @@ export default class ManageActivitiesView {
         this.activitiesController = new ActivityController();
 
         this.activitiesList = document.querySelector("#listActivities")
-        
+
 
         this.listActivities(this.activitiesController.getAllActivities());
 
-           
+        this.checkLogout();
+
     }
 
     bindAddRemoveActivity() {
@@ -62,5 +63,27 @@ export default class ManageActivitiesView {
                                         </td>
         `
         return html
+    }
+
+    checkLogout() {
+
+        // Mapeamento dos cliques nos botões de Login/Register/Logout
+        if (sessionStorage.getItem("loggedUser")) {
+            // Apresentação do nome do utilizador autenticado
+            document.querySelector("#loggedUser").innerHTML = `${sessionStorage.getItem("loggedUser")}`
+            document.querySelector("#loggedUserPhoto").src = `${sessionStorage.getItem("loggedUserPhoto")}`
+            // Clique no botão de logout
+            document.querySelector("#btnLogout").addEventListener("click", function () {
+                sessionStorage.removeItem('loggedUser');
+                sessionStorage.removeItem('loggedUserId');
+                sessionStorage.removeItem('loggedUserPhoto');
+                sessionStorage.removeItem('loggedUserType');
+                //this.userController.logoutUser();
+
+                location.href = "../index.html";
+
+            })
+        }
+
     }
 }

@@ -29,6 +29,28 @@ export default class ActivityModel {
         this._persist();
     }
 
+    edit(activityToEditId, newName, newCategory, newDescription, newAddress, newPhoto,
+        newLatitude, newLongitude, newDay, newHour, newDuration, newMinParticipants, newMaxParticipants) {
+        let allActivities = this.getAll();
+        this.activityToEdit = allActivities.find(activity => activity.id == activityToEditId);
+        this.activityToEdit.name = newName;
+        this.activityToEdit.category = newCategory;
+        this.activityToEdit.description = newDescription;
+        this.activityToEdit.address = newAddress;
+        this.activityToEdit.photo = newPhoto;
+        this.activityToEdit.latitude = newLatitude;
+        this.activityToEdit.longitude = newLongitude;
+        this.activityToEdit.date = newDay;
+        this.activityToEdit.hour = newHour;
+        this.activityToEdit.duration = newDuration;
+        this.activityToEdit.minParticipants = newMinParticipants;
+        this.activityToEdit.maxParticipants = newMaxParticipants;
+        localStorage.setItem('activities', this.activityToEdit);
+
+        
+        this._persist()
+    }
+
     sort() {
         this.activities.sort(this._compare);
         this._persist();

@@ -39,6 +39,13 @@ export default class ActivityController {
         return this.activityModel.getCurrentActivity()
     }
 
+    //edit user
+    editActivity(activityToEditId, newName, newCategory, newDescription, newAddress, newPhoto,
+        newLatitude, newLongitude, newDay, newHour, newDuration, newMinParticipants, newMaxParticipants) {
+        this.activityModel.edit(activityToEditId, newName, newCategory, newDescription, newAddress, newPhoto,
+            newLatitude, newLongitude, newDay, newHour, newDuration, newMinParticipants, newMaxParticipants)
+    }
+
 
     getActivities(filterName='', filterCategory='', isSorted=false) {
 

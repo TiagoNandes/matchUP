@@ -5,27 +5,23 @@ export default class ManageCategoriesView {
         this.categoriesController = new CategoriesController();
 
         this.categoriesList = document.querySelector("#listCategories")
-        
+
 
         this.listCategories(this.categoriesController.getAllCategories());
 
-        
-        // // login DOM
-        // this.loginForm = document.getElementById('frmLogin');
-        // this.loginUsername = document.getElementById('txtUsername');
-        // this.loginPassword = document.getElementById('txtPassword');
-        // this.loginMessage = document.getElementById('mdlLoginMessage');
+        //add
+        this.addCategoryForm = document.getElementById('frmAddCategory');
+        this.categoryName = document.getElementById('txtName');
 
-        // this.bindAddLoginForm();
+        //edit
+        this.editCategoryForm = document.getElementById('frmEditCategory');
+        this.editCategoryName = document.getElementById('txtEditName');
 
-        // // buttons DOM
-        // this.loginButton = document.getElementById('btnLogin');
-        // this.registerButton = document.getElementById('btnRegister');
-        //this.logoutButton = document.getElementById('btnLogout');
+        this.bindAddAddCategoryForm();
 
-        //this.bindAddLogoutEvent();
+        this.checkLogout();
 
-        //this.checkLoginStatus();     
+
     }
 
     bindAddRemoveCategory() {
@@ -36,6 +32,71 @@ export default class ManageCategoriesView {
             })
         }
     }
+
+
+    bindAddAddCategoryForm() {
+        this.addCategoryForm.addEventListener('submit', event => {
+            event.preventDefault();
+
+            try {
+
+                this.categoriesController.createCategory(this.categoryName.value);
+                location.reload();
+
+
+            } catch (e) {
+                Swal.fire({
+                    title: 'Erro!',
+                    text: e,
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                })
+            }
+        });
+    }
+
+    bindEditCategory() {
+
+        for (const btnEdit of document.getElementsByClassName("edit")) {
+            btnEdit.addEventListener('click', event => {
+                //set category's data on the placeholder 
+                let oldName = event.target.id;
+                let allCategories = this.categoriesController.getAllCategories();
+                this.categoryToEdit = allCategories.find(category => category.name == oldName);
+                this.editCategoryName.placeholder = this.categoryToEdit.name;
+                //form
+                this.editCategoryForm.addEventListener('submit', event => {
+                    event.preventDefault();
+
+                    //if input is not empty 
+                    if (this.editCategoryName.value != "") {
+                        this.newName = this.editCategoryName.value
+                    }
+                    //if input is not used 
+                    else {
+                        this.newName = this.categoryToEdit.name
+                    }
+
+                    try {
+                        this.categoriesController.editCategory(oldName, this.newName);
+                        location.reload();
+
+
+                    } catch (e) {
+                        Swal.fire({
+                            title: 'Erro!',
+                            text: e,
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        })
+                    }
+                });
+
+                this.listCategories(this.categoriesController.getAllCategories());
+            })
+        }
+    }
+
 
     listCategories(categories = []) {
 
@@ -52,19 +113,43 @@ export default class ManageCategoriesView {
         //this._renderAddActivityButton(this.userController.checkLoginStatus());
 
         this.bindAddRemoveCategory();
+        this.bindEditCategory();
 
     }
 
     _generateCategoriesTable(category) {
         let html = ` 
                                         <td>${category.id}</td>
-                                        <td>${category.type}</td>
+                                        <td>${category.name}</td>
                                         <td>
-                                            <button class="btn btn-primary" type="button" style="margin-left: 5px;margin-bottom: 2px;">Editar</button>
+                                            <button id="${category.name}" class="btn btn-primary edit" data-toggle="modal"
+                                            data-target="#editCategoryModal" type="button" style="margin-left: 5px;margin-bottom: 2px;">Editar</button>
                                             <button id="${category.id}" class="btn btn-primary remove" type="button" style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;" >Apagar</button>
-                                            <button class="btn btn-primary" type="button" style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Bloquear</button>
+                                            
                                         </td>
         `
         return html
+    }
+
+    checkLogout() {
+
+        // Mapeamento dos cliques nos botões de Login/Register/Logout
+        if (sessionStorage.getItem("loggedUser")) {
+            // Apresentação do nome do utilizador autenticado
+            document.querySelector("#loggedUser").innerHTML = `${sessionStorage.getItem("loggedUser")}`
+            document.querySelector("#loggedUserPhoto").src = `${sessionStorage.getItem("loggedUserPhoto")}`
+            // Clique no botão de logout
+            document.querySelector("#btnLogout").addEventListener("click", function () {
+                sessionStorage.removeItem('loggedUser');
+                sessionStorage.removeItem('loggedUserId');
+                sessionStorage.removeItem('loggedUserPhoto');
+                sessionStorage.removeItem('loggedUserType');
+                //this.userController.logoutUser();
+
+                location.href = "../index.html";
+
+            })
+        }
+
     }
 }

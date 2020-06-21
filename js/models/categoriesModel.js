@@ -16,7 +16,16 @@ export default class CategoriesModel {
         this._persist();
     }
 
-    
+    edit(oldName, newName) {
+        let allCategories = this.getAll();
+        this.categoryToEdit = allCategories.find(category => category.name === oldName);
+        this.categoryToEdit.name = newName;
+        localStorage.setItem('categories', this.categoryToEdit);
+        
+        this._persist()
+    }
+
+
     _persist() {
         localStorage.setItem('categories', JSON.stringify(this.categories));
     }

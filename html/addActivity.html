@@ -1,81 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyMusic - Add Band</title>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Projeto 1</title>
+    <link rel="stylesheet" href="/assets/user/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
+    <link rel="stylesheet" href="/assets/user/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/user/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/user/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="/assets/user/css/Article-List.css">
+    <link rel="stylesheet" href="/assets/user/css/Dark-NavBar-1.css">
+    <link rel="stylesheet" href="/assets/user/css/Dark-NavBar-2.css">
+    <link rel="stylesheet" href="/assets/user/css/Dark-NavBar.css">
+    <link rel="stylesheet" href="/assets/user/css/Filter.css">
+    <link rel="stylesheet" href="/assets/user/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="/assets/user/css/Map-Clean.css">
+    <link rel="stylesheet" href="/assets/user/css/Profile-Edit-Form-1.css">
+    <link rel="stylesheet" href="/assets/user/css/Profile-Edit-Form.css">
+    <link rel="stylesheet" href="/assets/user/css/textarea.css">
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="jumbotron">
-            <div id="userLoggedOutContent">
-                <div class="alert alert-danger" role="alert">You must be authenticated to access this area!</div>
+    <div class="article-list" style="margin: 0px;margin-top: 64px;">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">Criar Nova Atividade</h2>
             </div>
-            
-            <div id="userLoggedInContent" style="visibility: hidden">
-                <h1 class="display-3">Add band</h1>
-                <p class="lead">Add a band that you enjoy!</p>
-                <hr class="my-2">
-                <div>
-                    <form id="frmAddBand">
-                        <div class="form-group">
-                            <label for="txtName">Name</label>
-                            <input type="text" class="form-control" id="txtName" required>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-sm-3">
-                                <label for="sltGenre">Genre</label>
-                                <select class="form-control" id="sltGenre">
-                                    <option value="Jazz">Jazz</option>
-                                    <option value="Metal">Metal</option>
-                                    <option value="Pop-Rock">Pop-Rock</option>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                    </div>
+                    <div class="col-7">
+
+                        <form id="frmAddActivityUser">
+                            <div class="form-group">
+                                <label for="txtName">Nome</label>
+                                <input type="text" style="height: 100%;" class="form-control" id="txtName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="sltCategory">Categoria</label>
+                                <select style="height: 60%;" class="form-control" id="sltCategory">
+
+                                    <option value="yoga">Yoga</option>
+                                    <option value="biking">Biking</option>
+                                    <option value="danca">Dança</option>
                                 </select>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="txtPhoto">Photo link</label>
-                            <input type="url" class="form-control" id="txtPhoto" required>
-                        </div>                    
-                        <div class="form-group">
-                            <label for="txtDescription">Description</label>
-                            <textarea class="form-control" id="txtDescription" rows="3"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="txtVideo">Video Clip link</label>
-                            <input type="url" class="form-control" id="txtVideo">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="reset" class="btn btn-danger">Reset</button>
-                    </form>
+                            <div class="form-group">
+                                <label for="txtDescription">Descrição</label>
+                                <textarea class="form-control" id="txtDescription" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtAddress">Endereço</label>
+                                <input type="text" style="height: 100%;" class="form-control" id="txtAddress" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtPhoto">Imagem</label>
+                                <input type="url" class="form-control" id="txtPhoto" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtLatitude">Latitude</label>
+                                <input type="text" style="height: 100%;" class="form-control" id="txtLatitude" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtLongitude">Longitude</label>
+                                <input type="text" style="height: 100%;" class="form-control" id="txtLongitude"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="sltDay">Dia</label>
+                                <input class="form-control" type="date" style="height: 100%;"
+                                    id="sltDay">
+                            </div>
+                            <div class="form-group">
+                                <label for="sltHour">Hora</label>
+                                <input class="form-control" type="time" id="sltHour" name="appt">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtDuration">Duração (em horas)</label>
+                                <input type="number" style="height: 100%;" class="form-control" id="txtDuration"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtMinParticipants">Mínimo de participantes</label>
+                                <input type="number" style="height: 100%;" class="form-control" id="txtMinParticipants"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtMaxParticipants">Máximo de participantes</label>
+                                <input type="number" style="height: 100%;" class="form-control" id="txtMaxParticipants"
+                                    required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </form>
+
+
+                    </div>
+                    <div class="col">
+                    </div>
                 </div>
-                <br>
-                <div id="addBandMessage"></div>
+
             </div>
 
+
+
+            <p id="myCatalog"></p>
+
+
+            <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom"
+                style="padding-top: 0px;padding-bottom: 0px;" id="navBar">
+            </nav>
         </div>
     </div>
 
-    
+    </div>
+    <div></div>
+    <footer class="py-5 bg-black">
+        <div class="container">
+            <p class="text-center text-white m-0 small">Desenvolvido por Rui Azevedo e Tiago Fernandes no âmbito de
+                Projeto 1</p>
+        </div>
+    </footer>
 
-
-    <!-- Optional JavaScript -->
-    <script type="module" src="../js/app.js"></script>
-
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+    <script type="module" src="/js/app.js"></script>
+    <script src="/assets/user/js/jquery.min.js"></script>
+    <script src="/assets/user/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="/assets/user/js/Profile-Edit-Form.js"></script>
+    <script src="/assets/user/js/theme.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </body>
 
 </html>

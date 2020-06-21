@@ -7,10 +7,11 @@ export default class AchievementsModel {
         return this.achievements;
     }
 
-    create(name) {
-        const category = {
+    create(name, photo) {
+        const achievement = {
             id: this.achievements.length > 0 ? this.achievements[this.achievements.length - 1].id + 1 : 1,
-            name: name
+            name: name,
+            photo: photo
         }
         this.achievements.push(achievement);
         this._persist();
@@ -23,6 +24,16 @@ export default class AchievementsModel {
 
     remove(id) {
         this.achievements = this.achievements.filter(achievement => achievement.id != id)
+        this._persist()
+    }
+
+    edit(oldName, newName, photo) {
+        let allAchievements = this.getAll();
+        this.achievementToEdit = allAchievements.find(achievement => achievement.name === oldName);
+        this.achievementToEdit.name = newName;
+        this.achievementToEdit.photo = photo;
+        localStorage.setItem('achievements', this.achievementToEdit);
+        
         this._persist()
     }
 

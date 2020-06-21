@@ -6,12 +6,14 @@ export default class UserController {
     }
 
     createUser(type, username, email, password, name, dateOfBirth, location) {
-        if (!this.userModel.getAll().some(user => user.username === username) || !this.userModel.getAll().some(user => user.email === email)) {
+        if (!this.userModel.getAll().some(user => user.username === username) && !this.userModel.getAll().some(user => user.email === email)) {
            
             this.userModel.create(type, username, email, password, name, dateOfBirth, location);
 
+            
+
         } else {
-            throw Error(`User with username "${username}" already exists!`);
+            throw Error(`Utilizador com este Username ou Email já existe!`);
         }
     }
 
@@ -41,5 +43,21 @@ export default class UserController {
     removeUser(id) {
         this.userModel.remove(id)
         
+    }
+
+    //block user
+    blockUser(id) {
+        this.userModel.block(id)
+        
+    }
+
+    //edit user
+    editUser(id, type, username, email, name, dateOfBirth, location, photo) {
+        this.userModel.edit(id, type, username, email, name, dateOfBirth, location, photo)
+    }
+
+    //edit user with password
+    editUserWithPassword(id, type, username, email, name, dateOfBirth, location, photo, password) {
+        this.userModel.editWithPassword(id, type, username, email, name, dateOfBirth, location, photo, password)
     }
 }

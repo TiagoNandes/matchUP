@@ -19,6 +19,16 @@ export default class MedalsModel {
         this._persist();
     }
 
+    edit(oldName, newName, photo, description) {
+        let allMedals = this.getAll();
+        this.medalToEdit = allMedals.find(medal => medal.name === oldName);
+        this.medalToEdit.name = newName;
+        this.medalToEdit.photo = photo;
+        this.medalToEdit.description = description;
+        localStorage.setItem('medals', this.medalToEdit);
+        
+        this._persist()
+    }
     
     _persist() {
         localStorage.setItem('medals', JSON.stringify(this.medals));

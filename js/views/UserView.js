@@ -17,32 +17,24 @@ export default class UserView {
         this.registerButton = document.getElementById('btnRegister');
         //this.logoutButton = document.getElementById('btnLogout');
 
-        //this.bindAddLogoutEvent();
+        this.addUserForm = document.getElementById('frmAddUser');
+        this.userUsername = document.getElementById('txtUserName');
+        this.userName = document.getElementById('txtName');
+        // this.userPhoto = document.getElementById('txtPhoto');
+        this.userType = document.getElementById('sltType');
+        this.userEmail = document.getElementById('txtEmail');
+        this.userPassword = document.getElementById('txtPassword');
+        this.userDoB = document.getElementById('sltDoB');
+        this.userDistrict = document.getElementById('sltDistrict');
 
-        //this.checkLoginStatus();     
+        this.bindAddAddUserForm();
     }
 
-    // bindAddRegisterForm() {
-    //     this.registerForm.addEventListener('submit', event => {
-    //         event.preventDefault();
 
-    //         try {
-    //             if (this.registerPassword.value !==this.registerPassword2.value) {
-    //                 throw Error('Password and Confirm Password are not equal');   
-    //             }
-    //             this.userController.createUser(this.registerUsername.value, this.registerPassword.value);
-    //             this.displayRegisterMessage('User registered with success!', 'success');
-    //             alert("Sucesso!")
-    //             location.href='login.html';
-    //         } catch(e) {
-    //             this.displayRegisterMessage(e, 'danger');
-    //         }
-    //     });
-    // }
 
     bindAddLoginForm() {
         this.loginForm.addEventListener('submit', event => {
-            event.preventDefault(); 
+            event.preventDefault();
 
             try {
                 this.userController.loginUser(this.loginUsername.value, this.loginPassword.value);
@@ -50,39 +42,27 @@ export default class UserView {
 
                 // Wait 1 second before reloading, so the user can see the login success message
                 setTimeout(() => {
-                    this.updateButtons('login');
-                    location.reload()
-                },
-                1000);
-                if (sessionStorage.getItem('loggedUser') == "atleta"){
-                    location.href='listActivities.html';
+                        this.updateButtons('login');
+                        location.reload()
+                    },
+                    1000);
+                if (sessionStorage.getItem('loggedUser') == "atleta") {
+                    location.href = 'listActivities.html';
+                } else if (sessionStorage.getItem('loggedUser') == "admin") {
+                    location.href = 'statistics.html';
                 }
-                else if (sessionStorage.getItem('loggedUser') == "admin"){
-                    location.href='statistics.html';
-                }
-                
 
-            } catch(e) {
+
+            } catch (e) {
                 this.displayLoginMessage(e, 'danger');
             }
         });
     }
-    
-    // bindAddLogoutEvent() {
-    //     this.logoutButton.addEventListener('click', event => {
-    //         this.userController.logoutUser();
-    //         this.updateButtons('logout');
-    //         location.reload()
-    //     });
-    // }
 
-    // checkLoginStatus() {
-    //     if (this.userController.checkLoginStatus()) {
-    //         this.updateButtons('login');
-    //     } else {
-    //         this.updateButtons('logout');
-    //     }
-    // }
+
+    
+
+    
 
     displayRegisterMessage(message, type) {
         this.registerMessage.innerHTML =
@@ -94,17 +74,5 @@ export default class UserView {
             `<div class="alert alert-${type}" role="alert">${message}</div>`;
     }
 
-    // updateButtons(event) {
-    //     switch(event) {
-    //         case 'login':
-    //             this.loginButton.style.visibility = 'hidden'
-    //             this.registerButton.style.visibility = 'hidden'
-    //             this.logoutButton.style.visibility = 'visible'
-    //             break;
-    //         case 'logout':
-    //             this.loginButton.style.visibility = 'visible'
-    //             this.registerButton.style.visibility = 'visible'
-    //             this.logoutButton.style.visibility = 'hidden'
-    //     }
-    // }
+    
 }

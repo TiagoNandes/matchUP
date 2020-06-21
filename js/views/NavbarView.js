@@ -29,16 +29,16 @@ export default class NavbarView {
         <ul class="nav navbar-nav mr-auto">
             <li class="nav-item" role="presentation"><a class="nav-link text-white"
                     href="listActivities.html">Listar atividades</a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" href="activityPage.html">criar
+            <li class="nav-item" role="presentation"><a class="nav-link" href="addActivity.html">criar
                     atividade</a></li>
         </ul>
         <div class="nav-item dropdown no-arrow"><button class="btn btn-primary dropdown-toggle"
                                     data-toggle="dropdown" aria-expanded="false" type="button"><span
                                         class="d-none d-lg-inline mr-2 text-gray-600" id="loggedUser"></span><img
-                                        class="border rounded-circle img-profile" id="loggedUserPhoto"
+                                        class="border rounded-circle img-profile" style="width:60px; height:60px;" id="loggedUserPhoto"
                                         src="" /></button>
             <div role="menu" class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a
-                    role="presentation" class="dropdown-item" href="editProfile.html"><i
+                    role="presentation" class="dropdown-item" href="profile.html"><i
                         class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Editar Perfil</a><a
                     role="presentation" class="dropdown-item" href="manageActivitiesUser.html"><i
                         class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Gerir Atividades</a>

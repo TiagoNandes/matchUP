@@ -29,231 +29,151 @@
         <div class="container">
             <div class="intro">
                 <h2 class="text-center">Gerir Atividades Criadas</h2>
+                <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom"
+                    style="padding-top: 0px;padding-bottom: 0px;" id="navBar">
+                </nav>
             </div>
         </div>
-        <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom"
-            style="padding-top: 0px;padding-bottom: 0px;">
-            <div class="container"><a class="navbar-brand" href="indexLoggedIn.html">matchup</a><button
-                    data-toggle="collapse" class="navbar-toggler" data-target="#navbarResponsive"><span
-                        class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="nav navbar-nav mr-auto">
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="listActivities.html">Listar
-                                atividades</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="activityPage.html">criar
-                                atividade</a></li>
-                    </ul>
-                    <div class="nav-item dropdown no-arrow"><button class="btn btn-primary dropdown-toggle"
-                            data-toggle="dropdown" aria-expanded="false" type="button"><span
-                                class="d-none d-lg-inline mr-2 text-gray-600">John Doe</span><img
-                                class="border rounded-circle img-profile"
-                                src="assets/img/avatars/avatar5.jpeg" /></button>
-                        <div role="menu" class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a
-                                role="presentation" class="dropdown-item" href="editProfile.html"><i
-                                    class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Editar Perfil</a><a
-                                role="presentation" class="dropdown-item" href="manageActivitiesUser.html"><i
-                                    class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Gerir Atividades</a>
-                            <a role="presentation" class="dropdown-item" href="manageActivitiesUser.html"><i
-                                    class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Histórico de Atividades</a>
-                            <div class="dropdown-divider"></div><a role="presentation" class="dropdown-item"
-                                href="index.html"><i
-                                    class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Terminar Sessão</a>
-                        </div>
+
+    </div>
+
+    <div class="card shadow">
+
+        <!-- Modal edit-->
+        <div class="modal fade" id="editActivityModal" tabindex="-1" role="dialog" aria-labelledby="editActivityModal"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Editar Atividade</h5>
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+
+                        <form id="frmEditActivityUser">
+                            <div class="form-group">
+                                <label for="txtEditName">Nome</label>
+                                <input type="text" style="height: 100%;" class="form-control" id="txtEditName" >
+                            </div>
+                            <div class="form-group">
+                                <label for="sltEditCategory">Categoria</label>
+                                <select style="height: 60%;" class="form-control" id="sltEditCategory">
+
+                                    <option value="yoga">Yoga</option>
+                                    <option value="biking">Biking</option>
+                                    <option value="danca">Dança</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtEditDescription">Descrição</label>
+                                <textarea class="form-control" id="txtEditDescription" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtEditAddress">Endereço</label>
+                                <input type="text" style="height: 100%;" class="form-control" id="txtEditAddress" >
+                            </div>
+                            <div class="form-group">
+                                <label for="txtEditPhoto">Imagem</label>
+                                <input type="url" class="form-control" id="txtEditPhoto" >
+                            </div>
+                            <div class="form-group">
+                                <label for="txtEditLatitude">Latitude</label>
+                                <input type="text" style="height: 100%;" class="form-control" id="txtEditLatitude" >
+                            </div>
+                            <div class="form-group">
+                                <label for="txtEditLongitude">Longitude</label>
+                                <input type="text" style="height: 100%;" class="form-control" id="txtEditLongitude"
+                                    >
+                            </div>
+                            <div class="form-group">
+                                <label for="sltEditDay">Dia</label>
+                                <input class="form-control" type="date" style="height: 100%;" id="sltEditDay">
+                            </div>
+                            <div class="form-group">
+                                <label for="sltEditHour">Hora</label>
+                                <input class="form-control" type="time" id="sltEditHour" name="appt">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtEditDuration">Duração (em horas)</label>
+                                <input type="number" style="height: 100%;" class="form-control" id="txtEditDuration"
+                                    >
+                            </div>
+                            <div class="form-group">
+                                <label for="txtEditMinParticipants">Mínimo de participantes</label>
+                                <input type="number" style="height: 100%;" class="form-control" id="txtEditMinParticipants"
+                                    >
+                            </div>
+                            <div class="form-group">
+                                <label for="txtEditMaxParticipants">Máximo de participantes</label>
+                                <input type="number" style="height: 100%;" class="form-control" id="txtEditMaxParticipants"
+                                    >
+                            </div>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </form>
+
+
+
                     </div>
                 </div>
-                <ul class="nav navbar-nav mr-auto">
-                    <li class="nav-item" role="presentation"></li>
-                    <li class="nav-item" role="presentation"></li>
-                </ul>
             </div>
-        </nav>
-    </div>
-    <div class="card shadow">
-        <div class="card-header py-3">
-            <p class="text-primary m-0 font-weight-bold">Atividades Criadas<a
-                    class="btn btn-primary btn-sm text-right text-white float-right" role="button"><i
-                        class="fas fa-user-plus fa-sm text-white-50"></i>&nbsp;Criar Nova Atividade</a></p>
         </div>
         <div class="card-body">
             <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
                 <table class="table dataTable my-0" id="dataTable">
                     <thead>
                         <tr>
-                            <th>Título da Atividade</th>
+                            <th>Imagem</th>
+                            <th>Id</th>
+                            <th>Nome</th>
                             <th>Categoria</th>
-                            <th>Localização</th>
                             <th>Descrição</th>
+                            <th>Morada</th>
+                            <th>Latitude</th>
+                            <th>Longitude</th>
                             <th>Data</th>
                             <th>Hora</th>
-                            <th>Mínimo de Vagas</th>
-                            <th>Máximo de Vagas</th>
+                            <th>Duração</th>
+                            <th>Min. Part.</th>
+                            <th>Max. Part.</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Volta ao Porto</td>
-                            <td>Ciclismo</td>
-                            <td>Porto</td>
-                            <td>Junta-te a nós na volta ao Porto em bicicleta!</td>
-                            <td>2020/11/28</td>
-                            <td>15:30h</td>
-                            <td>4</td>
-                            <td>50</td>
-                            <td><button class="btn btn-primary" type="button"
-                                    style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button
-                                    class="btn btn-primary" type="button"
-                                    style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Aula Samba em Vila do Conde</td>
-                            <td>Dança</td>
-                            <td>Vila do Conde</td>
-                            <td>Junta-te a nós na volta ao Porto em bicicleta!<br></td>
-                            <td>2020/10/09<br></td>
-                            <td>15:30h<br></td>
-                            <td>4<br></td>
-                            <td>24<br></td>
-                            <td><button class="btn btn-primary" type="button"
-                                    style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button
-                                    class="btn btn-primary" type="button"
-                                    style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Corrida São Francisco</td>
-                            <td>Corrida</td>
-                            <td>São Francisco</td>
-                            <td>Junta-te a nós na volta ao Porto em bicicleta!<br></td>
-                            <td>2020/01/12<br></td>
-                            <td>15:30h<br></td>
-                            <td>4<br></td>
-                            <td>434<br></td>
-                            <td><button class="btn btn-primary" type="button"
-                                    style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button
-                                    class="btn btn-primary" type="button"
-                                    style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Yoga em Londres</td>
-                            <td>Yoga</td>
-                            <td>Londres</td>
-                            <td>Junta-te a nós na volta ao Porto em bicicleta!<br></td>
-                            <td>2020/13<br></td>
-                            <td>15:30h<br></td>
-                            <td>5<br></td>
-                            <td>345<br></td>
-                            <td><button class="btn btn-primary" type="button"
-                                    style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button
-                                    class="btn btn-primary" type="button"
-                                    style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Musculação em San Francisco</td>
-                            <td>Musculação</td>
-                            <td>São Francisco</td>
-                            <td>Junta-te a nós na volta ao Porto em bicicleta!<br></td>
-                            <td>2020/06/07<br></td>
-                            <td>15:30h<br></td>
-                            <td>4<br></td>
-                            <td>190<br></td>
-                            <td><button class="btn btn-primary" type="button"
-                                    style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button
-                                    class="btn btn-primary" type="button"
-                                    style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Sprinting Nova Iorque&nbsp;</td>
-                            <td>Sprinting</td>
-                            <td>Nova Iorque&nbsp;<br></td>
-                            <td>Junta-te a nós na volta ao Porto em bicicleta!<br></td>
-                            <td>2020/12/02<br></td>
-                            <td>15:30h<br></td>
-                            <td>5<br></td>
-                            <td>33<br></td>
-                            <td><button class="btn btn-primary" type="button"
-                                    style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button
-                                    class="btn btn-primary" type="button"
-                                    style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Ciclismo Londres<br></td>
-                            <td>Ciclismo</td>
-                            <td>Londres</td>
-                            <td>Junta-te a nós na volta ao Porto em bicicleta!<br></td>
-                            <td>2020/05/03<br></td>
-                            <td>15:30h<br></td>
-                            <td>5<br></td>
-                            <td>22<br></td>
-                            <td><button class="btn btn-primary" type="button"
-                                    style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button
-                                    class="btn btn-primary" type="button"
-                                    style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>BTT em Nova Iorque</td>
-                            <td>BTT</td>
-                            <td>Nova Iorque</td>
-                            <td>Junta-te a nós na volta ao Porto em bicicleta!<br></td>
-                            <td>2021/12/12<br></td>
-                            <td>15:30h<br></td>
-                            <td>6<br></td>
-                            <td>222<br></td>
-                            <td><button class="btn btn-primary" type="button"
-                                    style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button
-                                    class="btn btn-primary" type="button"
-                                    style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Triatlo Nova Iorque</td>
-                            <td>Triatlo&nbsp;</td>
-                            <td>Nova Iorque</td>
-                            <td>Junta-te a nós na volta ao Porto em bicicleta!<br></td>
-                            <td>2021/12/06<br></td>
-                            <td>15:30h<br></td>
-                            <td>4<br></td>
-                            <td>422<br></td>
-                            <td><button class="btn btn-primary" type="button"
-                                    style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button
-                                    class="btn btn-primary" type="button"
-                                    style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Natação &nbsp;Lisboa Tejo</td>
-                            <td>Natação</td>
-                            <td>Lisboa Tejo</td>
-                            <td>Junta-te a nós na volta ao Porto em bicicleta!<br></td>
-                            <td>2021/03/29<br></td>
-                            <td>15:30h<br></td>
-                            <td>7<br></td>
-                            <td>200<br></td>
-                            <td><button class="btn btn-primary" type="button"
-                                    style="margin-left: 5px;margin-bottom: 2px;">Editar</button><button
-                                    class="btn btn-primary" type="button"
-                                    style="margin: 0px;padding-left: 12px;padding-right: 12px;margin-left: 5px;margin-right: 0px;margin-bottom: 2px;">Apagar</button>
-                            </td>
-                        </tr>
+                    <tbody id="listActivitiesUser">
+
                     </tbody>
                     <tfoot>
-                        <tr></tr>
+                        <tr>
+                            <td><strong>Imagem</td>
+                            <td><strong>Id</td>
+                            <td><strong>Nome</td>
+                            <td><strong>Categoria</td>
+                            <td><strong>Descrição</td>
+                            <td><strong>Morada</td>
+                            <td><strong>Latitude</td>
+                            <td><strong>Longitude</td>
+                            <td><strong>Data</td>
+                            <td><strong>Hora</td>
+                            <td><strong>Duração</td>
+                            <td><strong>Min. Part.</td>
+                            <td><strong>Max. Part.</td>
+                            <td><strong>Ações</td>
+                        </tr>
                     </tfoot>
                 </table>
             </div>
+
         </div>
-    </div>
-    <script src="/assets/user/js/jquery.min.js"></script>
-    <script src="/assets/user/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-    <script src="/assets/user/js/Profile-Edit-Form.js"></script>
-    <script src="/assets/user/js/theme.js"></script>
+        <script type="module" src="/js/app.js"></script>
+        <script src="/assets/user/js/jquery.min.js"></script>
+        <script src="/assets/user/bootstrap/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+        <script src="/assets/user/js/Profile-Edit-Form.js"></script>
+        <script src="/assets/user/js/theme.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </body>
 
 </html>

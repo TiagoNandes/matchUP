@@ -25,4 +25,8 @@ export default class AchievementsController {
         this.medalsModel.remove(id)
         
     }
+
+    editMedal(oldName, newName, photo, description) {
+        this.medalsModel.edit(oldName, newName, photo, description)
+    }
 }

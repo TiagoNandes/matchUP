@@ -17,7 +17,8 @@ export default class UserModel {
             name: name,
             dateOfBirth: dateOfBirth,
             location: location,
-            photo: "/assets/user/img/avatars/avatar0.jpeg"
+            photo: "https://yinnepal.files.wordpress.com/2017/11/admin.png?w=640",
+            blocked: false
 
 
         }
@@ -55,4 +56,52 @@ export default class UserModel {
         this._persist()
     }
 
+    edit(id, type, username, email, name, dateOfBirth, location, photo) {
+        let allUsers = this.getAll();
+        this.userToEdit = allUsers.find(user => user.id == id);
+        this.userToEdit.type = type;
+        this.userToEdit.username = username;
+        this.userToEdit.email = email;
+        this.userToEdit.name = name;
+        this.userToEdit.dateOfBirth = dateOfBirth;
+        this.userToEdit.location = location;
+        this.userToEdit.photo = photo;
+        localStorage.setItem('users', this.userToEdit);
+
+        
+        this._persist()
+    }
+
+    editWithPassword(id, type, username, email, name, dateOfBirth, location, photo, password) {
+        let allUsers = this.getAll();
+        this.userToEdit = allUsers.find(user => user.id == id);
+        this.userToEdit.type = type;
+        this.userToEdit.username = username;
+        this.userToEdit.email = email;
+        this.userToEdit.name = name;
+        this.userToEdit.dateOfBirth = dateOfBirth;
+        this.userToEdit.location = location;
+        this.userToEdit.photo = photo;
+        this.userToEdit.password = password;
+        localStorage.setItem('users', this.userToEdit);
+
+        
+        this._persist()
+    }
+
+    block(id) {
+        const allUsers = this.getAll();
+        this.userToBlock = allUsers.find(user => user.id == id);
+        if(this.userToBlock.blocked === false){
+            this.userToBlock.blocked = true;
+            localStorage.setItem('users', this.userToBlock);
+        }
+        else{
+            this.userToBlock.blocked = false;
+            localStorage.setItem('users', this.userToBlock);
+        }
+        this._persist()
+    }
+
 }
+

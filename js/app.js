@@ -9,6 +9,8 @@ import ManageCategoriesView from './views/manageCategoriesView.js'
 import ManageAchievementsView from './views/manageAchievementsView.js'
 import ManageMedalsView from './views/manageMedalsView.js'
 import ManageActivitiesView from './views/manageActivitiesView.js'
+import ProfileView from './views/ProfileView.js'
+import ManageActivitiesUserView from './views/manageActivitiesUserView.js'
 
 class App {
     constructor() {
@@ -35,6 +37,10 @@ class App {
                 NavbarView,
                 ActivityCatalogView,
             ],
+            'profile': [
+                NavbarView,
+                ProfileView,
+            ],
             'manageUsers': [
                 ManageUserView,
             ],
@@ -49,6 +55,10 @@ class App {
             ],
             'manageActivities': [
                 ManageActivitiesView,
+            ],
+            'manageActivitiesUser': [
+                NavbarView,
+                ManageActivitiesUserView,
             ],
         };
 
@@ -151,7 +161,8 @@ class App {
                 name: "Tiago Fernandes",
                 dateOfBirth: 1,
                 location: "Porto",
-                photo: "/assets/user/img/avatars/avatar1.jpeg"
+                photo: "/assets/user/img/avatars/avatar1.jpeg",
+                blocked: true
             },
             {
                 id: 2,
@@ -162,7 +173,8 @@ class App {
                 name: "Tiago Fernandes",
                 dateOfBirth: 1,
                 location: "Porto",
-                photo: "/assets/user/img/avatars/avatar2.jpeg"
+                photo: "/assets/user/img/avatars/avatar2.jpeg",
+                blocked: false
             }
         ];
 
@@ -202,42 +214,52 @@ class App {
 
         const achievements = [{
                 id: 1,
+                photo: "https://www.awardsaplus.com/wp-content/uploads/2016/08/ICON_achievement-icon.png",
                 name: "Jogar 10 Jogos de Futebol"
             },
             {
                 id: 2,
+                photo: "https://www.awardsaplus.com/wp-content/uploads/2016/08/ICON_achievement-icon.png",
                 name: "Fazer 10 Corridas"
             },
             {
                 id: 3,
+                photo: "https://www.awardsaplus.com/wp-content/uploads/2016/08/ICON_achievement-icon.png",
                 name: "Jogar 5 Jogos de Vólei"
             },
             {
                 id: 4,
+                photo: "https://www.awardsaplus.com/wp-content/uploads/2016/08/ICON_achievement-icon.png",
                 name: "Fazer Ciclismo 5 vezes"
             },
             {
                 id: 5,
+                photo: "https://www.awardsaplus.com/wp-content/uploads/2016/08/ICON_achievement-icon.png",
                 name: "Fazer BTT 5 vezes"
             },
             {
                 id: 6,
+                photo: "https://www.awardsaplus.com/wp-content/uploads/2016/08/ICON_achievement-icon.png",
                 name: "Fazer Yoga 10 vezes"
             },
             {
                 id: 7,
+                photo: "https://www.awardsaplus.com/wp-content/uploads/2016/08/ICON_achievement-icon.png",
                 name: "Participar Numa Aula de Dança 5 vezes"
             },
             {
                 id: 8,
+                photo: "https://www.awardsaplus.com/wp-content/uploads/2016/08/ICON_achievement-icon.png",
                 name: "Jogar Basketball 5 vezes"
             },
             {
                 id: 9,
+                photo: "https://www.awardsaplus.com/wp-content/uploads/2016/08/ICON_achievement-icon.png",
                 name: "Fazer Marcha 5 vezes"
             },
             {
                 id: 10,
+                photo: "https://www.awardsaplus.com/wp-content/uploads/2016/08/ICON_achievement-icon.png",
                 name: "Jogar Andebol 10 vezes"
             },
         ];
@@ -245,7 +267,7 @@ class App {
         const medals = [{
                 id: 1,
                 name: "Futebolista Nível 1!",
-                photo: "/assets/user/img/avatars/avatar1.jpeg",
+                photo: "/assets/user/img/avatars/avatar1.png",
                 description: "Bela Medalha!"
             },
             {

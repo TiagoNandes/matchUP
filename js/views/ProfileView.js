@@ -1,0 +1,219 @@
+import UserController from '../controllers/UserController.js'
+
+export default class ProfileView {
+
+    constructor() {
+        this.userController = new UserController()
+
+        // // Catalog
+        // this.catalog = document.querySelector("#myCatalog")
+        // this.btnFilter = document.querySelector("#btnFilter")
+        // //this.btnSort = document.querySelector("#btnSort")
+        // //this.btnAdd = document.querySelector("#btnAdd")
+        // this.txtActivity = document.querySelector("#txtActivity")
+        // this.sltCategory = document.querySelector("#sltCategory")
+
+        // DOM References
+        this.userPhoto = document.querySelector('#userPhoto')
+        this.userName = document.querySelector('#userName')
+        this.userName2 = document.querySelector('#userName2')
+        this.userUserName = document.querySelector('#userUserName')
+        this.userEmail = document.querySelector('#userEmail')
+        this.userLocation = document.querySelector('#userLocation')
+
+
+        //edit
+        this.editUserForm = document.getElementById('frmEditUser');
+        this.editUserUsername = document.getElementById('txtEditUserName');
+        this.editUserName = document.getElementById('txtEditName');
+        this.editUserPassword = document.getElementById('txtEditPassword');
+        this.editUserPassword2 = document.getElementById('txtEditPassword2');
+        this.editUserType = document.getElementById('sltEditType');
+        this.editUserEmail = document.getElementById('txtEditEmail');
+        this.editUserDoB = document.getElementById('sltEditDoB');
+        this.editUserDistrict = document.getElementById('sltEditDistrict');
+        this.editUserPhoto = document.getElementById('txtEditPhoto');
+
+        // this.userPhoto = document.querySelector('#userPhoto')
+
+
+        //this.renderCatalog(this.activityController.getActivities())
+        //this.bindAddFilterEvent();
+        this.fillProfileData();
+        this.bindEditUser();
+    }
+
+    bindAddFilterEvent() {
+        this.btnFilter.addEventListener('click', () => {
+            this.renderCatalog(this.activityController.getActivities(this.txtActivity.value, this.sltCategory.value))
+        })
+    }
+
+    bindAddRemoveEvent() {
+        for (const btnRemove of document.getElementsByClassName("remove")) {
+            btnRemove.addEventListener('click', event => {
+                this.bandController.removeBand(event.target.id)
+                this.renderCatalog(this.bandController.getBands(this.txtBand.value, this.sltGenre.value))
+            })
+        }
+    }
+
+    bindAddSeeMoreEvent() {
+        for (const btnSee of document.getElementsByClassName("see")) {
+            btnSee.addEventListener('click', event => {
+                this.activityController.setCurrentActivity(event.target.id)
+                location.href = 'activity.html';
+            })
+        }
+    }
+
+    bindEditUser() {
+
+
+        //set category's data on the placeholder 
+        let userToEditId = sessionStorage.getItem('loggedUserId')
+        let allUsers = this.userController.getAllUsers();
+        this.userToEdit = allUsers.find(user => user.id == userToEditId);
+        this.editUserType.value = this.userToEdit.type;
+        this.editUserUsername.placeholder = this.userToEdit.username;
+        this.editUserEmail.placeholder = this.userToEdit.email;
+        this.editUserName.placeholder = this.userToEdit.name;
+        this.editUserPassword.value = this.userToEdit.password;
+        this.editUserPassword2.value = this.userToEdit.password;
+        this.editUserDoB.value = this.userToEdit.dateOfBirth;
+        this.editUserDistrict.value = this.userToEdit.location;
+        this.editUserPhoto.placeholder = this.userToEdit.photo;
+
+        //form
+        this.editUserForm.addEventListener('submit', event => {
+            event.preventDefault();
+
+            alert("TA A BOMBAR")
+
+            this.newType = this.editUserType.value
+
+            //if input is not empty 
+            if (this.editUserUsername.value != "") {
+                this.newUsername = this.editUserUsername.value
+            }
+            //if input is not used 
+            else {
+                this.newUsername = this.userToEdit.username
+            }
+
+            //if input is not empty 
+            if (this.editUserEmail.value != "") {
+                this.newEmail = this.editUserEmail.value
+            }
+            //if input is not used 
+            else {
+                this.newEmail = this.userToEdit.email
+            }
+
+            //if input is not empty 
+            if (this.editUserName.value != "") {
+                this.newName = this.editUserName.value
+            }
+            //if input is not used 
+            else {
+                this.newName = this.userToEdit.name
+            }
+
+            this.newDoB = this.editUserDoB.value
+
+
+            this.newLocation = this.editUserDistrict.value
+
+
+            //if input is not empty 
+            if (this.editUserPhoto.value != "") {
+                this.newPhoto = this.editUserPhoto.value
+            }
+            //if input is not used 
+            else {
+                this.newPhoto = this.userToEdit.photo
+            }
+            if (this.editUserPassword.value == this.editUserPassword2.value) {
+                this.newPassword = this.editUserPassword.value
+
+
+                this.userController.editUser(userToEditId, this.newType, this.newUsername, this.newEmail, this.newName, this.newDoB, this.newLocation, this.newPhoto);
+                location.reload();
+                this.userController.editUserWithPassword(userToEditId, this.newType, this.newUsername, this.newEmail, this.newName, this.newDoB, this.newLocation, this.newPhoto, this.newPassword);
+                    location.reload();
+
+                try {
+                    
+
+                } catch (e) {
+                    Swal.fire({
+                        title: 'Erro!',
+                        text: e,
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    })
+                }
+            } else {
+                alert("Passwords não são iguais!")
+                event.stopImmediatePropagation();
+            }
+
+
+        });
+
+    }
+
+
+
+    fillProfileData() {
+
+        const allUsers = this.userController.getAllUsers()
+        this.currentUser = allUsers.find(user => user.id == sessionStorage.getItem('loggedUserId'))
+        this.userPhoto.src = this.currentUser.photo
+        this.userName.innerHTML = "Perfil de " + this.currentUser.name
+        this.userName2.innerHTML = this.currentUser.name
+        this.userUserName.innerHTML = this.currentUser.username
+        this.userEmail.innerHTML = this.currentUser.email
+        this.userLocation.innerHTML = this.currentUser.location
+
+
+    }
+
+    renderCatalog(activities = []) {
+
+        let result = ''
+        let i = 0
+        for (const activity of activities) {
+            if (i % 3 === 0) {
+                result += `<div class="row articles">`
+            }
+            result += this._generateActivityCard(activity)
+            i++
+            if (i % 3 === 0) {
+                result += `</div>`
+            }
+        }
+
+        this.catalog.innerHTML = result
+        //this._renderAddActivityButton(this.userController.checkLoginStatus());
+
+        this.bindAddRemoveEvent()
+        this.bindAddSeeMoreEvent()
+    }
+
+    _generateActivityCard(activity) {
+        let html = ` 
+        
+        <div class="col-sm-6 col-md-4 item"><a href="#"><img style="height: 400px; width: 400px;" class="img-fluid see" id="${activity.id}"
+                            src="${activity.photo}"></a>
+                    <h3 class="name">${activity.name}</h3>
+                    <p class="description">${activity.category}</p>
+                    <p class="description">${activity.address}</p>
+                    <p class="description">${activity.date} às ${activity.hour} horas!<br></p><br>
+                    <button id="${activity.id}" class="btn btn-primary see">Ver mais</button>
+                </div>
+        `
+        return html
+    }
+
+}

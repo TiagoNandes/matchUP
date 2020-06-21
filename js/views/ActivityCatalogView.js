@@ -17,8 +17,6 @@ export default class ActivityView {
 
         this.renderCatalog(this.activityController.getActivities())
         this.bindAddFilterEvent()
-        //this.bindAddSortEvent()
-        //this.bindAddAddEvent()
     }
 
     bindAddFilterEvent() {
@@ -78,7 +76,7 @@ export default class ActivityView {
     _generateActivityCard(activity) {
         let html = ` 
         
-        <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid see" id="${activity.id}"
+        <div class="col-sm-6 col-md-4 item"><a href="#"><img style="height: 400px; width: 400px;" class="img-fluid see" id="${activity.id}"
                             src="${activity.photo}"></a>
                     <h3 class="name">${activity.name}</h3>
                     <p class="description">${activity.category}</p>
