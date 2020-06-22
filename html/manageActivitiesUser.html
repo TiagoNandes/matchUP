@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Projeto 1</title>
+    <title>matchUP</title>
     <link rel="stylesheet" href="/assets/user/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
     <link rel="stylesheet"
@@ -37,7 +37,18 @@
 
     </div>
 
-    <div class="card shadow">
+
+    <div class="container" id="hideTable">
+        <div class="intro">
+            <h5 class="text-center">Ainda não criou uma atividade!</h5>
+            <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom"
+                style="padding-top: 0px;padding-bottom: 0px;" id="navBar">
+            </nav>
+        </div>
+    </div>
+
+
+    <div class="card shadow" id="showTable">
 
         <!-- Modal edit-->
         <div class="modal fade" id="editActivityModal" tabindex="-1" role="dialog" aria-labelledby="editActivityModal"
@@ -62,10 +73,6 @@
                             <div class="form-group">
                                 <label for="sltEditCategory">Categoria</label>
                                 <select style="height: 60%;" class="form-control" id="sltEditCategory">
-
-                                    <option value="yoga">Yoga</option>
-                                    <option value="biking">Biking</option>
-                                    <option value="danca">Dança</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -145,24 +152,7 @@
                     <tbody id="listActivitiesUser">
 
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <td><strong>Imagem</td>
-                            <td><strong>Id</td>
-                            <td><strong>Nome</td>
-                            <td><strong>Categoria</td>
-                            <td><strong>Descrição</td>
-                            <td><strong>Morada</td>
-                            <td><strong>Latitude</td>
-                            <td><strong>Longitude</td>
-                            <td><strong>Data</td>
-                            <td><strong>Hora</td>
-                            <td><strong>Duração</td>
-                            <td><strong>Min. Part.</td>
-                            <td><strong>Max. Part.</td>
-                            <td><strong>Ações</td>
-                        </tr>
-                    </tfoot>
+                    
                 </table>
             </div>
 

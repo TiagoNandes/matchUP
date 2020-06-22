@@ -25,54 +25,58 @@
 </head>
 
 <body>
-    <div class="article-list" style="margin: 0px;margin-top: 64px;">
+    <div class="article-list" style="margin: 0px;margin-top: 64px;padding-top: 20px;">
         <div class="container">
             <div class="intro">
-                <h2 class="text-center">Atividades sugeridas</h2>
-                <p class="text-center">Abaixo encontram-se atividades às quais poderá aderir.</p>
+                <h2 class="text-center">Gerir Pedidos de Acesso</h2>
+                <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom"
+                    style="padding-top: 0px;padding-bottom: 0px;" id="navBar">
+                </nav>
             </div>
-            <div class="filter">
-                <form>
-                    <input id="txtActivity" placeholder="ex: Corrida, Yoga, Dança"></input><br>
-                    <select name="" id="sltCategory">
-                    </select>
-                    
-                    <select>
-                        <option value="">Localização</option>
-                    </select>
+        </div>
 
-                    <button id="btnFilter" type="button" class="btn btn-primary">Aplicar Filtros</button>
+    </div>
 
 
-                </form>
-            </div>
-
-
-           
-            <p id="myCatalog"></p>
-
-            
+    <div class="container" id="hideTable">
+        <div class="intro">
+            <h5 class="text-center">Não tem novos pedidos!</h5>
             <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom"
                 style="padding-top: 0px;padding-bottom: 0px;" id="navBar">
             </nav>
         </div>
     </div>
 
-    </div>
-    <div></div>
-    <footer class="py-5 bg-black">
-        <div class="container">
-            <p class="text-center text-white m-0 small">Desenvolvido por Rui Azevedo e Tiago Fernandes no âmbito de
-                Projeto 1</p>
-        </div>
-    </footer>
 
-    <script type="module" src="/js/app.js"></script>
-    <script src="/assets/user/js/jquery.min.js"></script>
-    <script src="/assets/user/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-    <script src="/assets/user/js/Profile-Edit-Form.js"></script>
-    <script src="/assets/user/js/theme.js"></script>
+    <div class="card shadow" id="showTable">
+
+        <div class="card-body">
+            <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                <table class="table dataTable my-0" id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>Atividade</th>
+                            <th>Data da Atividade</th>
+                            <th>Utilizador</th>
+                            <th>Justificação</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="requestsList">
+
+                    </tbody>
+                    
+                </table>
+            </div>
+
+        </div>
+        <script type="module" src="/js/app.js"></script>
+        <script src="/assets/user/js/jquery.min.js"></script>
+        <script src="/assets/user/bootstrap/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+        <script src="/assets/user/js/Profile-Edit-Form.js"></script>
+        <script src="/assets/user/js/theme.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </body>
 
 </html>

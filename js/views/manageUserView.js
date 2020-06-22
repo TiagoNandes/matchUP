@@ -35,6 +35,23 @@ export default class ManageUserView {
         this.checkLogout();
     }
 
+    blockButtonAspect() {
+
+        // Change button aspect based on user's blocked state
+
+        if (location.pathname == "/html/listActivities.html") {
+            document.querySelector("#listActivitiesLink").className = `nav-link text-white`
+            document.querySelector("#addActivityLink").className = `nav-link`
+        } else if (location.pathname == "/html/addActivity.html") {
+            document.querySelector("#listActivitiesLink").className = `nav-link`
+            document.querySelector("#addActivityLink").className = `nav-link text-white`
+        } else {
+            document.querySelector("#listActivitiesLink").className = `nav-link`
+            document.querySelector("#addActivityLink").className = `nav-link`
+        }
+    }
+
+
     bindAddRemoveUser() {
         for (const btnRemove of document.getElementsByClassName("remove")) {
             btnRemove.addEventListener('click', event => {
@@ -82,8 +99,17 @@ export default class ManageUserView {
                         confirmButtonText: 'Sim, bloquear!'
                     }).then((result) => {
                         if (result.value) {
+                           
                             this.userController.blockUser(userToBlockId)
                             this.listUsers(this.userController.getAllUsers());
+
+                            alert(btnBlock.className)
+                            btnBlock.className = "btn btn-danger block"
+                            alert(btnBlock.className)
+                            alert(btnBlock.innerHTML)
+                            btnBlock.innerHTML = "Desbloquear"
+                            alert(btnBlock.innerHTML)
+                            
                             Swal.fire(
                                 'Bloqueado!',
                                 'Utilizador bloqueado com sucesso.',
@@ -279,7 +305,7 @@ export default class ManageUserView {
     }
 
     checkLogout() {
-        
+
         // Mapeamento dos cliques nos botões de Login/Register/Logout
         if (sessionStorage.getItem("loggedUser")) {
             // Apresentação do nome do utilizador autenticado
@@ -292,8 +318,8 @@ export default class ManageUserView {
                 sessionStorage.removeItem('loggedUserPhoto');
                 sessionStorage.removeItem('loggedUserType');
                 //this.userController.logoutUser();
-                
-                location.href="../index.html";
+
+                location.href = "../index.html";
 
             })
         }

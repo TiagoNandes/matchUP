@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Table - Brand</title>
+    <title>matchUP</title>
     <link rel="stylesheet" href="/assets/admin/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
@@ -67,19 +67,16 @@
                     <h3 class="text-dark mb-4">Gerir Atividades</h3>
                     <div class="card shadow">
                         <div class="card-header py-3">
-                            <p class="text-primary m-0 font-weight-bold">Atividades<a
-                                    class="btn btn-primary btn-sm text-right text-white float-right" data-toggle="modal"
-                                    data-target="#addActivityModal" role="button"><i
-                                        class="fas fa-plus fa-sm text-white-50"></i>&nbsp;Criar Nova Atividade</a></p>
+                            <p class="text-primary m-0 font-weight-bold">Atividades
                         </div>
 
-                        <!-- Modal -->
-                        <div class="modal fade" id="addActivityModal" tabindex="-1" role="dialog"
-                            aria-labelledby="addActivityModal" aria-hidden="true">
+                        <!-- Modal edit-->
+                        <div class="modal fade" id="editActivityModal" tabindex="-1" role="dialog"
+                            aria-labelledby="editActivityModal" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Adicionar Atividade</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Editar Atividade</h5>
 
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
@@ -88,36 +85,66 @@
                                     <div class="modal-body">
 
 
-                                        <form id="frmAddActivity">
+                                        <form id="frmEditActivityUser">
                                             <div class="form-group">
-                                                <label for="txtName">Name</label>
-                                                <input type="text" class="form-control" id="txtName" required>
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-sm-3">
-                                                    <label for="sltGenre">Genre</label>
-                                                    <select class="form-control" id="sltGenre">
-                                                        <option value="Jazz">Jazz</option>
-                                                        <option value="Metal">Metal</option>
-                                                        <option value="Pop-Rock">Pop-Rock</option>
-                                                    </select>
-                                                </div>
+                                                <label for="txtEditName">Nome</label>
+                                                <input type="text" style="height: 100%;" class="form-control"
+                                                    id="txtEditName">
                                             </div>
                                             <div class="form-group">
-                                                <label for="txtPhoto">Photo link</label>
-                                                <input type="url" class="form-control" id="txtPhoto" required>
+                                                <label for="sltEditCategory">Categoria</label>
+                                                <select style="height: 60%;" class="form-control" id="sltEditCategory">
+                                                </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="txtDescription">Description</label>
-                                                <textarea class="form-control" id="txtDescription" rows="3"></textarea>
+                                                <label for="txtEditDescription">Descrição</label>
+                                                <textarea class="form-control" id="txtEditDescription"
+                                                    rows="3"></textarea>
                                             </div>
                                             <div class="form-group">
-                                                <label for="txtVideo">Video Clip link</label>
-                                                <input type="url" class="form-control" id="txtVideo">
+                                                <label for="txtEditAddress">Endereço</label>
+                                                <input type="text" style="height: 100%;" class="form-control"
+                                                    id="txtEditAddress">
                                             </div>
-                                            <button type="submit" class="btn btn-primary">Submit</button>
-                                            <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Close</button>
+                                            <div class="form-group">
+                                                <label for="txtEditPhoto">Imagem</label>
+                                                <input type="url" class="form-control" id="txtEditPhoto">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtEditLatitude">Latitude</label>
+                                                <input type="text" style="height: 100%;" class="form-control"
+                                                    id="txtEditLatitude">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtEditLongitude">Longitude</label>
+                                                <input type="text" style="height: 100%;" class="form-control"
+                                                    id="txtEditLongitude">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="sltEditDay">Dia</label>
+                                                <input class="form-control" type="date" style="height: 100%;"
+                                                    id="sltEditDay">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="sltEditHour">Hora</label>
+                                                <input class="form-control" type="time" id="sltEditHour" name="appt">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtEditDuration">Duração (em horas)</label>
+                                                <input type="number" style="height: 100%;" class="form-control"
+                                                    id="txtEditDuration">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtEditMinParticipants">Mínimo de participantes</label>
+                                                <input type="number" style="height: 100%;" class="form-control"
+                                                    id="txtEditMinParticipants">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtEditMaxParticipants">Máximo de participantes</label>
+                                                <input type="number" style="height: 100%;" class="form-control"
+                                                    id="txtEditMaxParticipants">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Guardar</button>
                                         </form>
 
 
@@ -129,23 +156,7 @@
 
 
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6 text-nowrap">
-                                    <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
-                                        <label>Mostrar&nbsp;<select
-                                                class="form-control form-control-sm custom-select custom-select-sm">
-                                                <option value="10" selected="">10</option>
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="100">100</option>
-                                            </select>&nbsp;</label></div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input
-                                                type="search" class="form-control form-control-sm"
-                                                aria-controls="dataTable" placeholder="Procurar..." /></label></div>
-                                </div>
-                            </div>
+
                             <div class="table-responsive table mt-2" id="dataTable" role="grid"
                                 aria-describedby="dataTable_info">
                                 <table class="table dataTable my-0" id="dataTable">
@@ -192,26 +203,7 @@
                                     </tfoot>
                                 </table>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6 align-self-center">
-                                    <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">A
-                                        mostrar 1 a 10 de 27</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <nav
-                                        class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
-                                        <ul class="pagination">
-                                            <li class="page-item disabled"><a class="page-link" href="#"
-                                                    aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span
-                                                        aria-hidden="true">»</span></a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

@@ -1,10 +1,12 @@
 import ActivityController from '../controllers/ActivityController.js'
 import UserController from '../controllers/UserController.js'
+import CategoryController from '../controllers/categoriesController.js'
 
 export default class AddActivityView {
     constructor(){
         this.activityController = new ActivityController();
         this.userController = new UserController();
+        this.categoryController = new CategoryController()
 
         //add
         this.addActivityForm = document.getElementById('frmAddActivityUser');
@@ -21,6 +23,10 @@ export default class AddActivityView {
         this.txtMinParticipants = document.getElementById('txtMinParticipants');
         this.txtMaxParticipants = document.getElementById('txtMaxParticipants');
         this.bindAddActivityForm();
+
+        //render category input
+        this.categoryInput = document.querySelector("#sltEditCategory")
+        this.renderCategories(this.categoryController.getAllCategories())
     }
 
     renderAddActivityForm(userIsLogged) {
@@ -71,4 +77,30 @@ export default class AddActivityView {
         });
     }
 
+    renderCategories(categories = []) {
+
+        let result = ''
+        let i = 0
+        result += `<option value="">Categoria...</option>` 
+        for (const category of categories) {
+
+            result += this._generateCategorySelect(category)
+            i++
+
+
+        }
+
+        this.categoryInput.innerHTML = result
+
+        
+    }
+
+    _generateCategorySelect(category) {
+        let html = ` 
+        
+        <option value="${category.name}">${category.name}</option>
+
+        `
+        return html
+    }
 }

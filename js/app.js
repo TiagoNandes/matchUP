@@ -11,6 +11,8 @@ import ManageMedalsView from './views/manageMedalsView.js'
 import ManageActivitiesView from './views/manageActivitiesView.js'
 import ProfileView from './views/ProfileView.js'
 import ManageActivitiesUserView from './views/manageActivitiesUserView.js'
+import ActivityHistoryView from './views/ActivityHistoryView.js'
+import ManageRequestsView from './views/manageRequestsView.js'
 
 class App {
     constructor() {
@@ -60,6 +62,14 @@ class App {
                 NavbarView,
                 ManageActivitiesUserView,
             ],
+            'activityHistory': [
+                NavbarView,
+                ActivityHistoryView,
+            ],
+            'manageRequests': [
+                NavbarView,
+                ManageRequestsView,
+            ],
         };
 
         // import dummy data for testing purposes
@@ -95,12 +105,12 @@ class App {
                 photo: '/assets/user/img/AdobeStock_212822246-400x400.jpeg',
                 latitude: '41.14961',
                 longitude: '-8.61099',
-                date: '2021-02-01',
-                hour: '20',
+                date: '2020-06-25',
+                hour: '15:35',
                 duration: '120',
                 minParticipants: '2',
                 maxParticipants: '24',
-                host: 'Tiago'
+                host: 'atleta'
             },
             {
                 id: 2,
@@ -111,12 +121,12 @@ class App {
                 photo: '/assets/user/img/tomaz-slotrips-biking-guide.jpg',
                 latitude: '41.14961',
                 longitude: '-8.61099',
-                date: '2021-02-01',
-                hour: '20',
+                date: '2020-06-26',
+                hour: '15:00',
                 duration: '120',
                 minParticipants: '2',
                 maxParticipants: '24',
-                host: 'Quim'
+                host: 'atleta'
             },
             {
                 id: 3,
@@ -127,12 +137,12 @@ class App {
                 photo: '/assets/user/img/Yoga_connect.jpeg',
                 latitude: '41.14961',
                 longitude: '-8.61099',
-                date: '2021-02-01',
-                hour: '20',
+                date: '2020-06-27',
+                hour: '17:30',
                 duration: '120',
                 minParticipants: '2',
                 maxParticipants: '24',
-                host: 'Manel'
+                host: 'atleta'
             },
             {
                 id: 4,
@@ -143,8 +153,8 @@ class App {
                 photo: '/assets/user/img/AdobeStock_212822246-400x400.jpeg',
                 latitude: '41.14961',
                 longitude: '-8.61099',
-                date: '2021-02-01',
-                hour: '20',
+                date: '2020-06-21',
+                hour: '10:20',
                 duration: '120',
                 minParticipants: '2',
                 maxParticipants: '24',
@@ -177,6 +187,33 @@ class App {
                 blocked: false
             }
         ];
+
+        //userId, host, activityId, justification, state
+        const requests = [{
+            id: 1,
+            userId: 1,
+            host: "atleta",
+            activityId: 1,
+            justification: "Gosto muito de Yoga",
+            state: "Pendente"
+        },
+        {
+            id: 2,
+            userId: 1,
+            host: "atleta",
+            activityId: 2,
+            justification: "Gosto muito de Biking",
+            state: "Aceite"
+        },
+        {
+            id: 3,
+            userId: 1,
+            host: "atleta",
+            activityId: 3,
+            justification: "Gosto muito de Dança",
+            state: "Recusado"
+        }
+    ];
 
         const categories = [{
                 id: 1,
@@ -267,7 +304,7 @@ class App {
         const medals = [{
                 id: 1,
                 name: "Futebolista Nível 1!",
-                photo: "/assets/user/img/avatars/avatar1.png",
+                photo: "/assets/user/img/avatars/avatar1.jpeg",
                 description: "Bela Medalha!"
             },
             {
@@ -354,6 +391,7 @@ class App {
                 photo: "/assets/user/img/avatars/avatar1.jpeg",
                 description: "Bela Medalha!"
             },
+            
         ];
 
         // Load the fixtures in case there is no data in the local storage 
@@ -371,6 +409,9 @@ class App {
         }
         if (!localStorage.medals) {
             localStorage.setItem('medals', JSON.stringify(medals));
+        }
+        if (!localStorage.requests) {
+            localStorage.setItem('requests', JSON.stringify(requests));
         }
     }
 }

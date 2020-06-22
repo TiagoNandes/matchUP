@@ -20,16 +20,16 @@ export default class NavbarView {
         let result = ""
         result =
             `
-        <div class="container"><a class="navbar-brand" href="#">matchup</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand" href="">matchup</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button>
                        
             `
         if (sessionStorage.getItem("loggedUser")) {
             result += `
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="nav navbar-nav mr-auto">
-            <li class="nav-item" role="presentation"><a class="nav-link text-white"
+            <li class="nav-item" role="presentation"><a id="listActivitiesLink" class="nav-link"
                     href="listActivities.html">Listar atividades</a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" href="addActivity.html">criar
+            <li class="nav-item" role="presentation"><a id="addActivityLink" class="nav-link" href="addActivity.html">criar
                     atividade</a></li>
         </ul>
         <div class="nav-item dropdown no-arrow"><button class="btn btn-primary dropdown-toggle"
@@ -39,10 +39,12 @@ export default class NavbarView {
                                         src="" /></button>
             <div role="menu" class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a
                     role="presentation" class="dropdown-item" href="profile.html"><i
-                        class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Editar Perfil</a><a
+                        class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Perfil</a><a
                     role="presentation" class="dropdown-item" href="manageActivitiesUser.html"><i
                         class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Gerir Atividades</a>
-                <a role="presentation" class="dropdown-item" href="manageActivitiesUser.html"><i
+                        <a role="presentation" class="dropdown-item" href="manageRequests.html"><i
+                        class="fas fa-arrow-alt-circle-down fa-sm fa-fw mr-2 text-gray-400"></i> Gerir Pedidos de Acesso</a>
+                        <a role="presentation" class="dropdown-item" href="activityHistory.html"><i
                         class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Histórico de
                     Atividades</a>
                 <div class="dropdown-divider" ></div><a type="button" role="presentation" class="dropdown-item"
@@ -84,24 +86,35 @@ export default class NavbarView {
                 sessionStorage.removeItem('loggedUserPhoto');
                 sessionStorage.removeItem('loggedUserType');
                 //this.userController.logoutUser();
-                
-                location.href="../index.html";
+
+                location.href = "../index.html";
 
             })
+        }
+
+        // Change isActive based on the page we are on
+        if (location.pathname == "/html/listActivities.html") {
+            document.querySelector("#listActivitiesLink").className = `nav-link text-white`
+            document.querySelector("#addActivityLink").className = `nav-link`
+        } else if (location.pathname == "/html/addActivity.html") {
+            document.querySelector("#listActivitiesLink").className = `nav-link`
+            document.querySelector("#addActivityLink").className = `nav-link text-white`
+        } else {
+            document.querySelector("#listActivitiesLink").className = `nav-link`
+            document.querySelector("#addActivityLink").className = `nav-link`
         }
 
     }
 
 
     // NavBarMap() {
-    //     alert("Nao está a fazer nada fdc")
+    //    
     //     // Mapeamento dos cliques nos botões de Login/Register/Logout
     //     if (sessionStorage.getItem("loggedUser") && sessionStorage.getItem("loggedUserPhoto")) {
     //         alert("vou-me matar")
     //         // Apresentação do nome do utilizador autenticado
     //         document.querySelector("#loggedUser").innerHTML = `Olá ${sessionStorage.getItem("loggedUser")}</a>`
     //         document.querySelector("#loggedUserPhoto").src = `${sessionStorage.getItem("loggedUserPhoto")}`
-    //         alert("OI")
     //         // Clique no botão de logout
     //         document.querySelector("#btnLogout").addEventListener("click", function () {
 

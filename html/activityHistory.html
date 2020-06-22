@@ -26,17 +26,28 @@
 
 <body>
     <div class="article-list" style="margin: 0px;margin-top: 64px;">
-        <div class="container">
+        <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom"
+            style="padding-top: 0px;padding-bottom: 0px;" id="navBar">
+        </nav>
+        <div class="container ">
             <div class="intro">
-                <h2 class="text-center">Atividades sugeridas</h2>
-                <p class="text-center">Abaixo encontram-se atividades às quais poderá aderir.</p>
+                <h2 class="text-center">Histórico de Atividades</h2>
             </div>
-            <div class="filter">
+            <div class="container" id="hideActivities">
+                <div class="intro">
+                    <h5 class="text-center">Ainda não participou numa atividade!</h5>
+                    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom"
+                        style="padding-top: 0px;padding-bottom: 0px;" id="navBar">
+                    </nav>
+                </div>
+            </div>
+
+            <div class="filter" id="showActivities">
                 <form>
                     <input id="txtActivity" placeholder="ex: Corrida, Yoga, Dança"></input><br>
-                    <select name="" id="sltCategory">
+
+                    <select id="sltEditCategory">
                     </select>
-                    
                     <select>
                         <option value="">Localização</option>
                     </select>
@@ -45,16 +56,15 @@
 
 
                 </form>
+                <p id="activityHistory"></p>
             </div>
 
 
-           
-            <p id="myCatalog"></p>
 
-            
-            <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom"
-                style="padding-top: 0px;padding-bottom: 0px;" id="navBar">
-            </nav>
+
+
+
+
         </div>
     </div>
 

@@ -1,10 +1,11 @@
 import ActivityController from '../controllers/activityController.js'
+import CategoryController from '../controllers/categoriesController.js'
 
 export default class ManageActivitiesUserView {
     constructor() {
 
         this.activitiesController = new ActivityController();
-
+        this.categoryController = new CategoryController()
         this.activitiesList = document.querySelector("#listActivitiesUser")
 
         //edit
@@ -22,16 +23,52 @@ export default class ManageActivitiesUserView {
         this.txtEditMinParticipants = document.getElementById('txtEditMinParticipants');
         this.txtEditMaxParticipants = document.getElementById('txtEditMaxParticipants');
 
+        //render category input
+        this.categoryInput = document.querySelector("#sltEditCategory")
 
         this.listActivities(this.activitiesController.getAllActivities());
+        this.renderCategories(this.categoryController.getAllCategories())
 
+        this.checkIfActivitiesExist();
+
+    }
+
+    checkIfActivitiesExist() {
+        let allActivities = this.activitiesController.getAllActivities();
+        this.activityHost = allActivities.find(activity => activity.host == sessionStorage.getItem("loggedUser"))
+
+        if (this.activityHost == undefined) {
+            document.querySelector("#hideTable").className = `container `
+            document.querySelector("#showTable").className = `card shadow invisible`
+        } else {
+            document.querySelector("#hideTable").className = `container invisible`
+            document.querySelector("#showTable").className = `card shadow `
+        }
     }
 
     bindAddRemoveActivity() {
         for (const btnRemove of document.getElementsByClassName("remove")) {
             btnRemove.addEventListener('click', event => {
-                this.activitiesController.removeActivity(event.target.id)
-                this.listActivities(this.activitiesController.getAllActivities());
+
+                Swal.fire({
+                    title: 'Tem a certeza que quer apagar?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sim, apagar!'
+                }).then((result) => {
+                    if (result.value) {
+                        this.activitiesController.removeActivity(event.target.id)
+                        this.listActivities(this.activitiesController.getAllActivities());
+                        Swal.fire(
+                            'Apagado!',
+                            'Atividade apagada com sucesso.',
+                            'success'
+                        )
+                    }
+                })
+
             })
         }
     }
@@ -153,11 +190,13 @@ export default class ManageActivitiesUserView {
                         this.newMaxParticipants = this.activityToEdit.maxParticipants
                     }
 
-                    this.activitiesController.editActivity(activityToEditId, this.newName, this.newCategory, this.newDescription, this.newAddress, this.newPhoto,
-                        this.newLatitude, this.newLongitude, this.newDay, this.newHour, this.newDuration, this.newMinParticipants, this.newMaxParticipants);
-                    location.reload();
+
                     try {
-                        
+                        this.activitiesController.editActivity(activityToEditId, this.newName, this.newCategory, this.newDescription, this.newAddress, this.newPhoto,
+                            this.newLatitude, this.newLongitude, this.newDay, this.newHour, this.newDuration, this.newMinParticipants, this.newMaxParticipants);
+
+                        location.reload();
+
 
 
                     } catch (e) {
@@ -180,12 +219,11 @@ export default class ManageActivitiesUserView {
 
         let result = ''
         for (const activity of activities) {
-            if (activity.host == sessionStorage.getItem("loggedUser")) {
+            if (activity.host == sessionStorage.getItem("loggedUser") && activity.host != null) {
                 result += `<tr>`
                 result += this._generateActivitiesTable(activity)
                 result += `</tr>`
             }
-
         }
 
         this.activitiesList.innerHTML = result
@@ -219,5 +257,33 @@ export default class ManageActivitiesUserView {
         `
         return html
     }
+
+    renderCategories(categories = []) {
+
+        let result = ''
+        let i = 0
+        for (const category of categories) {
+
+            result += this._generateCategorySelect(category)
+            i++
+
+
+        }
+
+        this.categoryInput.innerHTML = result
+        //this._renderAddActivityButton(this.userController.checkLoginStatus());
+
+        
+    }
+
+    _generateCategorySelect(category) {
+        let html = ` 
+        
+        <option value="${category.name}">${category.name}</option>
+
+        `
+        return html
+    }
+
 
 }

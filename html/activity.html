@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Projeto 1</title>
+    <title>matchUP</title>
     <link rel="stylesheet" href="/assets/user/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
     <link rel="stylesheet"
@@ -38,7 +38,8 @@
         </nav>
         <div class="row align-items-center" style="margin-top: 0px;padding-top: 10px;">
             <div class="col-lg-6 order-lg-1">
-                <div class="p-5"><img style="height: 400px; width: 400px;" class="rounded-circle img-fluid" id="activityPhoto" src=""></div>
+                <div class="p-5"><img style="height: 400px; width: 400px;" class="rounded-circle img-fluid"
+                        id="activityPhoto" src=""></div>
             </div>
             <div class="col-lg-6 order-lg-2">
                 <div class="p-5">
@@ -52,12 +53,14 @@
                     </p>
                     <p id="activityMinParticipants"></p>
                     <p style="display: inline" id="activityHost"></p>
-                    <form>
-                        <div class="field"><textarea class="form-control" name="float-textarea"
-                                style="border: 0; border-bottom: 1px solid #E0E0E0;" placeholder=" "></textarea><label
+                    <p id="acceptedText" class="text-success" style="font-size: 22px;">Está inscrito, divirta-se!</p>
+                    <form id="addRequestForm">
+                        <div class="field"><textarea id="txtJustification" class="form-control" name="float-textarea"
+                                style="border: 0; border-bottom: 1px solid #E0E0E0;" placeholder=" " required></textarea><label
                                 class="mb-0" for="float-textarea">Justifique a sua adesão</label></div>
-                    </form><a href="activityPage-Inscrito.html"><button class="btn btn-primary" type="button"
-                            style="margin-left: 4px;margin-top: 4px;">Aderir</button></a>
+                        <button id="btnAddRequest" class="btn btn-primary" type="submit"
+                                style="margin-left: 4px;margin-top: 4px;">Aderir</button>
+                    </form>
 
                 </div>
             </div>

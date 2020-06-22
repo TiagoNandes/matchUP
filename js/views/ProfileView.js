@@ -1,10 +1,13 @@
 import UserController from '../controllers/UserController.js'
+import MedalsController from '../controllers/medalsController.js'
+import AchievementsController from '../controllers/achievementsController.js'
 
 export default class ProfileView {
 
     constructor() {
         this.userController = new UserController()
-
+        this.medalsController = new MedalsController()
+        this.achievementsController = new AchievementsController()
         // // Catalog
         // this.catalog = document.querySelector("#myCatalog")
         // this.btnFilter = document.querySelector("#btnFilter")
@@ -12,6 +15,9 @@ export default class ProfileView {
         // //this.btnAdd = document.querySelector("#btnAdd")
         // this.txtActivity = document.querySelector("#txtActivity")
         // this.sltCategory = document.querySelector("#sltCategory")
+
+        this.medalCatalog = document.querySelector("#medalCatalog")
+        this.achievementCatalog = document.querySelector("#achievemetCatalog")
 
         // DOM References
         this.userPhoto = document.querySelector('#userPhoto')
@@ -37,7 +43,8 @@ export default class ProfileView {
         // this.userPhoto = document.querySelector('#userPhoto')
 
 
-        //this.renderCatalog(this.activityController.getActivities())
+        this.renderMedalCatalog(this.medalsController.getAllMedals())
+        this.renderAchievementCatalog(this.achievementsController.getAllAchievements())
         //this.bindAddFilterEvent();
         this.fillProfileData();
         this.bindEditUser();
@@ -87,8 +94,6 @@ export default class ProfileView {
         //form
         this.editUserForm.addEventListener('submit', event => {
             event.preventDefault();
-
-            alert("TA A BOMBAR")
 
             this.newType = this.editUserType.value
 
@@ -140,10 +145,10 @@ export default class ProfileView {
                 this.userController.editUser(userToEditId, this.newType, this.newUsername, this.newEmail, this.newName, this.newDoB, this.newLocation, this.newPhoto);
                 location.reload();
                 this.userController.editUserWithPassword(userToEditId, this.newType, this.newUsername, this.newEmail, this.newName, this.newDoB, this.newLocation, this.newPhoto, this.newPassword);
-                    location.reload();
+                location.reload();
 
                 try {
-                    
+
 
                 } catch (e) {
                     Swal.fire({
@@ -179,41 +184,72 @@ export default class ProfileView {
 
     }
 
-    renderCatalog(activities = []) {
+    renderMedalCatalog(medals = []) {
 
         let result = ''
         let i = 0
-        for (const activity of activities) {
+        for (const medal of medals) {
             if (i % 3 === 0) {
-                result += `<div class="row articles">`
+                result += `<div class="card-group">`
             }
-            result += this._generateActivityCard(activity)
+            result += this._generateMedalCard(medal)
             i++
             if (i % 3 === 0) {
-                result += `</div>`
+                result += ` </div>`
             }
         }
 
-        this.catalog.innerHTML = result
-        //this._renderAddActivityButton(this.userController.checkLoginStatus());
+        this.medalCatalog.innerHTML = result
 
-        this.bindAddRemoveEvent()
-        this.bindAddSeeMoreEvent()
+        
     }
 
-    _generateActivityCard(activity) {
+    _generateMedalCard(medal) {
         let html = ` 
-        
-        <div class="col-sm-6 col-md-4 item"><a href="#"><img style="height: 400px; width: 400px;" class="img-fluid see" id="${activity.id}"
-                            src="${activity.photo}"></a>
-                    <h3 class="name">${activity.name}</h3>
-                    <p class="description">${activity.category}</p>
-                    <p class="description">${activity.address}</p>
-                    <p class="description">${activity.date} às ${activity.hour} horas!<br></p><br>
-                    <button id="${activity.id}" class="btn btn-primary see">Ver mais</button>
-                </div>
+        <div class="card col-md-4" style="margin: 10px;">
+        <img class="card-img-top" src="${medal.photo}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">${medal.name}</h5>
+                                    <p class="card-text">${medal.description}</p>
+                                </div>
+                                </div>
         `
         return html
     }
+
+
+    renderAchievementCatalog(achievements = []) {
+
+        let result = ''
+        let i = 0
+        for (const achievement of achievements) {
+            if (i % 3 === 0) {
+                result += `<div class="card-group">`
+            }
+            result += this._generateAchievementCard(achievement)
+            i++
+            if (i % 3 === 0) {
+                result += ` </div>`
+            }
+        }
+
+        this.achievementCatalog.innerHTML = result
+
+        
+    }
+
+    _generateAchievementCard(achievement) {
+        let html = ` 
+        <div class="card col-md-4" style="margin: 10px;">
+        <img class="card-img-top" src="${achievement.photo}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">${achievement.name}</h5>
+                                </div>
+                                </div>
+        `
+        return html
+    }
+
+
 
 }
