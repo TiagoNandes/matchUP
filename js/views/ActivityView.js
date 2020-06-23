@@ -45,7 +45,7 @@ export default class ActivityView {
 
         const myMapOptions = {
             center: place,
-            zoom: 18,
+            zoom: 17,
             mapTypeId: "satellite"
         };
         var map = new google.maps.Map(document.getElementById("googleMap"), myMapOptions);
