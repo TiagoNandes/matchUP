@@ -1,6 +1,7 @@
 import ActivityController from '../controllers/ActivityController.js'
 import UserController from '../controllers/UserController.js'
 import CategoryController from '../controllers/categoriesController.js'
+import RequestsController from '../controllers/requestsController.js';
 
 export default class ActivityHistoryView {
 
@@ -8,6 +9,7 @@ export default class ActivityHistoryView {
         this.activityController = new ActivityController()
         this.userController = new UserController()
         this.categoryController = new CategoryController()
+        this.requestsController = new RequestsController()
 
         // Catalog
         this.catalog = document.querySelector("#activityHistory")
@@ -79,24 +81,32 @@ export default class ActivityHistoryView {
     }
 
     renderCatalog(activities = []) {
+        let allRequests = this.requestsController.getAllRequests();
 
         let result = ''
         let i = 0
+
+
+        this.activitiesParticipated = allRequests.filter(request => request.userId == sessionStorage.getItem("loggedUserId"))
+
         for (const activity of activities) {
-            if (activity.host == sessionStorage.getItem("loggedUser")) {
-                if (i % 3 === 0) {
-                    result += `<div class="row articles">`
-                }
-                result += this._generateActivityCard(activity)
-                i++
-                if (i % 3 === 0) {
-                    result += `</div>`
+            for (let act in this.activitiesParticipated) {
+                if (activity.id == this.activitiesParticipated[act].activityId) {
+                    if (i % 3 === 0) {
+                        result += `<div class="row articles">`
+                    }
+                    result += this._generateActivityCard(activity)
+                    i++
+                    if (i % 3 === 0) {
+                        result += `</div>`
+                    }
                 }
             }
         }
 
+
+
         this.catalog.innerHTML = result
-        //this._renderAddActivityButton(this.userController.checkLoginStatus());
 
         this.bindAddRemoveEvent()
         this.bindAddSeeMoreEvent()
