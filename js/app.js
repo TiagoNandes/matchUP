@@ -13,6 +13,7 @@ import ProfileView from './views/ProfileView.js'
 import ManageActivitiesUserView from './views/manageActivitiesUserView.js'
 import ActivityHistoryView from './views/ActivityHistoryView.js'
 import ManageRequestsView from './views/manageRequestsView.js'
+import StatisticsView from './views/statisticsView.js'
 
 class App {
     constructor() {
@@ -70,6 +71,9 @@ class App {
                 NavbarView,
                 ManageRequestsView,
             ],
+            'statistics': [
+                StatisticsView,
+            ],
         };
 
         // import dummy data for testing purposes
@@ -107,7 +111,7 @@ class App {
                 longitude: '-8.61099',
                 date: '2020-06-25',
                 hour: '15:35',
-                duration: '120',
+                duration: '2',
                 minParticipants: '2',
                 maxParticipants: '24',
                 host: 'atleta'
@@ -169,7 +173,7 @@ class App {
                 email: "atleta@atleta.com",
                 password: "12345",
                 name: "Tiago Fernandes",
-                dateOfBirth: 1,
+                dateOfBirth: '1990-02-06',
                 location: "Porto",
                 photo: "https://thumbs.web.sapo.io/?W=800&H=0&delay_optim=1&epic=OWYzgOzI231PlJytHOBPjnIeMqBWY+SJunVC6fPsVZbV28Bdi11sUF9TZNVvcXz4+y0+7Fg2KfY8VUT3o0Cn4tJdQlsO7PEK3q6FW3sDz7Zt6mc=",
                 blocked: true
@@ -181,7 +185,7 @@ class App {
                 email: "admin@admin.com",
                 password: "12345",
                 name: "Tiago Fernandes",
-                dateOfBirth: 1,
+                dateOfBirth: '2000-10-02',
                 location: "Porto",
                 photo: "/assets/user/img/avatars/avatar2.jpeg",
                 blocked: false

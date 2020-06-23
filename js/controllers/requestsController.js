@@ -12,7 +12,6 @@ export default class RequestController {
 
     //Add new request 
     addRequest(userId, host, activityId, justification, state) {
-        alert("TOU AQUI")
         if (!this.requestModel.getAll().some(request => request.userId == userId) || !this.requestModel.getAll().some(request => request.activityId == activityId)) {
             this.requestModel.create(userId, host, activityId, justification, state);
         } else {

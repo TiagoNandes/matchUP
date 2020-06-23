@@ -26,10 +26,9 @@ export default class RegisterView {
                 if (this.registerPassword.value !==this.registerPassword2.value) {
                     throw Error('Password and Confirm Password are not equal');   
                 }
-                alert("atleta" + this.registerUsername.value + this.registerEmail.value + this.registerPassword.value + this.registerName.value + this.registerDoB.value + this.registerLocation.value)
-                this.userController.createUser("atleta" , this.registerUsername.value, this.registerEmail.value, this.registerPassword.value, this.registerName.value, this.registerDoB.value, this.registerLocation.value );
+                 this.userController.createUser("atleta" , this.registerUsername.value, this.registerEmail.value, this.registerPassword.value, this.registerName.value, this.registerDoB.value, this.registerLocation.value );
                 this.displayRegisterMessage('User registered with success!', 'success');
-                alert("Sucesso!")
+                
                 location.href='login.html';
             } catch(e) {
                 this.displayRegisterMessage(e, 'danger');

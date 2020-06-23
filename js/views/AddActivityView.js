@@ -11,7 +11,6 @@ export default class AddActivityView {
         //add
         this.addActivityForm = document.getElementById('frmAddActivityUser');
         this.txtName = document.getElementById('txtName');
-        this.sltCategory = document.getElementById('sltCategory');
         this.txtDescription = document.getElementById('txtDescription');
         this.txtAddress = document.getElementById('txtAddress');
         this.txtPhoto = document.getElementById('txtPhoto');
@@ -44,26 +43,27 @@ export default class AddActivityView {
             event.preventDefault();
 
 
+            this.activityController.addActivity(
+                this.txtName.value,
+                this.categoryInput.value,
+                this.txtDescription.value,
+                this.txtAddress.value,
+                this.txtPhoto.value,
+                this.txtLatitude.value,
+                this.txtLongitude.value,
+                this.sltDay.value,
+                this.sltHour.value,
+                this.txtDuration.value,
+                this.txtMinParticipants.value,
+                this.txtMaxParticipants.value,
+                sessionStorage.getItem('loggedUser')
+
+            );
+            location.href = 'listActivities.html';
             //name, category, description, address, photo, latitude, 
             //longitude, date, hour, duration, minParticipants, maxParticipants, host
             try {
-                this.activityController.addActivity(
-                    this.txtName.value,
-                    this.sltCategory.value,
-                    this.txtDescription.value,
-                    this.txtAddress.value,
-                    this.txtPhoto.value,
-                    this.txtLatitude.value,
-                    this.txtLongitude.value,
-                    this.sltDay.value,
-                    this.sltHour.value,
-                    this.txtDuration.value,
-                    this.txtMinParticipants.value,
-                    this.txtMaxParticipants.value,
-                    sessionStorage.getItem('loggedUser')
-
-                );
-                location.reload();
+                
 
 
             } catch (e) {
