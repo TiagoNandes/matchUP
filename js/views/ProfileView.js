@@ -34,7 +34,6 @@ export default class ProfileView {
         this.editUserName = document.getElementById('txtEditName');
         this.editUserPassword = document.getElementById('txtEditPassword');
         this.editUserPassword2 = document.getElementById('txtEditPassword2');
-        this.editUserType = document.getElementById('sltEditType');
         this.editUserEmail = document.getElementById('txtEditEmail');
         this.editUserDoB = document.getElementById('sltEditDoB');
         this.editUserDistrict = document.getElementById('sltEditDistrict');
@@ -81,7 +80,6 @@ export default class ProfileView {
         let userToEditId = sessionStorage.getItem('loggedUserId')
         let allUsers = this.userController.getAllUsers();
         this.userToEdit = allUsers.find(user => user.id == userToEditId);
-        this.editUserType.value = this.userToEdit.type;
         this.editUserUsername.placeholder = this.userToEdit.username;
         this.editUserEmail.placeholder = this.userToEdit.email;
         this.editUserName.placeholder = this.userToEdit.name;
@@ -95,7 +93,7 @@ export default class ProfileView {
         this.editUserForm.addEventListener('submit', event => {
             event.preventDefault();
 
-            this.newType = this.editUserType.value
+            this.newType = "atleta"
 
             //if input is not empty 
             if (this.editUserUsername.value != "") {

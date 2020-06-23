@@ -146,19 +146,19 @@ class App {
             },
             {
                 id: 4,
-                name: 'Yoga no Parque da Cidade',
-                category: 'Yoga',
-                description: 'Junta-te  a nós nesta aula de Yoga completamente gratuíta no Parque da Cidade do Porto! Apenas precisas de trazer o teu tapete de yoga e divertires-te!',
-                address: 'Estrada Interior da Circunvalação, 4100-083 Porto',
-                photo: '/assets/user/img/AdobeStock_212822246-400x400.jpeg',
+                name: 'Ciclismo em Lisboa',
+                category: 'Biking',
+                description: 'Junta-te  a nós nesta volta em bicicleta a Lisboa! Apenas precisas de trazer a tua bicicleta e divertires-te!',
+                address: 'Rua da Igreja, 4100-083 Lisboa',
+                photo: 'https://images.theconversation.com/files/166681/original/file-20170425-13411-1bbrx53.jpeg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop',
                 latitude: '41.14961',
                 longitude: '-8.61099',
-                date: '2020-06-21',
+                date: '2020-06-29',
                 hour: '10:20',
                 duration: '120',
                 minParticipants: '2',
                 maxParticipants: '24',
-                host: 'Zé'
+                host: 'tiago'
             }
         ];
 
@@ -171,7 +171,7 @@ class App {
                 name: "Tiago Fernandes",
                 dateOfBirth: 1,
                 location: "Porto",
-                photo: "/assets/user/img/avatars/avatar1.jpeg",
+                photo: "https://thumbs.web.sapo.io/?W=800&H=0&delay_optim=1&epic=OWYzgOzI231PlJytHOBPjnIeMqBWY+SJunVC6fPsVZbV28Bdi11sUF9TZNVvcXz4+y0+7Fg2KfY8VUT3o0Cn4tJdQlsO7PEK3q6FW3sDz7Zt6mc=",
                 blocked: true
             },
             {
