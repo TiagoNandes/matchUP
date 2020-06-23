@@ -36,14 +36,6 @@ export default class RegisterView {
         });
     }
 
-    
-    // bindAddLogoutEvent() {
-    //     this.logoutButton.addEventListener('click', event => {
-    //         this.userController.logoutUser();
-    //         this.updateButtons('logout');
-    //         location.reload()
-    //     });
-    // }
 
     checkLoginStatus() {
         if (this.userController.checkLoginStatus()) {
@@ -58,18 +50,5 @@ export default class RegisterView {
             `<div class="alert alert-${type}" role="alert">${message}</div>`;
     }
 
-   
-    // updateButtons(event) {
-    //     switch(event) {
-    //         case 'login':
-    //             this.loginButton.style.visibility = 'hidden'
-    //             this.registerButton.style.visibility = 'hidden'
-    //             this.logoutButton.style.visibility = 'visible'
-    //             break;
-    //         case 'logout':
-    //             this.loginButton.style.visibility = 'visible'
-    //             this.registerButton.style.visibility = 'visible'
-    //             this.logoutButton.style.visibility = 'hidden'
-    //     }
-    // }
+  
 }

@@ -6,11 +6,8 @@ export default class NavbarView {
         this.userController = new UserController()
 
         this.updateNavbar()
-        //this.NavBarMap()
 
     }
-
-
 
     /**
      * Função para atualizar a barra de navageação tendo em conta se existe (ou não) algum utilizador autenticado
@@ -105,26 +102,6 @@ export default class NavbarView {
         }
 
     }
-
-
-    // NavBarMap() {
-    //    
-    //     // Mapeamento dos cliques nos botões de Login/Register/Logout
-    //     if (sessionStorage.getItem("loggedUser") && sessionStorage.getItem("loggedUserPhoto")) {
-    //         alert("vou-me matar")
-    //         // Apresentação do nome do utilizador autenticado
-    //         document.querySelector("#loggedUser").innerHTML = `Olá ${sessionStorage.getItem("loggedUser")}</a>`
-    //         document.querySelector("#loggedUserPhoto").src = `${sessionStorage.getItem("loggedUserPhoto")}`
-    //         // Clique no botão de logout
-    //         document.querySelector("#btnLogout").addEventListener("click", function () {
-
-    //             this.userController.logoutUser();
-    //             location.reload();
-
-    //         })
-    //     }
-    // }
-
 
 
 }

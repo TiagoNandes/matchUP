@@ -8,13 +8,6 @@ export default class ProfileView {
         this.userController = new UserController()
         this.medalsController = new MedalsController()
         this.achievementsController = new AchievementsController()
-        // // Catalog
-        // this.catalog = document.querySelector("#myCatalog")
-        // this.btnFilter = document.querySelector("#btnFilter")
-        // //this.btnSort = document.querySelector("#btnSort")
-        // //this.btnAdd = document.querySelector("#btnAdd")
-        // this.txtActivity = document.querySelector("#txtActivity")
-        // this.sltCategory = document.querySelector("#sltCategory")
 
         this.medalCatalog = document.querySelector("#medalCatalog")
         this.achievementCatalog = document.querySelector("#achievemetCatalog")

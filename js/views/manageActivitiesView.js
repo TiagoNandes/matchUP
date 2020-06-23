@@ -192,7 +192,6 @@ export default class ManageActivitiesView {
         }
 
         this.activitiesList.innerHTML = result
-        //this._renderAddActivityButton(this.userController.checkLoginStatus());
 
         this.bindAddRemoveActivity();
         this.bindEditActivity();

@@ -119,7 +119,6 @@ export default class ManageAchievementsView {
         }
 
         this.achievementsList.innerHTML = result
-        //this._renderAddActivityButton(this.userController.checkLoginStatus());
 
         this.bindAddRemoveAchievement();
         this.bindEditAchievement();

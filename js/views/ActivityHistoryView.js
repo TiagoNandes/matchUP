@@ -12,8 +12,6 @@ export default class ActivityHistoryView {
         // Catalog
         this.catalog = document.querySelector("#activityHistory")
         this.btnFilter = document.querySelector("#btnFilter")
-        //this.btnSort = document.querySelector("#btnSort")
-        //this.btnAdd = document.querySelector("#btnAdd")
         this.txtActivity = document.querySelector("#txtActivity")
 
         this.renderCatalog(this.activityController.getActivities())
@@ -44,17 +42,6 @@ export default class ActivityHistoryView {
         }
     }
 
-    // bindAddSortEvent() {
-    //     this.btnSort.addEventListener('click', () => {
-    //         this.renderCatalog(this.activityController.getActivities(this.txtActivity.value, this.sltCategory.value, true))
-    //     })
-    // }
-
-    // bindAddAddEvent() {
-    //     this.btnAdd.addEventListener('click', () => {
-    //         location.href='html/addActivity.html';
-    //     })
-    // }
 
     bindAddRemoveEvent() {
         for (const btnRemove of document.getElementsByClassName("remove")) {
@@ -134,9 +121,9 @@ export default class ActivityHistoryView {
 
         let result = ''
         let i = 0
-        result += `<option value="">Categoria...</option>` 
+        result += `<option value="">Categoria...</option>`
         for (const category of categories) {
-            
+
             result += this._generateCategorySelect(category)
             i++
 

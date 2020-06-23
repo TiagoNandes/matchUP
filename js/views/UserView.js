@@ -37,10 +37,7 @@ export default class UserView {
         });
     }
 
-
-    
-
-    
+  
 
     displayRegisterMessage(message, type) {
         this.registerMessage.innerHTML =

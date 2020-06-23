@@ -110,7 +110,6 @@ export default class ManageCategoriesView {
         }
 
         this.categoriesList.innerHTML = result
-        //this._renderAddActivityButton(this.userController.checkLoginStatus());
 
         this.bindAddRemoveCategory();
         this.bindEditCategory();
@@ -144,7 +143,6 @@ export default class ManageCategoriesView {
                 sessionStorage.removeItem('loggedUserId');
                 sessionStorage.removeItem('loggedUserPhoto');
                 sessionStorage.removeItem('loggedUserType');
-                //this.userController.logoutUser();
 
                 location.href = "../index.html";
 

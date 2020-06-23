@@ -37,11 +37,7 @@ export default class ActivityView {
         this.hideInputFields();
     }
 
-    // bindBackButton() {
-    //     this.btnBack.addEventListener('click', () => {
-    //         history.back();
-    //     })
-    // }
+
 
     //TODO Mudar texto conforme status do request
     //Hide input fields and text based on request state and host 

@@ -12,8 +12,6 @@ export default class ActivityView {
         // Catalog
         this.catalog = document.querySelector("#myCatalog")
         this.btnFilter = document.querySelector("#btnFilter")
-        //this.btnSort = document.querySelector("#btnSort")
-        //this.btnAdd = document.querySelector("#btnAdd")
         this.txtActivity = document.querySelector("#txtActivity")
         this.sltCategory = document.querySelector("#sltCategory")
 
@@ -30,17 +28,6 @@ export default class ActivityView {
         })
     }
 
-    // bindAddSortEvent() {
-    //     this.btnSort.addEventListener('click', () => {
-    //         this.renderCatalog(this.activityController.getActivities(this.txtActivity.value, this.sltCategory.value, true))
-    //     })
-    // }
-
-    // bindAddAddEvent() {
-    //     this.btnAdd.addEventListener('click', () => {
-    //         location.href='html/addActivity.html';
-    //     })
-    // }
 
     bindAddRemoveEvent() {
         for (const btnRemove of document.getElementsByClassName("remove")) {
@@ -97,13 +84,6 @@ export default class ActivityView {
         return html
     }
 
-    // _renderAddActivityButton(userIsLogged) {
-    //     if(userIsLogged) {
-    //         this.btnAdd.style.visibility = 'visible';
-    //     } else {
-    //         this.btnAdd.style.visibility = 'hidden';
-    //     }
-    // }
 
     renderCategories(categories = []) {
 
@@ -119,7 +99,6 @@ export default class ActivityView {
         }
 
         this.categoryInput.innerHTML = result
-        //this._renderAddActivityButton(this.userController.checkLoginStatus());
 
         this.bindAddRemoveEvent()
         this.bindAddSeeMoreEvent()

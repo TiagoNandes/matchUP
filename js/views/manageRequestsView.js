@@ -34,32 +34,7 @@ export default class ManageActivitiesUserView {
         }
     }
 
-    bindAddRemoveActivity() {
-        for (const btnRemove of document.getElementsByClassName("remove")) {
-            btnRemove.addEventListener('click', event => {
-
-                Swal.fire({
-                    title: 'Tem a certeza que quer apagar?',
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Sim, apagar!'
-                }).then((result) => {
-                    if (result.value) {
-                        this.activitiesController.removeActivity(event.target.id)
-                        this.listActivities(this.activitiesController.getAllActivities());
-                        Swal.fire(
-                            'Apagado!',
-                            'Atividade apagada com sucesso.',
-                            'success'
-                        )
-                    }
-                })
-
-            })
-        }
-    }
+    
 
     bindAcceptRequest() {
 
@@ -127,7 +102,6 @@ export default class ManageActivitiesUserView {
 
     listRequests(requests = []) {
 
-        //userId, host, activityId, justification, state
 
         let result = ''
         for (const request of requests) {
@@ -142,7 +116,6 @@ export default class ManageActivitiesUserView {
         }
 
         this.requestsList.innerHTML = result
-        //this._renderAddActivityButton(this.userController.checkLoginStatus());
         this.checkIfActivitiesExist();
         this.bindAcceptRequest()
         this.bindDenyRequest()

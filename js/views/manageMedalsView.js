@@ -136,7 +136,6 @@ export default class ManageAchievementsView {
         }
 
         this.medalsList.innerHTML = result
-        //this._renderAddActivityButton(this.userController.checkLoginStatus());
 
         this.bindAddRemoveMedal();
         this.bindAddEditMedal();

@@ -28,9 +28,8 @@ export default class ActivityController {
         
     }
 
-    
 
-    //working
+    //set current activity
     setCurrentActivity(id) {
         this.activityModel.setCurrentActivity(id)
     }

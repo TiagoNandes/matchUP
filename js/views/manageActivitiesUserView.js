@@ -227,7 +227,6 @@ export default class ManageActivitiesUserView {
         }
 
         this.activitiesList.innerHTML = result
-        //this._renderAddActivityButton(this.userController.checkLoginStatus());
 
         this.bindAddRemoveActivity();
         this.bindEditActivity();
@@ -271,7 +270,6 @@ export default class ManageActivitiesUserView {
         }
 
         this.categoryInput.innerHTML = result
-        //this._renderAddActivityButton(this.userController.checkLoginStatus());
 
         
     }
