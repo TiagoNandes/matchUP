@@ -204,8 +204,8 @@ export default class ProfileView {
 
     _generateMedalCard(medal) {
         let html = ` 
-        <div class="card col-md-4" style="margin: 10px;">
-        <img class="card-img-top" src="${medal.photo}" alt="Card image cap">
+        <div  class="card col-md-4" style="margin: 10px;">
+        <img style="height: 190px; width: 190px;" class="card-img-top" src="${medal.photo}" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">${medal.name}</h5>
                                     <p class="card-text">${medal.description}</p>
@@ -239,7 +239,7 @@ export default class ProfileView {
     _generateAchievementCard(achievement) {
         let html = ` 
         <div class="card col-md-4" style="margin: 10px;">
-        <img class="card-img-top" src="${achievement.photo}" alt="Card image cap">
+        <img style="height: 190px; width: 190px;" class="card-img-top" src="${achievement.photo}" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">${achievement.name}</h5>
                                 </div>

@@ -304,92 +304,92 @@ class App {
         const medals = [{
                 id: 1,
                 name: "Futebolista Nível 1!",
-                photo: "/assets/user/img/avatars/avatar1.jpeg",
-                description: "Bela Medalha!"
+                photo: "https://png.pngtree.com/png-clipart/20191121/original/pngtree-medal-in-football-icon-cartoon-style-png-image_5152063.jpg",
+                description: "Parabéns! Atingiu o status de Futebolista Nível 1!"
             },
             {
                 id: 2,
                 name: "Futebolista Nível 2!",
-                photo: "/assets/user/img/avatars/avatar1.jpeg",
-                description: "Bela Medalha!"
+                photo: "https://png.pngtree.com/png-clipart/20191121/original/pngtree-medal-in-football-icon-cartoon-style-png-image_5152063.jpg",
+                description: "Parabéns! Atingiu o status de Futebolista Nível 2!"
             },
             {
                 id: 3,
                 name: "Futebolista Nível 3!",
-                photo: "/assets/user/img/avatars/avatar1.jpeg",
-                description: "Bela Medalha!"
+                photo: "https://png.pngtree.com/png-clipart/20191121/original/pngtree-medal-in-football-icon-cartoon-style-png-image_5152063.jpg",
+                description: "Parabéns! Atingiu o status de Futebolista Nível 3!"
             },
             {
                 id: 4,
                 name: "Futebolista Nível 4!",
-                photo: "/assets/user/img/avatars/avatar1.jpeg",
-                description: "Bela Medalha!"
+                photo: "https://png.pngtree.com/png-clipart/20191121/original/pngtree-medal-in-football-icon-cartoon-style-png-image_5152063.jpg",
+                description: "Parabéns! Atingiu o status de Futebolista Nível 4!"
             },
             {
                 id: 5,
                 name: "Futebolista Nível 5!",
-                photo: "/assets/user/img/avatars/avatar1.jpeg",
-                description: "Bela Medalha!"
+                photo: "https://png.pngtree.com/png-clipart/20191121/original/pngtree-medal-in-football-icon-cartoon-style-png-image_5152063.jpg",
+                description: "Parabéns! Atingiu o status de Futebolista Nível 5!"
             },
             {
                 id: 6,
                 name: "Ciclista Nível 1!",
-                photo: "/assets/user/img/avatars/avatar1.jpeg",
-                description: "Bela Medalha!"
+                photo: "https://images-na.ssl-images-amazon.com/images/I/4124YMwamrL._AC_.jpg",
+                description: "Parabéns! Atingiu o status de Ciclista Nível 1!"
             },
             {
                 id: 7,
                 name: "Ciclista Nível 2!",
-                photo: "/assets/user/img/avatars/avatar1.jpeg",
-                description: "Bela Medalha!"
+                photo: "https://images-na.ssl-images-amazon.com/images/I/4124YMwamrL._AC_.jpg",
+                description: "Parabéns! Atingiu o status de Ciclista Nível 2!"
             },
             {
                 id: 8,
                 name: "Ciclista Nível 3!",
-                photo: "/assets/user/img/avatars/avatar1.jpeg",
-                description: "Bela Medalha!"
+                photo: "https://images-na.ssl-images-amazon.com/images/I/4124YMwamrL._AC_.jpg",
+                description: "Parabéns! Atingiu o status de Ciclista Nível 3!"
             },
             {
                 id: 9,
                 name: "Ciclista Nível 4!",
-                photo: "/assets/user/img/avatars/avatar1.jpeg",
-                description: "Bela Medalha!"
+                photo: "https://images-na.ssl-images-amazon.com/images/I/4124YMwamrL._AC_.jpg",
+                description: "Parabéns! Atingiu o status de Ciclista Nível 4!"
             },
             {
                 id: 10,
                 name: "Ciclista Nível 5!",
-                photo: "/assets/user/img/avatars/avatar1.jpeg",
-                description: "Bela Medalha!"
+                photo: "https://images-na.ssl-images-amazon.com/images/I/4124YMwamrL._AC_.jpg",
+                description: "Parabéns! Atingiu o status de Ciclista Nível 5!"
             },
             {
                 id: 11,
                 name: "Runner Nível 1!",
-                photo: "/assets/user/img/avatars/avatar1.jpeg",
-                description: "Bela Medalha!"
+                photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTCvTjJBMzQB-qpljW_IUikChuQkjGWYc42RTXPAVeUIIaumBuo&usqp=CAU",
+                description: "Parabéns! Atingiu o status de Ciclista Nível 1!"
             },
             {
                 id: 12,
                 name: "Runner Nível 2!",
-                photo: "/assets/user/img/avatars/avatar1.jpeg",
-                description: "Bela Medalha!"
+                photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTCvTjJBMzQB-qpljW_IUikChuQkjGWYc42RTXPAVeUIIaumBuo&usqp=CAU",
+                description: "Parabéns! Atingiu o status de Ciclista Nível 2!"
             },
             {
                 id: 13,
                 name: "Runner Nível 3!",
-                photo: "/assets/user/img/avatars/avatar1.jpeg",
-                description: "Bela Medalha!"
+                photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTCvTjJBMzQB-qpljW_IUikChuQkjGWYc42RTXPAVeUIIaumBuo&usqp=CAU",
+                description: "Parabéns! Atingiu o status de Ciclista Nível 3!"
             },
             {
                 id: 13,
                 name: "Runner Nível 4!",
-                photo: "/assets/user/img/avatars/avatar1.jpeg",
-                description: "Bela Medalha!"
+                photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTCvTjJBMzQB-qpljW_IUikChuQkjGWYc42RTXPAVeUIIaumBuo&usqp=CAU",
+                description: "Parabéns! Atingiu o status de Ciclista Nível 4!"
             },
             {
                 id: 14,
                 name: "Runner Nível 5!",
-                photo: "/assets/user/img/avatars/avatar1.jpeg",
-                description: "Bela Medalha!"
+                photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTCvTjJBMzQB-qpljW_IUikChuQkjGWYc42RTXPAVeUIIaumBuo&usqp=CAU",
+                description: "Parabéns! Atingiu o status de Ciclista Nível 5!"
             },
             
         ];
