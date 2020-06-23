@@ -33,9 +33,41 @@ export default class ActivityView {
 
 
         this.fillActivityData();
+        this.myMap();
         this.addRequest();
         this.hideInputFields();
     }
+
+
+    myMap() {
+        const currentActivity = this.activityController.getCurrentActivity()
+        const place = new google.maps.LatLng(currentActivity.latitude, currentActivity.longitude);
+
+        const myMapOptions = {
+            center: place,
+            zoom: 18,
+            mapTypeId: "satellite"
+        };
+        var map = new google.maps.Map(document.getElementById("googleMap"), myMapOptions);
+
+        const contentString = `
+          <div id="content">
+            <h1>` + currentActivity.name + `</h1>
+          </div>
+        `
+
+        const infowindow = new google.maps.InfoWindow({content: contentString})
+
+        const marker = new google.maps.Marker({
+            position: place,
+            map:map
+          })  
+  
+          marker.addListener("click",
+            () => infowindow.open(map,marker)
+          )
+    }
+
 
 
 
