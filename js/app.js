@@ -127,7 +127,7 @@ class App {
                 longitude: '-7.906900',
                 date: '2020-06-26',
                 hour: '15:00',
-                duration: '120',
+                duration: '1',
                 minParticipants: '2',
                 maxParticipants: '24',
                 host: 'atleta'
@@ -143,7 +143,7 @@ class App {
                 longitude: '-8.756840',
                 date: '2020-06-27',
                 hour: '17:30',
-                duration: '120',
+                duration: '2',
                 minParticipants: '2',
                 maxParticipants: '24',
                 host: 'atleta'
@@ -159,7 +159,7 @@ class App {
                 longitude: '-9.139337',
                 date: '2020-06-29',
                 hour: '10:20',
-                duration: '120',
+                duration: '1',
                 minParticipants: '2',
                 maxParticipants: '24',
                 host: 'tiago'

@@ -52,7 +52,10 @@ export default class ActivityView {
 
         const contentString = `
           <div id="content">
-            <h1>` + currentActivity.name + `</h1>
+            <h2>` + currentActivity.name + `</h2>
+            <p>` + currentActivity.address + `</p>
+            <p>Data: ` + currentActivity.date + `</p>
+            <p>Hora: ` + currentActivity.hour + `</p>
           </div>
         `
 
