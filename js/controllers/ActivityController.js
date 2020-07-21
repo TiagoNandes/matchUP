@@ -79,4 +79,9 @@ export default class ActivityController {
 
         return filteredActivities
     }
+
+
+    countUserParticipations(){
+            
+    }
 }

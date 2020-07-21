@@ -195,7 +195,7 @@ class App {
         //userId, host, activityId, justification, state
         const requests = [{
             id: 1,
-            userId: 1,
+            userId: 3,
             host: "atleta",
             activityId: 1,
             justification: "Gosto muito de Yoga",
@@ -203,7 +203,7 @@ class App {
         },
         {
             id: 2,
-            userId: 1,
+            userId: 3,
             host: "atleta",
             activityId: 2,
             justification: "Gosto muito de Biking",
@@ -211,7 +211,7 @@ class App {
         },
         {
             id: 3,
-            userId: 1,
+            userId: 3,
             host: "atleta",
             activityId: 3,
             justification: "Gosto muito de Dança",

@@ -59,57 +59,81 @@ export default class ActivityView {
           </div>
         `
 
-        const infowindow = new google.maps.InfoWindow({content: contentString})
+        const infowindow = new google.maps.InfoWindow({
+            content: contentString
+        })
 
         const marker = new google.maps.Marker({
             position: place,
-            map:map
-          })  
-  
-          marker.addListener("click",
-            () => infowindow.open(map,marker)
-          )
+            map: map
+        })
+
+        marker.addListener("click",
+            () => infowindow.open(map, marker)
+        )
     }
 
 
-
-
-    //TODO Mudar texto conforme status do request
     //Hide input fields and text based on request state and host 
     hideInputFields() {
         const currentActivity = this.activityController.getCurrentActivity()
-        const allRequests = this.requestsController.getAllRequests();
-        let currentRequest = allRequests.find(request => request.userId == sessionStorage.getItem('loggedUserId'))
 
+        alert(JSON.stringify(currentActivity))
+        const allRequests = this.requestsController.getAllRequests();
+
+        let userLogged = sessionStorage.getItem('loggedUserId');
+        let activityCurrent = currentActivity.id;
+
+        let currentRequest = allRequests.find(request => request.userId == userLogged && request.activityId == activityCurrent)
+
+
+        // alert(JSON.stringify(currentRequest))
+
+        // alert(JSON.stringify(allRequests.find(request => request.host == sessionStorage.getItem('loggedUser'))) +"||||||"+ JSON.stringify(allRequests.find(
+        //     request => request.activityId == currentActivity.id)) )
         //User is host
-        if (allRequests.find(request => request.host == sessionStorage.getItem('loggedUser')) && allRequests.find(request => request.activityId == currentActivity.id)) {
+        if (currentRequest != null && currentRequest != undefined && allRequests.find(request => request.activityId == activityCurrent) != null) {
+            // alert(JSON.stringify(allRequests.find(request => request.userId == sessionStorage.getItem('loggedUserId'))));    
+
+
+
+
+            
+            //User already asked to join and got denied
+            if (currentRequest.state == "Recusado") {
+                alert("Entrei no recusado!");
+                document.querySelector("#addRequestForm").className = `invisible`
+                document.querySelector("#acceptedText").className = `text-danger`
+                document.querySelector("#acceptedText").innerHTML = `Pedido Recusado`
+            }
+            //User already asked to join 
+            else if (currentRequest.state == "Pendente") {
+                alert("Entrei no Pendente!");
+                document.querySelector("#addRequestForm").className = `invisible`
+                document.querySelector("#acceptedText").className = `text-info`
+                document.querySelector("#acceptedText").innerHTML = `Pedido de adesão enviado!`
+            }
+            //User got accepted
+            else if (currentRequest.state == "Aceite") {
+                alert(JSON.stringify(currentRequest));
+                alert("Entrei no Aceite!");
+                document.querySelector("#addRequestForm").className = `invisible`
+                document.querySelector("#acceptedText").className = `text-success`
+                document.querySelector("#acceptedText").innerHTML = `Está inscrito! Divirta-se!`
+            }
+        }
+        else if (currentActivity.host == sessionStorage.getItem('loggedUser')) {
+            alert("Entrei no user is host!");
             document.querySelector("#addRequestForm").className = `invisible`
             document.querySelector("#acceptedText").className = `text-success invisible`
-        }
-        //User already asked to join and got denied
-        else if (allRequests.find(request => request.userId == sessionStorage.getItem('loggedUserId')) && allRequests.find(request => request.activityId == currentActivity.id) && currentRequest.state == "Recusado") {
-
-            document.querySelector("#addRequestForm").className = `invisible`
-            document.querySelector("#acceptedText").className = `text-danger`
-            document.querySelector("#acceptedText").innerHTML = `Pedido Recusado`
-        }
-        //User already asked to join and got accepted
-        else if (allRequests.find(request => request.userId == sessionStorage.getItem('loggedUserId')) && allRequests.find(request => request.activityId == currentActivity.id) && currentRequest.state == "Pendente") {
-            document.querySelector("#addRequestForm").className = `invisible`
-            document.querySelector("#acceptedText").className = `text-info`
-            document.querySelector("#acceptedText").innerHTML = `Pedido de adesão enviado!`
-        }
-        //User got accepted
-        else if (allRequests.find(request => request.userId == sessionStorage.getItem('loggedUserId')) && allRequests.find(request => request.activityId == currentActivity.id) && currentRequest.state == "Aceite") {
-            document.querySelector("#addRequestForm").className = `invisible`
-            document.querySelector("#acceptedText").className = `text-success`
-            document.querySelector("#acceptedText").innerHTML = `Está inscrito! Divirta-se!`
         }
         //user has not asked to join
         else {
+            alert("Entrei no pedir para aderir (else)!");
             document.querySelector("#addRequestForm").className = `visible`
             document.querySelector("#acceptedText").className = `text-success invisible`
         }
+
     }
 
     fillActivityData() {

@@ -29,4 +29,5 @@ export default class AchievementsController {
     editAchievement(oldName, newName, photo) {
         this.achievementsModel.edit(oldName, newName, photo)
     }
+
 }
