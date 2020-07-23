@@ -28,6 +28,7 @@ export default class StatisticsView {
 
         this.showStatistics();
         this.returnUsers();
+        this.mostEventsCreated();
 
         this.checkLogout();
     }
@@ -149,19 +150,19 @@ export default class StatisticsView {
         let participation2;
         let participation3;
 
-        if(newA.length = 3){
-            val1 = this.userController.getAllUsers().find(user => user.id == newA[newA.length-1].id).username;
-            val2 = this.userController.getAllUsers().find(user => user.id == newA[newA.length-2].id).username;
-            val3 = this.userController.getAllUsers().find(user => user.id == newA[newA.length-3].id).username;
-            participation1 = newA[newA.length-1].requests;
-            participation2 = newA[newA.length-2].requests;
-            participation3 = newA[newA.length-3].requests;
+        if (newA.length >= 3) {
+            val1 = this.userController.getAllUsers().find(user => user.id == newA[newA.length - 1].id).username;
+            val2 = this.userController.getAllUsers().find(user => user.id == newA[newA.length - 2].id).username;
+            val3 = this.userController.getAllUsers().find(user => user.id == newA[newA.length - 3].id).username;
+            participation1 = newA[newA.length - 1].requests;
+            participation2 = newA[newA.length - 2].requests;
+            participation3 = newA[newA.length - 3].requests;
         }
 
 
         let html2 = ` 
         <div class="chart-area"><canvas
-                                            data-bs-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Yoga&quot;,&quot;Biking&quot;,&quot;Dança&quot;,&quot;Corrida&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;backgroundColor&quot;:[&quot;#4e73df&quot;,&quot;#1cc88a&quot;,&quot;#36b9cc&quot;,&quot;#FF0000&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:
+                                            data-bs-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;${val1}&quot;,&quot;${val2}&quot;,&quot;${val3}&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;backgroundColor&quot;:[&quot;#4e73df&quot;,&quot;#1cc88a&quot;,&quot;#36b9cc&quot;,&quot;#FF0000&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:
                                                 [&quot;${participation1}&quot;,&quot;${participation2}&quot;,&quot;${participation3}&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{}}}"></canvas>
                                     </div>
                                     <div class="text-center small mt-4"><span class="mr-2"><i
@@ -173,6 +174,87 @@ export default class StatisticsView {
 
 
         this.secondGraph.innerHTML = html2
+
+    }
+
+
+    //----------------------Utilizadores com mais eventos criados  --------------------------------
+
+    mostEventsCreated() {
+
+        let allActivities = this.activitiesController.getAllActivities();
+
+        this.allUsers = this.userController.getAllUsers();
+
+        var mostCreated = [];
+
+        for (let user in this.allUsers) {
+            this.userCreated = allActivities.filter(activity => activity.host == this.allUsers[user].username)
+
+            // this.userCreated = this.allActivities.find(activity => activity.host)
+
+            if (this.userCreated != undefined) {
+
+                mostCreated.push({
+                    id: this.allUsers[user].id,
+                    activities: this.userCreated.length
+                });
+            }
+            else{
+                mostCreated.push({
+                    id: this.allUsers[user].id,
+                    activities: 0
+                });
+            }
+
+        }
+
+
+        let newB = mostCreated.sort(sortFunction2);
+
+        alert(JSON.stringify(newB.length))
+
+        function sortFunction2(mostCreated, b) {
+            if (mostCreated.activities === b.activities) {
+                return 0;
+            } else {
+                return (mostCreated.activities < b.activities) ? -1 : 1;
+            }
+        }
+
+        let value1;
+        let value2;
+        let value3;
+        let created1;
+        let created2;
+        let created3;
+
+        if (newB.length >= 3) {
+            value1 = this.userController.getAllUsers().find(user => user.id == newB[newB.length - 1].id).username;
+            value2 = this.userController.getAllUsers().find(user => user.id == newB[newB.length - 2].id).username;
+            value3 = this.userController.getAllUsers().find(user => user.id == newB[newB.length - 3].id).username;
+            created1 = newB[newB.length - 1].activities;
+            created2 = newB[newB.length - 2].activities;
+            created3 = newB[newB.length - 3].activities;
+        }
+
+        alert(created1 + " " + created2 + " " + created3)
+
+
+        let html3 = ` 
+        <div class="chart-area"><canvas
+                                            data-bs-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;${value1}&quot;,&quot;${value2}&quot;,&quot;${value3}&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;backgroundColor&quot;:[&quot;#4e73df&quot;,&quot;#1cc88a&quot;,&quot;#36b9cc&quot;,&quot;#FF0000&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:
+                                                [&quot;${created1}&quot;,&quot;${created2}&quot;,&quot;${created3}&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{}}}"></canvas>
+                                    </div>
+                                    <div class="text-center small mt-4"><span class="mr-2"><i
+                                                class="fas fa-circle text-primary"></i>&nbsp;${value1}</span><span
+                                            class="mr-2"><i
+                                                class="fas fa-circle text-success"></i>&nbsp;${value2}</span><span
+                                            class="mr-2"><i class="fas fa-circle text-info"></i>&nbsp;${value3}</span></div>
+        `
+
+
+        this.thirdGraph.innerHTML = html3
 
 
 
