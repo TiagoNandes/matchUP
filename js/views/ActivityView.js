@@ -78,7 +78,6 @@ export default class ActivityView {
     hideInputFields() {
         const currentActivity = this.activityController.getCurrentActivity()
 
-        alert(JSON.stringify(currentActivity))
         const allRequests = this.requestsController.getAllRequests();
 
         let userLogged = sessionStorage.getItem('loggedUserId');
@@ -87,49 +86,35 @@ export default class ActivityView {
         let currentRequest = allRequests.find(request => request.userId == userLogged && request.activityId == activityCurrent)
 
 
-        // alert(JSON.stringify(currentRequest))
-
-        // alert(JSON.stringify(allRequests.find(request => request.host == sessionStorage.getItem('loggedUser'))) +"||||||"+ JSON.stringify(allRequests.find(
-        //     request => request.activityId == currentActivity.id)) )
         //User is host
         if (currentRequest != null && currentRequest != undefined && allRequests.find(request => request.activityId == activityCurrent) != null) {
-            // alert(JSON.stringify(allRequests.find(request => request.userId == sessionStorage.getItem('loggedUserId'))));    
 
-
-
-
-            
+           
             //User already asked to join and got denied
             if (currentRequest.state == "Recusado") {
-                alert("Entrei no recusado!");
                 document.querySelector("#addRequestForm").className = `invisible`
                 document.querySelector("#acceptedText").className = `text-danger`
                 document.querySelector("#acceptedText").innerHTML = `Pedido Recusado`
             }
             //User already asked to join 
             else if (currentRequest.state == "Pendente") {
-                alert("Entrei no Pendente!");
                 document.querySelector("#addRequestForm").className = `invisible`
                 document.querySelector("#acceptedText").className = `text-info`
                 document.querySelector("#acceptedText").innerHTML = `Pedido de adesão enviado!`
             }
             //User got accepted
             else if (currentRequest.state == "Aceite") {
-                alert(JSON.stringify(currentRequest));
-                alert("Entrei no Aceite!");
                 document.querySelector("#addRequestForm").className = `invisible`
                 document.querySelector("#acceptedText").className = `text-success`
                 document.querySelector("#acceptedText").innerHTML = `Está inscrito! Divirta-se!`
             }
         }
         else if (currentActivity.host == sessionStorage.getItem('loggedUser')) {
-            alert("Entrei no user is host!");
             document.querySelector("#addRequestForm").className = `invisible`
             document.querySelector("#acceptedText").className = `text-success invisible`
         }
         //user has not asked to join
         else {
-            alert("Entrei no pedir para aderir (else)!");
             document.querySelector("#addRequestForm").className = `visible`
             document.querySelector("#acceptedText").className = `text-success invisible`
         }

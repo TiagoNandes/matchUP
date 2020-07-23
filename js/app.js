@@ -189,6 +189,18 @@ class App {
                 location: "Porto",
                 photo: "/assets/user/img/avatars/avatar2.jpeg",
                 blocked: false
+            },
+            {
+                id: 3,
+                type: "atleta",
+                username: "tiago",
+                email: "tiago@atleta.com",
+                password: "12345",
+                name: "Tiago Fernandes",
+                dateOfBirth: '1995-01-02',
+                location: "Porto",
+                photo: "/assets/user/img/avatars/avatar4.jpeg",
+                blocked: false
             }
         ];
 
@@ -216,7 +228,15 @@ class App {
             activityId: 3,
             justification: "Gosto muito de Dança",
             state: "Recusado"
-        }
+        },
+        {
+            id: 4,
+            userId: 3,
+            host: "atleta",
+            activityId: 3,
+            justification: "Gosto muito de Biking",
+            state: "Pendente"
+        },
     ];
 
         const categories = [{

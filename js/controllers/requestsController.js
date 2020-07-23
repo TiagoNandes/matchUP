@@ -12,7 +12,7 @@ export default class RequestController {
 
     //Add new request 
     addRequest(userId, host, activityId, justification, state) {
-        if (!this.requestModel.getAll().some(request => request.userId == userId) || !this.requestModel.getAll().some(request => request.activityId == activityId)) {
+        if (!this.requestModel.getAll().some(request => request.userId == userId && request.activityId == activityId)) {
             this.requestModel.create(userId, host, activityId, justification, state);
         } else {
             throw Error(`Já fez uma inscrição neste evento!`);

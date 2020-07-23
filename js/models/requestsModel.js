@@ -24,6 +24,7 @@ export default class RequestModel {
     accept(id) {
         let allRequests = this.getAll();
         this.requestToAccept = allRequests.find(request => request.id == id);
+        
         let state = "Aceite";
         this.requestToAccept.state = state;
         localStorage.setItem('requests', this.requestToAccept);

@@ -1,6 +1,7 @@
 import UserController from '../controllers/UserController.js'
 import MedalsController from '../controllers/medalsController.js'
 import AchievementsController from '../controllers/achievementsController.js'
+import RequestsController from '../controllers/requestsController.js';
 
 export default class ProfileView {
 
@@ -8,6 +9,7 @@ export default class ProfileView {
         this.userController = new UserController()
         this.medalsController = new MedalsController()
         this.achievementsController = new AchievementsController()
+        this.requestsController = new RequestsController()
 
         this.medalCatalog = document.querySelector("#medalCatalog")
         this.achievementCatalog = document.querySelector("#achievemetCatalog")
@@ -177,6 +179,11 @@ export default class ProfileView {
 
     renderMedalCatalog(medals = []) {
 
+        let allRequests = this.requestsController.getAllRequests();
+
+        this.activitiesParticipated = allRequests.filter(request => request.userId == sessionStorage.getItem("loggedUserId") && request.state == "Aceite")
+
+
         let result = ''
         let i = 0
         for (const medal of medals) {
@@ -195,6 +202,7 @@ export default class ProfileView {
         
     }
 
+
     _generateMedalCard(medal) {
         let html = ` 
         <div  class="card col-md-4" style="margin: 10px;">
@@ -202,6 +210,10 @@ export default class ProfileView {
                                 <div class="card-body">
                                     <h5 class="card-title">${medal.name}</h5>
                                     <p class="card-text">${medal.description}</p>
+                                    <div class="social" style="text-align: center;">
+                                    <a href="#" id="share-fb" class="sharer button"><i class="fa fa-3x fa-facebook-square"></i></a>
+                                    <a href="#" id="share-tw" class="sharer button"><i class="fa fa-3x fa-twitter-square"></i></a>
+                                    </div>
                                 </div>
                                 </div>
         `
@@ -235,6 +247,10 @@ export default class ProfileView {
         <img style="height: 190px; width: 190px;" class="card-img-top" src="${achievement.photo}" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">${achievement.name}</h5>
+                                    <div class="social" style="text-align: center;">
+                                    <a href="#" id="share-fb" class="sharer button"><i class="fa fa-3x fa-facebook-square"></i></a>
+                                    <a href="#" id="share-tw" class="sharer button"><i class="fa fa-3x fa-twitter-square"></i></a>
+                                    </div>
                                 </div>
                                 </div>
         `

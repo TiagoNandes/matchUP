@@ -17,23 +17,20 @@ export default class ManageActivitiesUserView {
         this.listRequests(this.requestsController.getAllRequests());
 
 
-
-
     }
 
-    checkIfActivitiesExist() {
-        let allRequests = this.requestsController.getAllRequests();
-        this.userRequests = allRequests.find(request => request.host == sessionStorage.getItem("loggedUser"))
-
-        if (this.userRequests.state != "Pendente") {
-            document.querySelector("#hideTable").className = `container `
-            document.querySelector("#showTable").className = `card shadow invisible`
-        } else {
+    activitiesExist() {
             document.querySelector("#hideTable").className = `container invisible`
             document.querySelector("#showTable").className = `card shadow `
-        }
+        
     }
 
+
+    activitiesDontExist() {
+            document.querySelector("#hideTable").className = `container `
+            document.querySelector("#showTable").className = `card shadow invisible`
+      
+    }
     
 
     bindAcceptRequest() {
@@ -102,12 +99,15 @@ export default class ManageActivitiesUserView {
 
     listRequests(requests = []) {
 
+        let existsOne = false;
 
         let result = ''
         for (const request of requests) {
-
+            
             if (request.state == "Pendente") {
+                
                 if (request.host == sessionStorage.getItem("loggedUser")) {
+                    existsOne = true;
                     result += `<tr>`
                     result += this._generateRequestsTable(request)
                     result += `</tr>`
@@ -116,7 +116,12 @@ export default class ManageActivitiesUserView {
         }
 
         this.requestsList.innerHTML = result
-        this.checkIfActivitiesExist();
+        if (existsOne == true){
+            this.activitiesExist();
+            existsOne = false;
+        }else{
+            this.activitiesDontExist();
+        }
         this.bindAcceptRequest()
         this.bindDenyRequest()
 

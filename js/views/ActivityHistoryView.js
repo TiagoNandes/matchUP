@@ -18,7 +18,6 @@ export default class ActivityHistoryView {
 
         this.renderCatalog(this.activityController.getActivities())
         this.bindAddFilterEvent()
-        this.checkIfActivitiesExist();
 
         //render category input
         this.categoryInput = document.querySelector("#sltEditCategory")
@@ -31,17 +30,30 @@ export default class ActivityHistoryView {
         })
     }
 
-    checkIfActivitiesExist() {
-        let allActivities = this.activityController.getAllActivities();
-        this.activityHost = allActivities.find(activity => activity.host == sessionStorage.getItem("loggedUser"))
+    activitiesExist() {
+        // let allActivities = this.activityController.getAllActivities();
+        // this.activityHost = allActivities.find(activity => activity.host == sessionStorage.getItem("loggedUser"))
 
-        if (this.activityHost == undefined) {
-            document.querySelector("#hideActivities").className = `container `
-            document.querySelector("#showActivities").className = `filter invisible`
-        } else {
-            document.querySelector("#hideActivities").className = `container invisible`
-            document.querySelector("#showActivities").className = `filter`
-        }
+        // if (this.activityHost == undefined) {
+        // document.querySelector("#hideActivities").className = `container `
+        // document.querySelector("#showActivities").className = `filter invisible`
+        // } else {
+        document.querySelector("#hideActivities").className = `container invisible`
+        document.querySelector("#showActivities").className = `filter`
+        // }
+    }
+
+    activitiesDontExist() {
+        // let allActivities = this.activityController.getAllActivities();
+        // this.activityHost = allActivities.find(activity => activity.host == sessionStorage.getItem("loggedUser"))
+
+        // if (this.activityHost == undefined) {
+        document.querySelector("#hideActivities").className = `container `
+        document.querySelector("#showActivities").className = `filter invisible`
+        // } else {
+        //     document.querySelector("#hideActivities").className = `container invisible`
+        //     document.querySelector("#showActivities").className = `filter`
+        // }
     }
 
 
@@ -87,11 +99,13 @@ export default class ActivityHistoryView {
         let i = 0
 
 
-        this.activitiesParticipated = allRequests.filter(request => request.userId == sessionStorage.getItem("loggedUserId"))
+        this.activitiesParticipated = allRequests.filter(request => request.userId == sessionStorage.getItem("loggedUserId") && request.state == "Aceite")
+
+
 
         for (const activity of activities) {
             for (let act in this.activitiesParticipated) {
-                if (activity.id == this.activitiesParticipated[act].activityId) {
+                if (this.activitiesParticipated[act].activityId == activity.id) {
                     if (i % 3 === 0) {
                         result += `<div class="row articles">`
                     }
