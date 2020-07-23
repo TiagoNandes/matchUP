@@ -199,8 +199,7 @@ export default class StatisticsView {
                     id: this.allUsers[user].id,
                     activities: this.userCreated.length
                 });
-            }
-            else{
+            } else {
                 mostCreated.push({
                     id: this.allUsers[user].id,
                     activities: 0
@@ -255,9 +254,6 @@ export default class StatisticsView {
 
 
         this.thirdGraph.innerHTML = html3
-
-
-
 
     }
 
