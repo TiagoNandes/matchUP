@@ -11,9 +11,9 @@ export default class RequestController {
     }
 
     //Add new request 
-    addRequest(userId, host, activityId, justification, state) {
+    addRequest(userId, host, activityId, justification, state, activityCategory) {
         if (!this.requestModel.getAll().some(request => request.userId == userId && request.activityId == activityId)) {
-            this.requestModel.create(userId, host, activityId, justification, state);
+            this.requestModel.create(userId, host, activityId, justification, state, activityCategory);
         } else {
             throw Error(`Já fez uma inscrição neste evento!`);
         }

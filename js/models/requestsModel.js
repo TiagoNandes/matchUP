@@ -7,14 +7,15 @@ export default class RequestModel {
         return this.requests;
     }
     
-    create(userId, host, activityId, justification, state) {
+    create(userId, host, activityId, justification, state, activityCategory) {
         const request = {
             id: this.requests.length > 0 ? this.requests[this.requests.length - 1].id + 1 : 1,
             userId: userId,
             host: host,
             activityId: activityId,
             justification: justification,
-            state: state
+            state: state,
+            activityCategory: activityCategory
 
         }
         this.requests.push(request);

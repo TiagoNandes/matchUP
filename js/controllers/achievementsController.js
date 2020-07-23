@@ -5,10 +5,10 @@ export default class AchievementsController {
         this.achievementsModel = new AchievementsModel();
     }
 
-    createAchievement(name, photo) {
+    createAchievement(name, photo, category) {
         if (!this.achievementsModel.getAll().some(achievement => achievement.name === name)) {
            
-            this.achievementsModel.create(name, photo);
+            this.achievementsModel.create(name, photo, category);
 
         } else {
             throw Error(`Conquista "${name}" já existe!`);

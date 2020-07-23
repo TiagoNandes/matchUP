@@ -150,7 +150,8 @@ export default class ActivityView {
                 currentActivity.host,
                 currentActivity.id,
                 this.txtJustification.value,
-                "Pendente"
+                "Pendente",
+                currentActivity.category
             )
             location.reload();
 

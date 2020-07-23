@@ -185,6 +185,7 @@ export default class ProfileView {
 
         this.activitiesParticipated = allRequests.filter(request => request.userId == sessionStorage.getItem("loggedUserId") && request.state == "Aceite")
 
+
         for (const act of this.activitiesParticipated) {
             countAct++;
         }
@@ -232,16 +233,142 @@ export default class ProfileView {
 
     renderAchievementCatalog(achievements = []) {
 
+        let allRequests = this.requestsController.getAllRequests();
+
+        this.activitiesParticipatedBiking = allRequests.filter(request => request.userId == sessionStorage.getItem("loggedUserId") && request.state == "Aceite" &&
+            request.activityCategory == "Biking")
+
+        this.activitiesParticipatedFutebol = allRequests.filter(request => request.userId == sessionStorage.getItem("loggedUserId") && request.state == "Aceite" &&
+            request.activityCategory == "Futebol")
+
+        this.activitiesParticipatedCorrida = allRequests.filter(request => request.userId == sessionStorage.getItem("loggedUserId") && request.state == "Aceite" &&
+            request.activityCategory == "Corrida")
+
+        this.activitiesParticipatedVolei = allRequests.filter(request => request.userId == sessionStorage.getItem("loggedUserId") && request.state == "Aceite" &&
+            request.activityCategory == "Volei")
+
+        this.activitiesParticipatedCiclismo = allRequests.filter(request => request.userId == sessionStorage.getItem("loggedUserId") && request.state == "Aceite" &&
+            request.activityCategory == "Ciclismo")
+
+        this.activitiesParticipatedYoga = allRequests.filter(request => request.userId == sessionStorage.getItem("loggedUserId") && request.state == "Aceite" &&
+            request.activityCategory == "Yoga")
+
+        this.activitiesParticipatedDanca = allRequests.filter(request => request.userId == sessionStorage.getItem("loggedUserId") && request.state == "Aceite" &&
+            request.activityCategory == "Dança")
+
+        this.activitiesParticipatedBasketball = allRequests.filter(request => request.userId == sessionStorage.getItem("loggedUserId") && request.state == "Aceite" &&
+            request.activityCategory == "Basketball")
+
+        this.activitiesParticipatedAndebol = allRequests.filter(request => request.userId == sessionStorage.getItem("loggedUserId") && request.state == "Aceite" &&
+            request.activityCategory == "Andebol")
+
+
+
+
         let result = ''
         let i = 0
         for (const achievement of achievements) {
-            if (i % 3 === 0) {
-                result += `<div class="card-group">`
+
+
+
+            if (this.activitiesParticipatedBiking != "" && achievement.category == "Biking") {
+
+                if (i % 3 === 0) {
+                    result += `<div class="card-group">`
+                }
+                result += this._generateAchievementCard(achievement)
+                i++
+                if (i % 3 === 0) {
+                    result += ` </div>`
+                }
             }
-            result += this._generateAchievementCard(achievement)
-            i++
-            if (i % 3 === 0) {
-                result += ` </div>`
+            if (this.activitiesParticipatedFutebol != "" && achievement.category == "Futebol") {
+
+                if (i % 3 === 0) {
+                    result += `<div class="card-group">`
+                }
+                result += this._generateAchievementCard(achievement)
+                i++
+                if (i % 3 === 0) {
+                    result += ` </div>`
+                }
+            }
+            if (this.activitiesParticipatedCorrida != "" && achievement.category == "Corrida") {
+
+                if (i % 3 === 0) {
+                    result += `<div class="card-group">`
+                }
+                result += this._generateAchievementCard(achievement)
+                i++
+                if (i % 3 === 0) {
+                    result += ` </div>`
+                }
+            }
+            if (this.activitiesParticipatedVolei != "" && achievement.category == "Volei") {
+
+                if (i % 3 === 0) {
+                    result += `<div class="card-group">`
+                }
+                result += this._generateAchievementCard(achievement)
+                i++
+                if (i % 3 === 0) {
+                    result += ` </div>`
+                }
+            }
+            if (this.activitiesParticipatedCiclismo != "" && achievement.category == "Ciclismo") {
+
+                if (i % 3 === 0) {
+                    result += `<div class="card-group">`
+                }
+                result += this._generateAchievementCard(achievement)
+                i++
+                if (i % 3 === 0) {
+                    result += ` </div>`
+                }
+            }
+            if (this.activitiesParticipatedYoga != "" && achievement.category == "Yoga") {
+
+                if (i % 3 === 0) {
+                    result += `<div class="card-group">`
+                }
+                result += this._generateAchievementCard(achievement)
+                i++
+                if (i % 3 === 0) {
+                    result += ` </div>`
+                }
+            }
+            if (this.activitiesParticipatedDanca != "" && achievement.category == "Dança") {
+
+                if (i % 3 === 0) {
+                    result += `<div class="card-group">`
+                }
+                result += this._generateAchievementCard(achievement)
+                i++
+                if (i % 3 === 0) {
+                    result += ` </div>`
+                }
+            }
+            if (this.activitiesParticipatedBasketball != "" && achievement.category == "Basketball") {
+
+                if (i % 3 === 0) {
+                    result += `<div class="card-group">`
+                }
+                result += this._generateAchievementCard(achievement)
+                i++
+                if (i % 3 === 0) {
+                    result += ` </div>`
+                }
+            }
+            if (this.activitiesParticipatedAndebol != "" && achievement.category == "Andebol") {
+
+                if (i % 3 === 0) {
+                    result += `<div class="card-group">`
+                }
+                result += this._generateAchievementCard(achievement)
+                i++
+                if (i % 3 === 0) {
+                    result += ` </div>`
+                }
             }
         }
 

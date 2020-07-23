@@ -211,7 +211,8 @@ class App {
             host: "atleta",
             activityId: 1,
             justification: "Gosto muito de Yoga",
-            state: "Pendente"
+            state: "Pendente",
+            activityCategory: "Yoga"
         },
         {
             id: 2,
@@ -219,7 +220,8 @@ class App {
             host: "atleta",
             activityId: 2,
             justification: "Gosto muito de Biking",
-            state: "Aceite"
+            state: "Aceite",
+            activityCategory: "Biking"
         },
         {
             id: 3,
@@ -227,7 +229,8 @@ class App {
             host: "atleta",
             activityId: 3,
             justification: "Gosto muito de Dança",
-            state: "Recusado"
+            state: "Recusado",
+            activityCategory: "Dança"
         },
         {
             id: 4,
@@ -235,7 +238,8 @@ class App {
             host: "atleta",
             activityId: 3,
             justification: "Gosto muito de Biking",
-            state: "Pendente"
+            state: "Pendente",
+            activityCategory: "Biking"
         },
     ];
 
@@ -276,52 +280,62 @@ class App {
         const achievements = [{
                 id: 1,
                 photo: "https://www.awardsaplus.com/wp-content/uploads/2016/08/ICON_achievement-icon.png",
-                name: "Jogar 10 Jogos de Futebol"
+                name: "Jogar 10 Jogos de Futebol",
+                category: "Futebol"
             },
             {
                 id: 2,
                 photo: "https://www.awardsaplus.com/wp-content/uploads/2016/08/ICON_achievement-icon.png",
-                name: "Fazer 10 Corridas"
+                name: "Fazer 10 Corridas",
+                category: "Corrida"
             },
             {
                 id: 3,
                 photo: "https://www.awardsaplus.com/wp-content/uploads/2016/08/ICON_achievement-icon.png",
-                name: "Jogar 5 Jogos de Vólei"
+                name: "Jogar 5 Jogos de Vólei",
+                category: "Volei"
             },
             {
                 id: 4,
                 photo: "https://www.awardsaplus.com/wp-content/uploads/2016/08/ICON_achievement-icon.png",
-                name: "Fazer Ciclismo 5 vezes"
+                name: "Fazer Ciclismo 5 vezes",
+                category: "Ciclismo"
             },
             {
                 id: 5,
                 photo: "https://www.awardsaplus.com/wp-content/uploads/2016/08/ICON_achievement-icon.png",
-                name: "Fazer BTT 5 vezes"
+                name: "Fazer BTT 5 vezes",
+                category: "Biking"
             },
             {
                 id: 6,
                 photo: "https://www.awardsaplus.com/wp-content/uploads/2016/08/ICON_achievement-icon.png",
-                name: "Fazer Yoga 10 vezes"
+                name: "Fazer Yoga 10 vezes",
+                category: "Yoga"
             },
             {
                 id: 7,
                 photo: "https://www.awardsaplus.com/wp-content/uploads/2016/08/ICON_achievement-icon.png",
-                name: "Participar Numa Aula de Dança 5 vezes"
+                name: "Participar Numa Aula de Dança 5 vezes",
+                category: "Dança"
             },
             {
                 id: 8,
                 photo: "https://www.awardsaplus.com/wp-content/uploads/2016/08/ICON_achievement-icon.png",
-                name: "Jogar Basketball 5 vezes"
+                name: "Jogar Basketball 5 vezes",
+                category: "Basketball"
             },
             {
                 id: 9,
                 photo: "https://www.awardsaplus.com/wp-content/uploads/2016/08/ICON_achievement-icon.png",
-                name: "Fazer Marcha 5 vezes"
+                name: "Fazer Marcha 5 vezes",
+                category: "Corrida"
             },
             {
                 id: 10,
                 photo: "https://www.awardsaplus.com/wp-content/uploads/2016/08/ICON_achievement-icon.png",
-                name: "Jogar Andebol 10 vezes"
+                name: "Jogar Andebol 10 vezes",
+                category: "Andebol"
             },
         ];
 

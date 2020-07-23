@@ -7,11 +7,12 @@ export default class AchievementsModel {
         return this.achievements;
     }
 
-    create(name, photo) {
+    create(name, photo, category) {
         const achievement = {
             id: this.achievements.length > 0 ? this.achievements[this.achievements.length - 1].id + 1 : 1,
             name: name,
-            photo: photo
+            photo: photo,
+            category: category
         }
         this.achievements.push(achievement);
         this._persist();
