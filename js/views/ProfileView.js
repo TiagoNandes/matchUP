@@ -181,25 +181,34 @@ export default class ProfileView {
 
         let allRequests = this.requestsController.getAllRequests();
 
+        let countAct = 0;
+
         this.activitiesParticipated = allRequests.filter(request => request.userId == sessionStorage.getItem("loggedUserId") && request.state == "Aceite")
+
+        for (const act of this.activitiesParticipated) {
+            countAct++;
+        }
 
 
         let result = ''
+
         let i = 0
         for (const medal of medals) {
-            if (i % 3 === 0) {
-                result += `<div class="card-group">`
-            }
-            result += this._generateMedalCard(medal)
-            i++
-            if (i % 3 === 0) {
-                result += ` </div>`
+            if (i < countAct) {
+                if (i % 3 === 0) {
+                    result += `<div class="card-group">`
+                }
+                result += this._generateMedalCard(medal)
+                i++
+                if (i % 3 === 0) {
+                    result += ` </div>`
+                }
             }
         }
 
         this.medalCatalog.innerHTML = result
 
-        
+
     }
 
 
@@ -238,7 +247,7 @@ export default class ProfileView {
 
         this.achievementCatalog.innerHTML = result
 
-        
+
     }
 
     _generateAchievementCard(achievement) {

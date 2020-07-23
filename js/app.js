@@ -327,94 +327,35 @@ class App {
 
         const medals = [{
                 id: 1,
-                name: "Futebolista Nível 1!",
-                photo: "https://png.pngtree.com/png-clipart/20191121/original/pngtree-medal-in-football-icon-cartoon-style-png-image_5152063.jpg",
-                description: "Parabéns! Atingiu o status de Futebolista Nível 1!"
+                name: "Desportista Nível 1!",
+                photo: "https://png.pngtree.com/png-vector/20191027/ourmid/pngtree-gold-medal-vector-golden-1st-place-badge-sport-game-golden-challenge-png-image_1887633.jpg",
+                description: "Parabéns! Atingiu o status de Desportista Nível 1!"
             },
             {
                 id: 2,
-                name: "Futebolista Nível 2!",
-                photo: "https://png.pngtree.com/png-clipart/20191121/original/pngtree-medal-in-football-icon-cartoon-style-png-image_5152063.jpg",
-                description: "Parabéns! Atingiu o status de Futebolista Nível 2!"
+                name: "Desportista Nível 2!",
+                photo: "https://png.pngtree.com/png-vector/20191027/ourlarge/pngtree-silver-medal-vector-best-first-placement-winner-champion-number-one-2nd-png-image_1888381.jpg",
+                description: "Parabéns! Atingiu o status de Desportista Nível 2!"
             },
             {
                 id: 3,
-                name: "Futebolista Nível 3!",
-                photo: "https://png.pngtree.com/png-clipart/20191121/original/pngtree-medal-in-football-icon-cartoon-style-png-image_5152063.jpg",
-                description: "Parabéns! Atingiu o status de Futebolista Nível 3!"
+                name: "Desportista Nível 3!",
+                photo: "https://png.pngtree.com/png-vector/20191027/ourlarge/pngtree-bronze-medal-vector-best-first-placement-winner-champion-number-one-3rd-png-image_1887553.jpg",
+                description: "Parabéns! Atingiu o status de Desportista Nível 3!"
             },
             {
                 id: 4,
-                name: "Futebolista Nível 4!",
-                photo: "https://png.pngtree.com/png-clipart/20191121/original/pngtree-medal-in-football-icon-cartoon-style-png-image_5152063.jpg",
-                description: "Parabéns! Atingiu o status de Futebolista Nível 4!"
+                name: "Desportista Nível 4!",
+                photo: "https://png.pngtree.com/png-clipart/20190117/ourmid/pngtree-hand-painted-medal-medal-medal-png-image_423365.jpg",
+                description: "Parabéns! Atingiu o status de Desportista Nível 4!"
             },
             {
                 id: 5,
-                name: "Futebolista Nível 5!",
-                photo: "https://png.pngtree.com/png-clipart/20191121/original/pngtree-medal-in-football-icon-cartoon-style-png-image_5152063.jpg",
-                description: "Parabéns! Atingiu o status de Futebolista Nível 5!"
-            },
-            {
-                id: 6,
-                name: "Ciclista Nível 1!",
-                photo: "https://images-na.ssl-images-amazon.com/images/I/4124YMwamrL._AC_.jpg",
-                description: "Parabéns! Atingiu o status de Ciclista Nível 1!"
-            },
-            {
-                id: 7,
-                name: "Ciclista Nível 2!",
-                photo: "https://images-na.ssl-images-amazon.com/images/I/4124YMwamrL._AC_.jpg",
-                description: "Parabéns! Atingiu o status de Ciclista Nível 2!"
-            },
-            {
-                id: 8,
-                name: "Ciclista Nível 3!",
-                photo: "https://images-na.ssl-images-amazon.com/images/I/4124YMwamrL._AC_.jpg",
-                description: "Parabéns! Atingiu o status de Ciclista Nível 3!"
-            },
-            {
-                id: 9,
-                name: "Ciclista Nível 4!",
-                photo: "https://images-na.ssl-images-amazon.com/images/I/4124YMwamrL._AC_.jpg",
-                description: "Parabéns! Atingiu o status de Ciclista Nível 4!"
-            },
-            {
-                id: 10,
-                name: "Ciclista Nível 5!",
-                photo: "https://images-na.ssl-images-amazon.com/images/I/4124YMwamrL._AC_.jpg",
-                description: "Parabéns! Atingiu o status de Ciclista Nível 5!"
-            },
-            {
-                id: 11,
-                name: "Runner Nível 1!",
-                photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTCvTjJBMzQB-qpljW_IUikChuQkjGWYc42RTXPAVeUIIaumBuo&usqp=CAU",
-                description: "Parabéns! Atingiu o status de Ciclista Nível 1!"
-            },
-            {
-                id: 12,
-                name: "Runner Nível 2!",
-                photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTCvTjJBMzQB-qpljW_IUikChuQkjGWYc42RTXPAVeUIIaumBuo&usqp=CAU",
-                description: "Parabéns! Atingiu o status de Ciclista Nível 2!"
-            },
-            {
-                id: 13,
-                name: "Runner Nível 3!",
-                photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTCvTjJBMzQB-qpljW_IUikChuQkjGWYc42RTXPAVeUIIaumBuo&usqp=CAU",
-                description: "Parabéns! Atingiu o status de Ciclista Nível 3!"
-            },
-            {
-                id: 13,
-                name: "Runner Nível 4!",
-                photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTCvTjJBMzQB-qpljW_IUikChuQkjGWYc42RTXPAVeUIIaumBuo&usqp=CAU",
-                description: "Parabéns! Atingiu o status de Ciclista Nível 4!"
-            },
-            {
-                id: 14,
-                name: "Runner Nível 5!",
-                photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTCvTjJBMzQB-qpljW_IUikChuQkjGWYc42RTXPAVeUIIaumBuo&usqp=CAU",
-                description: "Parabéns! Atingiu o status de Ciclista Nível 5!"
-            },
+                name: "Desportista Nível 5!",
+                photo: "https://png.pngtree.com/png-clipart/20190117/ourmid/pngtree-hand-painted-medal-medal-medal-png-image_423365.jpg",
+                description: "Parabéns! Atingiu o status de Desportista Nível 5!"
+            }
+            
             
         ];
 
