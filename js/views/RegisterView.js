@@ -27,7 +27,7 @@ export default class RegisterView {
                     throw Error('Password and Confirm Password are not equal');   
                 }
                  this.userController.createUser("atleta" , this.registerUsername.value, this.registerEmail.value, this.registerPassword.value, this.registerName.value, this.registerDoB.value, this.registerLocation.value );
-                this.displayRegisterMessage('User registered with success!', 'success');
+               
                 
                 location.href='login.html';
             } catch(e) {
@@ -46,8 +46,12 @@ export default class RegisterView {
     }
 
     displayRegisterMessage(message, type) {
-        this.registerMessage.innerHTML =
-            `<div class="alert alert-${type}" role="alert">${message}</div>`;
+
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro!',
+            text: message
+          })
     }
 
   

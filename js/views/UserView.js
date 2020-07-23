@@ -22,7 +22,7 @@ export default class UserView {
 
             try {
                 this.userController.loginUser(this.loginUsername.value, this.loginPassword.value);
-                this.displayLoginMessage('User logged in with success!', 'success');
+                
 
                 if (sessionStorage.getItem('loggedUserType') == "atleta") {
                     location.href = 'listActivities.html';
@@ -39,14 +39,12 @@ export default class UserView {
 
   
 
-    displayRegisterMessage(message, type) {
-        this.registerMessage.innerHTML =
-            `<div class="alert alert-${type}" role="alert">${message}</div>`;
-    }
-
     displayLoginMessage(message, type) {
-        this.loginMessage.innerHTML =
-            `<div class="alert alert-${type}" role="alert">${message}</div>`;
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro!',
+            text: message
+          })
     }
 
     
