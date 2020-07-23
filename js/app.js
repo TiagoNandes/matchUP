@@ -109,7 +109,7 @@ class App {
                 photo: '/assets/user/img/AdobeStock_212822246-400x400.jpeg',
                 latitude: '41.398590',
                 longitude: '-8.756840',
-                date: '2020-06-25',
+                date: '2020-08-25',
                 hour: '15:35',
                 duration: '2',
                 minParticipants: '2',
@@ -125,7 +125,7 @@ class App {
                 photo: '/assets/user/img/tomaz-slotrips-biking-guide.jpg',
                 latitude: '41.217020',
                 longitude: '-7.906900',
-                date: '2020-06-26',
+                date: '2020-08-26',
                 hour: '15:00',
                 duration: '1',
                 minParticipants: '2',
@@ -141,7 +141,7 @@ class App {
                 photo: '/assets/user/img/Yoga_connect.jpeg',
                 latitude: '41.398590',
                 longitude: '-8.756840',
-                date: '2020-06-27',
+                date: '2020-08-27',
                 hour: '17:30',
                 duration: '2',
                 minParticipants: '2',
@@ -157,12 +157,44 @@ class App {
                 photo: 'https://images.theconversation.com/files/166681/original/file-20170425-13411-1bbrx53.jpeg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop',
                 latitude: '38.722252',
                 longitude: '-9.139337',
-                date: '2020-06-29',
+                date: '2020-08-29',
                 hour: '10:20',
                 duration: '1',
                 minParticipants: '2',
                 maxParticipants: '24',
                 host: 'tiago'
+            },
+            {
+                id: 5,
+                name: 'Volley de praia em Vila do Conde',
+                category: 'Voley',
+                description: 'Junta-te  a nós neste jogo de volley de praia!',
+                address: 'Praia do Turismo Norte, Av. do Brasil, Vila do Conde',
+                photo: 'https://bstatic.com/xdata/images/xphoto/1182x887/73542228.jpg?k=f42ea77af5c0919d2b9a3651c4a744cfaa9cf625b66e3c851080e7f74bf61a11&o=?size=S',
+                latitude: '41.36218686975544',
+                longitude: '-8.760309219360353',
+                date: '2020-08-30',
+                hour: '16:30',
+                duration: '1',
+                minParticipants: '2',
+                maxParticipants: '24',
+                host: 'ze'
+            },
+            {
+                id: 6,
+                name: 'Corrida no centro de Guimarães',
+                category: 'Corrida',
+                description: 'Junta-te  a nós nesta corrida no centro de Guimarães!',
+                address: 'Largo do Toural 22, 4810-445 Guimarães',
+                photo: 'https://www.sportsdirect.com/images/marketing/pt/asics-lp-social-426x426-2.jpg',
+                latitude: '41.441952',
+                longitude: '-8.295610',
+                date: '2020-08-31',
+                hour: '09:30',
+                duration: '1',
+                minParticipants: '10',
+                maxParticipants: '200',
+                host: 'ze'
             }
         ];
 
@@ -201,6 +233,18 @@ class App {
                 location: "Porto",
                 photo: "/assets/user/img/avatars/avatar4.jpeg",
                 blocked: false
+            },
+            {
+                id: 4,
+                type: "atleta",
+                username: "ze",
+                email: "jose@atleta.com",
+                password: "12345",
+                name: "Jose Fernandes",
+                dateOfBirth: '1992-02-03',
+                location: "Lisboa",
+                photo: "/assets/user/img/avatars/avatar5.jpeg",
+                blocked: false
             }
         ];
 
@@ -225,22 +269,41 @@ class App {
         },
         {
             id: 3,
-            userId: 3,
+            userId: 4,
             host: "atleta",
-            activityId: 3,
-            justification: "Gosto muito de Dança",
-            state: "Recusado",
-            activityCategory: "Dança"
+            activityId: 2,
+            justification: "Gosto muito de Biking",
+            state: "Aceite",
+            activityCategory: "Biking"
         },
         {
             id: 4,
             userId: 3,
             host: "atleta",
             activityId: 3,
-            justification: "Gosto muito de Biking",
+            justification: "Gosto muito de dança!",
             state: "Pendente",
-            activityCategory: "Biking"
+            activityCategory: "Dança"
         },
+        {
+            id: 5,
+            userId: 1,
+            host: "ze",
+            activityId: 5,
+            justification: "Gosto muito de Volley de praia",
+            state: "Aceite",
+            activityCategory: "Voley"
+        },
+        {
+            id: 6,
+            userId: 1,
+            host: "ze",
+            activityId: 6,
+            justification: "Gosto muito de correr",
+            state: "Aceite",
+            activityCategory: "Corrida"
+        },
+
     ];
 
         const categories = [{

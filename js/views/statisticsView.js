@@ -11,9 +11,7 @@ export default class StatisticsView {
         this.categoryController = new CategoryController();
 
         this.userList = document.querySelector("#listUsers")
-        this.requestsController = new RequestsController()
-
-
+        this.requestsController = new RequestsController();
 
         // DOM References
         this.partBiking = document.querySelector('#partBiking')
@@ -23,8 +21,6 @@ export default class StatisticsView {
         this.firstGraph = document.querySelector('#firstGraph')
         this.secondGraph = document.querySelector('#secondGraph')
         this.thirdGraph = document.querySelector('#thirdGraph')
-
-
 
         this.showStatistics();
         this.returnUsers();
@@ -93,7 +89,7 @@ export default class StatisticsView {
 
         let html = ` 
         <div class="chart-area"><canvas
-                                            data-bs-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Yoga&quot;,&quot;Biking&quot;,&quot;Dança&quot;,&quot;Corrida&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;backgroundColor&quot;:[&quot;#4e73df&quot;,&quot;#1cc88a&quot;,&quot;#36b9cc&quot;,&quot;#FF0000&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:
+                                            data-bs-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Yoga&quot;,&quot;Biking&quot;,&quot;Dança&quot;,&quot;Corrida&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;backgroundColor&quot;:[&quot;#4e73df&quot;,&quot;#1cc88a&quot;,&quot;#36b9cc&quot;,&quot;#EEAD2D&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:
                                                 [&quot;${countYoga}&quot;,&quot;${countBiking}&quot;,&quot;${countDanca}&quot;,&quot;${countCorrida}&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{}}}"></canvas>
                                     </div>
                                     <div class="text-center small mt-4"><span class="mr-2"><i
@@ -101,7 +97,7 @@ export default class StatisticsView {
                                             class="mr-2"><i
                                                 class="fas fa-circle text-success"></i>&nbsp;Biking</span><span
                                             class="mr-2"><i class="fas fa-circle text-info"></i>&nbsp;Dança</span><span
-                                            class="mr-2"><i class="fas fa-circle text-danger"></i>&nbsp;Corrida</span></div>
+                                            class="mr-2"><i class="fas fa-circle text-warning"></i>&nbsp;Corrida</span></div>
         `
 
 
@@ -126,10 +122,17 @@ export default class StatisticsView {
         for (let user in this.allUsers) {
             this.userRequest = this.acceptedRequests.filter(request => request.userId == this.allUsers[user].id)
 
-            mostPopular.push({
-                id: this.allUsers[user].id,
-                requests: this.userRequest.length
-            });
+            if (this.userRequest != undefined) {
+                mostPopular.push({
+                    id: this.allUsers[user].id,
+                    requests: this.userRequest.length
+                });
+            } else {
+                mostPopular.push({
+                    id: this.allUsers[user].id,
+                    requests: 0
+                });
+            }
         }
 
 
@@ -191,7 +194,6 @@ export default class StatisticsView {
         for (let user in this.allUsers) {
             this.userCreated = allActivities.filter(activity => activity.host == this.allUsers[user].username)
 
-            // this.userCreated = this.allActivities.find(activity => activity.host)
 
             if (this.userCreated != undefined) {
 
@@ -211,7 +213,6 @@ export default class StatisticsView {
 
         let newB = mostCreated.sort(sortFunction2);
 
-        alert(JSON.stringify(newB.length))
 
         function sortFunction2(mostCreated, b) {
             if (mostCreated.activities === b.activities) {
@@ -236,8 +237,6 @@ export default class StatisticsView {
             created2 = newB[newB.length - 2].activities;
             created3 = newB[newB.length - 3].activities;
         }
-
-        alert(created1 + " " + created2 + " " + created3)
 
 
         let html3 = ` 
